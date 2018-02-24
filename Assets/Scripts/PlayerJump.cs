@@ -7,8 +7,8 @@ public class PlayerJump : MonoBehaviour {
     [Range(1, 10)]
     public float jumpVelocity;
 
-    public float fallMultiplier = 2.5f;
-    public float lowJumpMultiplier = 2.0f;
+    public float fallMultiplier;
+    public float lowJumpMultiplier;
 
     Rigidbody2D rb;
 
@@ -20,9 +20,9 @@ public class PlayerJump : MonoBehaviour {
     private void Update()
     {
 
-        if (Input.GetKeyDown("w"))
+        if (Input.GetKeyDown("w") && IsOnFloor())
         {
-            rb.velocity = Vector2.up * jumpVelocity;
+            rb.velocity += Vector2.up * jumpVelocity;
         }
 
         if(rb.velocity.y < 0)
@@ -33,6 +33,18 @@ public class PlayerJump : MonoBehaviour {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1.0f) * Time.deltaTime;
         }
     }
-    
+
+    bool IsOnFloor()
+    {
+        if (Physics2D.Raycast((transform.position + ((transform.localScale / 2).magnitude) * Vector3.down), Vector2.down, 0.01f))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 
 }

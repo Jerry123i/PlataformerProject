@@ -16,6 +16,7 @@ public class EnemyScript : MonoBehaviour {
         {
             if (collision.transform.position.y > (transform.position.y + (transform.localScale.y / 2)))
             {
+                ImpulsePlayer(collision.gameObject.GetComponent<Rigidbody2D>());
                 Die();
             }
             else
@@ -23,6 +24,11 @@ public class EnemyScript : MonoBehaviour {
                 Debug.Log("Dmg Player");
             }
         }
+    }
+
+    private void ImpulsePlayer(Rigidbody2D rb)
+    {
+        rb.velocity += Vector2.up * 6.0f;
     }
 
 }

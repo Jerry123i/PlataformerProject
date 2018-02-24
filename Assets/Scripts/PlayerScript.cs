@@ -5,39 +5,40 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
     public float moveSpeed;
+    public float speedCap;
         
         
 	void Update () {
         
         PlayerMove();
+               
 	}
 
     void PlayerMove()
     {
 
+        Rigidbody2D rb;
+
+        rb = this.GetComponent<Rigidbody2D>();
+
         if (Input.GetKey("a"))
         {
-            transform.Translate(Vector3.left * Time.deltaTime * moveSpeed);
+            if(rb.velocity.x > -speedCap)
+            {
+                rb.velocity += moveSpeed * Time.deltaTime * Vector2.left;
+            }
         }
 
         if (Input.GetKey("d"))
         {
-            transform.Translate(Vector3.right * Time.deltaTime * moveSpeed);
+            if (rb.velocity.x < speedCap)
+            {
+                rb.velocity += moveSpeed * Time.deltaTime * Vector2.right;
+            }
         }
 
        
 
     }
-    
-    bool IsOnFloor()
-    {
-        if(Physics2D.Raycast((transform.position + ((transform.localScale/2).magnitude)*Vector3.down), Vector2.down, 0.01f))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+        
 }
