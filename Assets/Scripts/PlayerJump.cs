@@ -10,11 +10,16 @@ public class PlayerJump : MonoBehaviour {
     public float fallMultiplier;
     public float lowJumpMultiplier;
 
+    private Vector2 hSpeed;
+
+    private Animator animator;
+
     Rigidbody2D rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -32,6 +37,9 @@ public class PlayerJump : MonoBehaviour {
         else if(rb.velocity.y > 0 && !(Input.GetKey("w"))){
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1.0f) * Time.deltaTime;
         }
+
+        animator.SetBool("IsJumping", !IsOnFloor());
+
     }
 
     bool IsOnFloor()
