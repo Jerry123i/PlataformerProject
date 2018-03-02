@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
 
@@ -27,6 +28,12 @@ public class PlayerScript : MonoBehaviour {
         UpdateAnimator();
                
 	}
+
+    public void Die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Destroy(this.gameObject);
+    }
 
     void PlayerMove()
     {                

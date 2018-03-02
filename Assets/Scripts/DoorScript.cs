@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour {
 
+    public string nextStageName;
+
+    [HideInInspector]
     public bool open;
 
     public bool lockEnemy, lockCollect;
+    
+    private Animator animator;
 
-    public GameObject lightObject;
-    public Color colorOpen, colorClosed;
+    private StageManagerScript sm;
+
+    private void Awake()
+    {
+        sm = FindObjectOfType<StageManagerScript>();
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
+
         if (VerifyUnlock())
         {
             LockUnlock(true);
@@ -20,16 +31,7 @@ public class DoorScript : MonoBehaviour {
     }
 
     private void LockUnlock(bool x)
-    {
-        if (x)
-        {
-            lightObject.GetComponent<SpriteRenderer>().color = colorOpen;
-        }
-        else
-        {
-            lightObject.GetComponent<SpriteRenderer>().color = colorClosed;
-        }
-
+    {        
         open = x;
     }
 
@@ -81,5 +83,23 @@ public class DoorScript : MonoBehaviour {
             return false;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (open && (collision.GetComponent<PlayerScript>()))
+        {
+            animator.SetTrigger("DoorSwitch");
+        }
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (open && (collision.GetComponent<PlayerScript>()) && (animator.GetCurrentAnimatorStateInfo(0).IsName("Open")))
+        {
+            sm.LoadStage(nextStageName);
+        }
+    }
+
 
 }

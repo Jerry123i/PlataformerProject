@@ -12,7 +12,7 @@ public class EnemyScript : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.GetComponent<PlayerScript>() != null)
+        if(collision.gameObject.GetComponent<PlayerScript>())
         {
             if (collision.transform.position.y > (transform.position.y + (transform.localScale.y / 2)))
             {
@@ -21,14 +21,14 @@ public class EnemyScript : MonoBehaviour {
             }
             else
             {
-                Debug.Log("Dmg Player");
+                collision.gameObject.GetComponent<PlayerScript>().Die();
             }
         }
     }
 
     private void ImpulsePlayer(Rigidbody2D rb)
     {
-        rb.velocity += Vector2.up * 6.0f;
+        rb.velocity += Vector2.up * 8.0f;
     }
 
 }

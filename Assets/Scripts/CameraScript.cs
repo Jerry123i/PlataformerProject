@@ -12,6 +12,7 @@ public class CameraScript : MonoBehaviour {
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        height = transform.position.y;
     }
 
     void Update () {
