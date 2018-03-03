@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1927067266429858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.759, y: 0.28, z: -0.1484375}
+  m_LocalPosition: {x: 13.55, y: 7.325, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,7 +55,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.006140709, y: -0.055267572}
+  m_Offset: {x: 0.006140709, y: -0.36349964}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -66,7 +66,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.338705, y: 2.4615216}
+  m_Size: {x: 2.338705, y: 2.4141016}
   m_EdgeRadius: 0
 --- !u!95 &95218833264398440
 Animator:
@@ -96,12 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c50d70adeba7c4e9de542e000b23fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextStageName: 
   open: 0
   lockEnemy: 0
   lockCollect: 0
-  lightObject: {fileID: 0}
-  colorOpen: {r: 0, g: 0.9852941, b: 0.0883367, a: 1}
-  colorClosed: {r: 0.77205884, g: 0.011353818, b: 0.15300228, a: 1}
 --- !u!212 &212104871138192784
 SpriteRenderer:
   m_ObjectHideFlags: 1

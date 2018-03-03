@@ -26,7 +26,9 @@ public class PlayerScript : MonoBehaviour {
         
         PlayerMove();
         UpdateAnimator();
-               
+        EndlessPit();
+        Suicide();
+              
 	}
 
     public void Die()
@@ -91,4 +93,18 @@ public class PlayerScript : MonoBehaviour {
         sr.flipX = (rb.velocity.x < 0);
     }
         
+    private void EndlessPit()
+    {
+        if(transform.position.y <= -30.0f)
+        {
+            Die();
+        }
+    }
+
+    private void Suicide()
+    {
+        if(Input.GetKey("r")){
+            Die();
+        }
+    }
 }

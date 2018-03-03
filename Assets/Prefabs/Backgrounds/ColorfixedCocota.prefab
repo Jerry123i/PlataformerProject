@@ -9,17 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1304072631224516}
+  m_RootGameObject: {fileID: 1083503846706224}
   m_IsPrefabParent: 1
---- !u!1 &1304072631224516
+--- !u!1 &1083503846706224
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4381031805807900}
-  - component: {fileID: 212585647435784434}
+  - component: {fileID: 4266492628567160}
+  - component: {fileID: 212980946662409398}
+  - component: {fileID: 2569400265664527112}
   m_Layer: 0
   m_Name: ColorfixedCocota
   m_TagString: Untagged
@@ -27,12 +28,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4381031805807900
+--- !u!4 &4266492628567160
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1304072631224516}
+  m_GameObject: {fileID: 1083503846706224}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: -0.6299999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,12 +41,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &212585647435784434
+--- !u!212 &212980946662409398
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1304072631224516}
+  m_GameObject: {fileID: 1083503846706224}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -84,3 +85,14 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!156049354 &2569400265664527112
+Grid:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1083503846706224}
+  m_Enabled: 1
+  m_CellSize: {x: 0.05, y: 0.05, z: 1}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0

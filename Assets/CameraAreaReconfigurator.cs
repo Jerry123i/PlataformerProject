@@ -45,8 +45,8 @@ public class CameraAreaReconfigurator : MonoBehaviour {
 
         cam = Camera.main.GetComponent<CameraScript>();
 
-        cam.offset = offset;
-        cam.height = height;
+        //cam.offset = offset;
+        //cam.height = height;
 
 
     }

@@ -9,15 +9,13 @@ public class CameraScript : MonoBehaviour {
     private GameObject player;
 
     public float offset;
-    public float height;
+    private float height;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         height = transform.position.y;
-
-        Debug.Log(Mathf.RoundToInt(height / moveStep));
-
+        
     }
 
     void Update () {
@@ -31,6 +29,6 @@ public class CameraScript : MonoBehaviour {
         float x;
 
         x = Mathf.RoundToInt(val / moveStep);        
-        return (x)*moveStep;
+        return (x*moveStep);
     }
 }
