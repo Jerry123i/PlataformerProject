@@ -409,6 +409,7 @@ MonoBehaviour:
   moveStep: 0.05
   offset: 2
   height: -7.58
+  followPlayer: 1
 --- !u!1001 &335813991
 Prefab:
   m_ObjectHideFlags: 0

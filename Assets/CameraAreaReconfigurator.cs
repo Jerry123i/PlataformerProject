@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class CameraAreaReconfigurator : MonoBehaviour {
 
-    public float clock;
+    private float clock;
 
     public float timeLimit;
 
     public float offset;
-    public float height;
+    private float height;
 
+    public float cameraSpeed;
+    public bool follow;
+
+    public bool active;
+    
     private void Awake()
     {
         
@@ -18,7 +23,7 @@ public class CameraAreaReconfigurator : MonoBehaviour {
 
     private void Update()
     {
-        if(clock >= timeLimit)
+        if(clock >= timeLimit && active)
         {
             ShiftCamera();
         }
@@ -36,18 +41,22 @@ public class CameraAreaReconfigurator : MonoBehaviour {
     {
         if (collision.GetComponent<PlayerScript>())
         {
-            clock =0;
+            clock = 0;
+            active = true;
         }
     }
     private void ShiftCamera()
     {
+        active = false;
         CameraScript cam;
-
         cam = Camera.main.GetComponent<CameraScript>();
 
-        //cam.offset = offset;
-        //cam.height = height;
+        cam.followPlayer = false;
+        cam.offset = offset;
 
+        cam.StartCoroutine(cam.MoveCamera(transform.position, cameraSpeed, follow));
+
+        Debug.Log("ShiftCamera[" + this.gameObject.name + "]");
 
     }
 

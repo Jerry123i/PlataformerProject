@@ -42,8 +42,9 @@ public class PlayerJump : MonoBehaviour {
 
     }
 
-    bool IsOnFloor()
+    bool IsOnFloor()        
     {
+
         if (Physics2D.Raycast((transform.position + ((transform.localScale / 2).magnitude) * Vector3.down), Vector2.down, 0.01f))
         {
             return true;
