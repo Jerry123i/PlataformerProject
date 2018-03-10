@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour {
 
+    [Range(10.0f, 20.0f)]
+    public float impulseVel = 12.0f;
+
 	
     void Die()
     {
@@ -28,7 +31,7 @@ public class EnemyScript : MonoBehaviour {
 
     private void ImpulsePlayer(Rigidbody2D rb)
     {
-        rb.velocity += Vector2.up * 8.0f;
+        rb.velocity = new Vector2(rb.velocity.x, impulseVel);
     }
 
 }

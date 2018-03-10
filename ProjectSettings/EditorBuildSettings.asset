@@ -17,3 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mundo1/Level2.unity
     guid: 5f9f11a15392ddf469689a499d958640
+  - enabled: 1
+    path: Assets/Scenes/Mundo1/Level4.unity
+    guid: 10ce333409eae88469f699a7a7bbfedf
+  - enabled: 1
+    path: Assets/Scenes/Mundo1/Level5.unity
+    guid: 83b65e2d294718d4593f1290218b1e7a
