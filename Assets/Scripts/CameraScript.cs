@@ -24,7 +24,8 @@ public class CameraScript : MonoBehaviour {
 
         if (followPlayer)
         {
-            transform.position = new Vector3(DivideByStep(player.GetComponent<Transform>().position.x + offset), DivideByStep(height), transform.position.z);
+            //transform.position = new Vector3(DivideByStep(player.GetComponent<Transform>().position.x + offset), DivideByStep(height), transform.position.z);
+            transform.position = new Vector3(player.GetComponent<Transform>().position.x + offset, DivideByStep(height), transform.position.z);
         }
     }
 
