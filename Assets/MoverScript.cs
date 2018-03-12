@@ -31,6 +31,7 @@ public class MoverScript : MonoBehaviour {
 
     private void RotateChangeTarget()
     {
+        Debug.Log("Click");
         if(targetN == points.Count - 1)
         {
             targetN = 0;

@@ -44,7 +44,31 @@ public class PlayerJump : MonoBehaviour {
 
     bool IsOnFloor()        
     {
+        RaycastHit2D[] boxResult;
+        bool boolResult = false;
 
+        boxResult = Physics2D.BoxCastAll(new Vector2(transform.position.x + GetComponent<BoxCollider2D>().offset.x, transform.position.y + GetComponent<BoxCollider2D>().offset.y), new Vector2(GetComponent<BoxCollider2D>().size.x, GetComponent<BoxCollider2D>().size.y/2), 0.0f, Vector2.down, GetComponent<BoxCollider2D>().size.y/2);
+        
+        for (int i = 0; i<boxResult.Length; i++){            
+            if (boxResult[i].collider.gameObject.layer != LayerMask.NameToLayer("Player"))
+            {
+                boolResult = true;
+            }
+        }
+
+        return boolResult;
+
+        /*if(boxResult.collider != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+
+        /*
         if (Physics2D.Raycast((transform.position + ((transform.localScale / 2).magnitude) * Vector3.down), Vector2.down, 0.01f))
         {
             return true;
@@ -53,6 +77,7 @@ public class PlayerJump : MonoBehaviour {
         {
             return false;
         }
+        */
     }
 
 

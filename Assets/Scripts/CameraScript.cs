@@ -8,7 +8,8 @@ public class CameraScript : MonoBehaviour {
 
     private GameObject player;
 
-    public float offset;
+    public float offsetMax;
+    public float offsetMin;
     public float height;
 
     public bool followPlayer;
@@ -24,8 +25,20 @@ public class CameraScript : MonoBehaviour {
 
         if (followPlayer)
         {
+
+            if(player.GetComponent<Transform>().position.x > transform.position.x + offsetMax)
+            {
+                transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
+            }
+            if(player.GetComponent<Transform>().position.x < transform.position.x + offsetMin)
+            {
+                transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
+            }
+
+            transform.position = DivideByStepVector(transform.position);
+
             //transform.position = new Vector3(DivideByStep(player.GetComponent<Transform>().position.x + offset), DivideByStep(height), transform.position.z);
-            transform.position = new Vector3(player.GetComponent<Transform>().position.x + offset, DivideByStep(height), transform.position.z);
+            //transform.position = new Vector3(player.GetComponent<Transform>().position.x + offsetMax, DivideByStep(height), transform.position.z);
         }
     }
 
@@ -34,13 +47,15 @@ public class CameraScript : MonoBehaviour {
     {
         do
         {
-            Debug.Log("DoWhile");
             if (followAfter)
             {
                 Vector3 adjustedtarget;
 
-                adjustedtarget = new Vector3(player.transform.position.x + offset, targetPoint.y, targetPoint.z);
-                transform.Translate((adjustedtarget - transform.position).normalized * speed * Time.deltaTime);
+                adjustedtarget = new Vector3(player.transform.position.x, targetPoint.y, targetPoint.z);
+
+                transform.position = Vector3.Lerp(transform.position, adjustedtarget, Time.deltaTime * 3.0f);
+
+                //transform.Translate((adjustedtarget - transform.position).normalized * speed * Time.deltaTime);
 
             }
             else
@@ -48,7 +63,7 @@ public class CameraScript : MonoBehaviour {
                 transform.Translate((targetPoint - transform.position).normalized * speed * Time.deltaTime);
             }
             
-            transform.position = DivideByStepVector(transform.position);
+            //transform.position = DivideByStepVector(transform.position);
 
             yield return null;
         } while ( !(followAfter && ((targetPoint.y - transform.position.y) <= 0.05)) && !(!followAfter && ((targetPoint - transform.position).magnitude <= 0.05)));

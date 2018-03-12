@@ -221,7 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveStep: 0.05
-  offset: 2
+  offsetMax: 1.5
+  offsetMin: -1
   height: 0
   followPlayer: 1
 --- !u!1001 &302617764
@@ -605,11 +606,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.3937283
+      value: 1.1627907
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.83623695
+      value: 0.6976744
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
@@ -637,7 +638,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.0008718396
       objectReference: {fileID: 0}
     - target: {fileID: 2020874, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_HDR
@@ -1465,7 +1466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveStep: 0.15
-  offset: 2
+  offsetMax: 0
+  offsetMin: 0
   height: 0
   followPlayer: 0
 --- !u!114 &1779601930
