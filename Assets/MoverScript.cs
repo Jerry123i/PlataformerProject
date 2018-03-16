@@ -10,6 +10,8 @@ public class MoverScript : MonoBehaviour {
     private GameObject target;
     private int targetN;
 
+    private Transform passager;
+
     private void Awake()
     {
         target = points[0];
@@ -29,9 +31,24 @@ public class MoverScript : MonoBehaviour {
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        passager = collision.gameObject.transform;
+        passager.transform.SetParent(this.transform);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        //passager.velocity = passager.velocity + this.GetComponent<Rigidbody2D>().velocity;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        transform.DetachChildren();
+    }
+
     private void RotateChangeTarget()
     {
-        Debug.Log("Click");
         if(targetN == points.Count - 1)
         {
             targetN = 0;
@@ -44,7 +61,6 @@ public class MoverScript : MonoBehaviour {
         target = points[targetN];
 
     }
-
 
 
 }
