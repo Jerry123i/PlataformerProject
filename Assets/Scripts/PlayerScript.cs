@@ -14,6 +14,9 @@ public class PlayerScript : MonoBehaviour {
     private SpriteRenderer sr;
 
     private Rigidbody2D rb;
+    public Collider2D hitBox;
+
+    public Vector3 hitZoneOffset;
 
     private void Awake()
     {
@@ -44,7 +47,6 @@ public class PlayerScript : MonoBehaviour {
         {
             if(rb.velocity.x > -speedCap)
             {
-                //rb.AddForce(Vector2.left * moveSpeed * Time.deltaTime);
                 rb.velocity += moveSpeed * Time.deltaTime * Vector2.left;
             }
         }
@@ -53,7 +55,6 @@ public class PlayerScript : MonoBehaviour {
         {
             if (rb.velocity.x < speedCap)
             {
-                //rb.AddForce(Vector2.right * moveSpeed * Time.deltaTime);
                 rb.velocity += moveSpeed * Time.deltaTime * Vector2.right;
             }
         }
@@ -105,6 +106,38 @@ public class PlayerScript : MonoBehaviour {
     {
         if(Input.GetKey("r")){
             Die();
+        }
+    }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if(collision.gameObject.tag == "Enemy")
+    //    {
+    //        collision.gameObject.GetComponent<EnemyScript>().PlayerKill(gameObject);
+    //    }
+    //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if (hitBox.IsTouching(collision.collider))
+        //    return;
+
+        if(collision.gameObject.tag =="Enemy")
+        {
+            
+
+            foreach (var contact in collision.contacts)
+            {
+
+
+                if (transform.position.y + hitZoneOffset.y < contact.point.y)
+                {
+                    Die();
+                    return;
+                }
+            }
+
+            collision.gameObject.GetComponent<EnemyScript>().PlayerKill(gameObject);
         }
     }
 }

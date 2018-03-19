@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4865616807000112}
   - component: {fileID: 61427166401955190}
   - component: {fileID: 114562175247545632}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: CameraReconfigurator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLimit: 2
-  offset: 0
+  offsetMax: 0
+  offsetMin: 0
   cameraSpeed: 6
   follow: 0
   active: 0

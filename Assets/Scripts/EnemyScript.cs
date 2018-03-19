@@ -17,14 +17,15 @@ public class EnemyScript : MonoBehaviour {
     {
         if(collision.gameObject.GetComponent<PlayerScript>())
         {
+
+            //collision.gameObject.GetComponent<PlayerScript>().Die();
+
             if (collision.transform.position.y > (transform.position.y + (transform.localScale.y / 2)))
-            {
-                ImpulsePlayer(collision.gameObject.GetComponent<Rigidbody2D>());
-                StartCoroutine(DeathAnimation());
+            {                
             }
             else
             {
-                collision.gameObject.GetComponent<PlayerScript>().Die();
+                
             }
         }
     }
@@ -45,6 +46,13 @@ public class EnemyScript : MonoBehaviour {
         transform.localScale = new Vector3(transform.localScale.x, 0.15f, transform.localScale.z);
         transform.position = new Vector3(transform.position.x, transform.position.y - 0.4f, transform.position.z);
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+    }
+
+    public void PlayerKill(GameObject player)
+    {
+        ImpulsePlayer(player.GetComponent<Rigidbody2D>());
+        StartCoroutine(DeathAnimation());
+
     }
 
     private void ImpulsePlayer(Rigidbody2D rb)
