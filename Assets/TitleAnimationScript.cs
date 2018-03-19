@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class TitleAnimationScript : MonoBehaviour {
 
@@ -31,25 +32,51 @@ public class TitleAnimationScript : MonoBehaviour {
         ChoseRandomLetter(Z, Zs);
         ChoseRandomLetter(O2, Os);
 
-        StartLetter(O2);
-        StartLetter(Z);
-        StartLetter(I);
-        StartLetter(O1);
-        StartLetter(K);
-
-        allLetters[0] = K;
-        allLetters[1] = O1;
+        allLetters[0] = O2;
+        allLetters[1] = Z;
         allLetters[2] = I;
-        allLetters[3] = Z;
-        allLetters[4] = O2;
+        allLetters[3] = O1;
+        allLetters[4] = K;
         
     }
-    
 
-    private void StartLetter(GameObject letter)
+    private void Update()
+    {
+        if (Input.GetKeyDown("e"))
+        {
+            StartCoroutine(StartTitle(0.4f));
+        }
+    }
+
+    private IEnumerator StartTitle(float time)
+    {
+        int i = 0;
+
+        for (i = 0; i < allLetters.Length; i++)
+        {
+
+
+            StartLetter(allLetters[i], (1.175f - 0.175f * time));
+            Debug.Log("Starting letter:" + allLetters[i].ToString());
+
+            yield return new WaitForSeconds((1.175f - 0.175f * time) * 0.4f);
+
+        }
+
+        yield return new WaitForSeconds((1.175f - 0.175f * time)*0.5f);
+
+        for (i = 0; i < allLetters.Length; i++)
+        {
+            //allLetters[i].transform.DOPunchPosition(Vector3.up * 20.0f, 1.5f, 5, 1, false);
+            allLetters[i].transform.DOJump(allLetters[i].transform.position, 85.0f, 1, 1.7f);
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    private void StartLetter(GameObject letter, float time)
     {
         //letter.GetComponent<TitleLetterScript>().StartCoroutine(letter.GetComponent<TitleLetterScript>().SlideToTitle(dictionary[letter]));
-        letter.GetComponent<TitleLetterScript>().DOSlide(dictionary[letter]);
+        letter.GetComponent<TitleLetterScript>().DOSlide(dictionary[letter], time);
     }
 
     private void ChoseRandomLetter(GameObject go, List<Sprite> list)

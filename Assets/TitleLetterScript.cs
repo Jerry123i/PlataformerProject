@@ -7,35 +7,21 @@ public class TitleLetterScript : MonoBehaviour {
 
     public bool placed; 
 
-    public void DOSlide(Vector2 finalPosition)
+    public void DOSlide(Vector2 finalPosition, float time)
     {
-        GetComponent<RectTransform>().DOAnchorPosX(finalPosition.x, 0.6f);
-        StartCoroutine(PunchLetter(1.5f));
-    }
+        time = time * Random.Range(0.8f, 1.2f);
 
-    public IEnumerator SlideToTitle(Vector2 finalPosition)
-    {
-        do
-        {
-            transform.DOMoveX(finalPosition.x, 1.5f, false);
-            //transform.localPosition = Vector2.(GetComponent<RectTransform>().anchoredPosition, finalPosition, Time.deltaTime * 1.50f);
-
-            yield return null;
-        } while ((new Vector2(GetComponent<RectTransform>().anchoredPosition.x, GetComponent<RectTransform>().anchoredPosition.y) - finalPosition).magnitude > 0.9f);
-
-
-        placed = true;
-        //StartCoroutine(PunchLetter());
-        
-
+        GetComponent<RectTransform>().DOAnchorPosX(finalPosition.x, time);
+        StartCoroutine(PunchLetter(time));
     }
 
     public IEnumerator PunchLetter(float time)
-    {
+    {        
+        placed = true;
 
         yield return new WaitForSeconds(time);
-
-        transform.DOPunchPosition(Vector3.right*20.0f, 1.0f, 5, 0.5f, false);
+       
+        //transform.DOPunchPosition(Vector3.left*20.0f *Random.Range(0.8f, 1.2f) , 1.0f * Random.Range(0.8f, 1.2f), 4, 0.5f, false);
         
     }
 
