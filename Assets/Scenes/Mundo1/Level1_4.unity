@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -256,7 +255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveStep: 0.05
-  offset: 2
+  offsetMax: 0
+  offsetMin: 0
   height: 0
   followPlayer: 0
 --- !u!1001 &297790448
@@ -708,11 +708,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.3937283
+      value: 1.5037594
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.83623695
+      value: 0.90225565
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
@@ -1101,7 +1101,7 @@ Prefab:
     - target: {fileID: 114211129257848866, guid: c7132b61a529fbd40813cd15e40f056a,
         type: 2}
       propertyPath: nextStageName
-      value: Level5
+      value: Level1_5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7132b61a529fbd40813cd15e40f056a, type: 2}
@@ -1998,7 +1998,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveStep: 0.15
-  offset: 2
+  offsetMax: 0
+  offsetMin: 0
   height: 0
   followPlayer: 0
 --- !u!114 &1779601930
@@ -2073,7 +2074,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
