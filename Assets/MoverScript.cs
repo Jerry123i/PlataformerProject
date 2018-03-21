@@ -48,11 +48,11 @@ public class MoverScript : MonoBehaviour {
 
     void CycleMovement()
     {
-        transform.Translate((target - transform.localPosition).normalized * speed * Time.deltaTime);
+        transform.Translate((target - transform.position).normalized * speed * Time.deltaTime);
 
-        if ((target - transform.localPosition).magnitude <= 0.1)
+        if ((target - transform.position).magnitude <= 0.1)
         {
-            transform.localPosition = target;
+            transform.position = target;
             RotateChangeTarget();
         }
     }
