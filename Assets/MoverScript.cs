@@ -2,45 +2,82 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MoverMode {CYCLE, ROTATION};
+
 public class MoverScript : MonoBehaviour {
 
-    public float speed;
-    public List<GameObject> points;
+    public MoverMode moverMode;
 
-    private GameObject target;
-    private int targetN;
+    public float speed;
+    public List<Vector3> points;
+    public Vector3 rotationCenter;
+    public bool reverse;
+
+    private Vector3 target;
+    public int targetN;
 
     private Transform passager;
+
+    public bool working = true;
 
     private void Awake()
     {
         target = points[0];
-        targetN = 0;
     }
 
     private void FixedUpdate()
     {
-
-        transform.Translate((target.transform.position - transform.position).normalized * speed * Time.deltaTime);
-
-        if((target.transform.position - transform.position).magnitude <= 0.05)
+        if (working)
         {
-            RotateChangeTarget();
+            switch (moverMode)
+            {
+                case MoverMode.CYCLE:
+                    CycleMovement();
+                    break;
+
+                case MoverMode.ROTATION:
+                    RotationMovement();
+                    break;
+
+                default:
+                    break;
+            }
         }
 
+    }
 
+    void CycleMovement()
+    {
+        transform.Translate((target - transform.localPosition).normalized * speed * Time.deltaTime);
+
+        if ((target - transform.localPosition).magnitude <= 0.1)
+        {
+            transform.localPosition = target;
+            RotateChangeTarget();
+        }
+    }
+
+    void RotationMovement()
+    {
+        if (reverse)
+        {
+            transform.RotateAround(rotationCenter, Vector3.forward, speed * Time.deltaTime* -1.0f * RotationKonstant());
+        }
+        else
+        {
+            transform.RotateAround(rotationCenter, Vector3.forward, speed * Time.deltaTime * RotationKonstant());
+        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        working = true;
+
         passager = collision.gameObject.transform;
         passager.transform.SetParent(this.transform);
     }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        //passager.velocity = passager.velocity + this.GetComponent<Rigidbody2D>().velocity;
-    }
+    
 
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -60,6 +97,17 @@ public class MoverScript : MonoBehaviour {
 
         target = points[targetN];
 
+    }
+
+    private float RotationKonstant()
+    {
+        float r;
+
+        r = (this.transform.position - rotationCenter).magnitude;
+        Debug.Log("K = " + (((Mathf.PI * r) / 180.0f)).ToString());
+
+        return (180/(Mathf.PI * r));
+        
     }
 
 
