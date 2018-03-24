@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlatformEffector2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class ColliderAgregator : MonoBehaviour {
 
@@ -11,11 +12,7 @@ public class ColliderAgregator : MonoBehaviour {
 
     private void Awake()
     {
-        //myCollider = this.GetComponent<BoxCollider2D>();
-        //childColiders = transform.GetComponentsInChildren<BoxCollider2D>();
-        //AddCollidersList(myCollider, childColiders);
-
-                
+                        
     }
     
     public void AddColliders(BoxCollider2D target,BoxCollider2D a, BoxCollider2D b)

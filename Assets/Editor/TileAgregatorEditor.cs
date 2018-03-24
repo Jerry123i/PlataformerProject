@@ -26,8 +26,9 @@ public class TileAgregatorEditor : Editor {
                 {
                     child.enabled = false;
                 }
-
             }
+
+            obj.myCollider.usedByEffector = true;
 
         }
 
@@ -54,13 +55,11 @@ public class TileAgregatorEditor : Editor {
                 if(child.gameObject.GetInstanceID() !=  obj.gameObject.GetInstanceID())
                 {
                     child.enabled = !child.enabled;
-                }
-                
+                }                
             }
-
         }
-
         
+
 
     }
     
@@ -112,6 +111,16 @@ public class TileAgregatorEditor : Editor {
 
         for (int i = 2; i < lista.Length; i++)
         {
+            if (lista[i].GetComponent<PlatformEffector2D>() != null)
+            {
+                target.GetComponent<PlatformEffector2D>().useOneWay = lista[i].GetComponent<PlatformEffector2D>().useOneWay;
+
+
+                if (lista[i].GetComponent<PlatformEffector2D>().useOneWay)
+                {
+                    target.GetComponent<PlatformEffector2D>().surfaceArc = lista[i].GetComponent<PlatformEffector2D>().surfaceArc;
+                }
+            }
             AddColliders(target, target, lista[i]);
         }
 

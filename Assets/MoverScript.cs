@@ -59,6 +59,10 @@ public class MoverScript : MonoBehaviour {
 
     void RotationMovement()
     {
+        Quaternion fixRotation;
+
+        fixRotation = transform.rotation;
+
         if (reverse)
         {
             transform.RotateAround(rotationCenter, Vector3.forward, speed * Time.deltaTime* -1.0f * RotationKonstant());
@@ -67,6 +71,8 @@ public class MoverScript : MonoBehaviour {
         {
             transform.RotateAround(rotationCenter, Vector3.forward, speed * Time.deltaTime * RotationKonstant());
         }
+
+        transform.rotation = fixRotation;
         
     }
 
