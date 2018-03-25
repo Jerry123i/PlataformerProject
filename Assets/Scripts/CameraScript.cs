@@ -21,6 +21,8 @@ public class CameraScript : MonoBehaviour {
         
     }
 
+    
+
     void Update () {
 
         if (followPlayer)
@@ -28,11 +30,11 @@ public class CameraScript : MonoBehaviour {
 
             if(player.GetComponent<Transform>().position.x > transform.position.x + offsetMax)
             {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x - offsetMax, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
             }
             if(player.GetComponent<Transform>().position.x < transform.position.x + offsetMin)
             {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x + offsetMin, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
             }
 
             transform.position = DivideByStepVector(transform.position);
