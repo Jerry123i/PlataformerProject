@@ -583,13 +583,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moverMode: 0
   speed: 4
+  rotationCenter: {x: 0, y: 0, z: 0}
+  reverse: 0
+  radius: 0
   points:
   - {x: 2.4750001, y: -14.125, z: 0}
   - {x: 9.400001, y: -14.125, z: 0}
   - {x: 10.400001, y: -13.125, z: 0}
   - {x: 9.400001, y: -12.125, z: 0}
-  rotationCenter: {x: 0, y: 0, z: 0}
-  reverse: 0
   targetN: 0
   working: 1
 --- !u!4 &287067176 stripped
@@ -776,6 +777,91 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3419399e84828e94389ddb01a6513f20, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &431507802
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1759635771}
+    m_Modifications:
+    - target: {fileID: 4542272673256610, guid: 453a391e9a750bc498e29f28f5dbe3ed, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10.924999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542272673256610, guid: 453a391e9a750bc498e29f28f5dbe3ed, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.9499999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542272673256610, guid: 453a391e9a750bc498e29f28f5dbe3ed, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542272673256610, guid: 453a391e9a750bc498e29f28f5dbe3ed, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542272673256610, guid: 453a391e9a750bc498e29f28f5dbe3ed, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542272673256610, guid: 453a391e9a750bc498e29f28f5dbe3ed, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542272673256610, guid: 453a391e9a750bc498e29f28f5dbe3ed, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542272673256610, guid: 453a391e9a750bc498e29f28f5dbe3ed, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 212124381940876126, guid: 453a391e9a750bc498e29f28f5dbe3ed,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c5cc8ca970b10b249aa135150026f5ca,
+        type: 3}
+    - target: {fileID: 95024246939827112, guid: 453a391e9a750bc498e29f28f5dbe3ed,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2ea3822647ef6374f880ac2972eec02b, type: 2}
+    - target: {fileID: 1174469409058022, guid: 453a391e9a750bc498e29f28f5dbe3ed, type: 2}
+      propertyPath: m_Name
+      value: CocotaFlyingSpikes1 (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 453a391e9a750bc498e29f28f5dbe3ed, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &431507803 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1174469409058022, guid: 453a391e9a750bc498e29f28f5dbe3ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 431507802}
+--- !u!114 &431507804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 431507803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58654b27718b849408254f0cd9ab9484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moverMode: 1
+  speed: 4
+  rotationCenter: {x: 5.35, y: -2, z: 0}
+  reverse: 1
+  radius: 5.5750556
+  points:
+  - {x: 2.4750001, y: -14.125, z: 0}
+  - {x: 9.400001, y: -14.125, z: 0}
+  - {x: 10.400001, y: -13.125, z: 0}
+  - {x: 9.400001, y: -12.125, z: 0}
+  targetN: 0
+  working: 1
 --- !u!4 &464003838 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4627557245991908, guid: 3419399e84828e94389ddb01a6513f20,
@@ -1003,15 +1089,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.5841584
+      value: 1.5523932
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.95049506
+      value: 0.93143594
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.001980198
+      value: 0.0012936611
       objectReference: {fileID: 0}
     - target: {fileID: 2020874, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_BackGroundColor.r
@@ -1147,11 +1233,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moverMode: 0
   speed: 4
+  rotationCenter: {x: 0, y: 0, z: 0}
+  reverse: 0
+  radius: 0
   points:
   - {x: -8.25, y: -15.275, z: 0}
   - {x: -8.25, y: -11.325, z: 0}
-  rotationCenter: {x: 0, y: 0, z: 0}
-  reverse: 0
   targetN: 0
   working: 1
 --- !u!4 &669087391 stripped
@@ -2446,11 +2533,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moverMode: 0
   speed: 4
+  rotationCenter: {x: 0, y: 0, z: 0}
+  reverse: 0
+  radius: 0
   points:
   - {x: -5.75, y: -15.275, z: 0}
   - {x: -5.75, y: -11.325, z: 0}
-  rotationCenter: {x: 0, y: 0, z: 0}
-  reverse: 0
   targetN: 1
   working: 1
 --- !u!1001 &1366238668
@@ -2549,14 +2637,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moverMode: 0
   speed: 8
+  rotationCenter: {x: 0, y: 0, z: 0}
+  reverse: 0
+  radius: 0
   points:
   - {x: -10.3, y: -3.5500002, z: 0}
   - {x: 5.125, y: -3.775, z: 0}
   - {x: -7.9500003, y: -9.775, z: 0}
   - {x: 4.3250003, y: -10.349999, z: 0}
   - {x: -1.375, y: -1.975, z: 0}
-  rotationCenter: {x: 0, y: 0, z: 0}
-  reverse: 0
   targetN: 0
   working: 1
 --- !u!1001 &1395003165
@@ -2825,14 +2914,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moverMode: 0
   speed: 8
+  rotationCenter: {x: 0, y: 0, z: 0}
+  reverse: 0
+  radius: 0
   points:
   - {x: -4.675, y: -3.2, z: 0}
   - {x: -8.825, y: -8.675, z: 0}
   - {x: -9.5, y: -4.9750004, z: 0}
   - {x: -0.725, y: -9.099999, z: 0}
   - {x: 2.625, y: -3.9, z: 0}
-  rotationCenter: {x: 0, y: 0, z: 0}
-  reverse: 0
   targetN: 0
   working: 1
 --- !u!1001 &1539205428
@@ -3810,11 +3900,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moverMode: 0
   speed: 4
+  rotationCenter: {x: 0, y: 0, z: 0}
+  reverse: 0
+  radius: 0
   points:
   - {x: -3.25, y: -15.275, z: 0}
   - {x: -3.25, y: -11.325, z: 0}
-  rotationCenter: {x: 0, y: 0, z: 0}
-  reverse: 0
   targetN: 0
   working: 1
 --- !u!1 &1919859751 stripped
@@ -3835,13 +3926,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moverMode: 0
   speed: 4
+  rotationCenter: {x: 0, y: 0, z: 0}
+  reverse: 0
+  radius: 0
   points:
   - {x: 9.400001, y: -14.125, z: 0}
   - {x: 2.4750001, y: -14.125, z: 0}
   - {x: 1.475, y: -13.125, z: 0}
   - {x: 2.4750001, y: -12.125, z: 0}
-  rotationCenter: {x: 0, y: 0, z: 0}
-  reverse: 0
   targetN: 0
   working: 1
 --- !u!1001 &1983100244

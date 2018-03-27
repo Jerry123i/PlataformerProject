@@ -9,10 +9,13 @@ public class MoverScript : MonoBehaviour {
     public MoverMode moverMode;
 
     public float speed;
-    public List<Vector3> points;
+
+    
     public Vector3 rotationCenter;
     public bool reverse;
+    public float radius;
 
+    public List<Vector3> points;
     private Vector3 target;
     public int targetN;
 
