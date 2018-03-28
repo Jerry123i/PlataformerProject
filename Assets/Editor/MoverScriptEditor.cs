@@ -12,6 +12,9 @@ public class MoverScriptEditor : Editor {
     bool lockRotationTransform;
     Vector3 radiusDiference;
 
+    List<bool> lockCycleTransforms;
+    List<Vector3> transformsDiference; 
+
     bool lines;
 
     public override void OnInspectorGUI()
@@ -52,15 +55,6 @@ public class MoverScriptEditor : Editor {
     private void RotationMenu(MoverScript obj)
     {
 
-        if (lockRotationTransform)
-        {
-            Vector3 newPos = new Vector3(radiusDiference.x + obj.rotationCenter.x, radiusDiference.y + obj.rotationCenter.y);
-            obj.transform.position = new Vector3(newPos.x, newPos.y, newPos.z);
-        }
-        else
-        {
-            radiusDiference = obj.transform.position - obj.rotationCenter;
-        }
 
         obj.rotationCenter = EditorGUILayout.Vector2Field("Rotation Center", obj.rotationCenter);
         lockRotationTransform = EditorGUILayout.Toggle("LOCK",lockRotationTransform);
@@ -68,9 +62,7 @@ public class MoverScriptEditor : Editor {
         //Raio
         obj.radius = (obj.transform.position - obj.rotationCenter).magnitude;
         EditorGUILayout.FloatField("Radius", obj.radius);
-        Handles.color = Color.red;
-        Handles.DrawWireDisc(obj.rotationCenter, Vector3.forward, obj.radius);
-               
+
         //Horario/AntiHorario
         EditorGUILayout.BeginHorizontal();
         antiHorario = EditorGUILayout.Toggle("C.Clockwise", antiHorario);
@@ -88,17 +80,30 @@ public class MoverScriptEditor : Editor {
 
         string butonText;
 
+        //Incia listas
         if (obj.points == null)
         {
             obj.points = new List<Vector3>();
             obj.points.Add(obj.transform.position);
         }
+        if(lockCycleTransforms == null || lockCycleTransforms.Count < obj.points.Count){
+            for(int i = 0; i<obj.points.Count; i++){
+                lockCycleTransforms.Add(true);
+            }
+        }
+        if(transformsDiference == null || transformsDiference.Count < obj.points.Count){
+            for(int i = 0; i<obj.points.Count; i++){
+                transformsDiference.Add(obj.transform.position - obj.points[i]);
+            }
+        }
 
         EditorGUILayout.BeginVertical();
         for (int i = 0; i < obj.points.Count; i++)
         {
+            
             EditorGUILayout.BeginHorizontal("Box");
             EditorGUILayout.BeginHorizontal();
+            lockCycleTransforms[i] = EditorGUILayout.Toggle(lockCycleTransforms[i], GUILayout.Width(20));
             EditorGUILayout.TextArea(i.ToString() + ":", GUILayout.MaxWidth(25));
             obj.points[i] = EditorGUILayout.Vector2Field("", obj.points[i]);
             EditorGUILayout.EndHorizontal();
@@ -127,25 +132,34 @@ public class MoverScriptEditor : Editor {
         if (GUILayout.Button("Add Point"))
         {
             obj.points.Add(obj.transform.position);
+            lockCycleTransforms.Add(true);
+            transformsDiference.Add(Vector3.zero);
         }
 
         EditorGUILayout.EndVertical();
     }
 
-    private void OnSceneGUI()
-    {
-        var obj = target as MoverScript;
+    private void RotationOnScene(MoverScript obj){
+        
+        obj.rotationCenter = Handles.PositionHandle(obj.rotationCenter, Quaternion.identity);
 
-
-
-        if(obj.moverMode == MoverMode.ROTATION)
+        if (lockRotationTransform)
         {
-            obj.rotationCenter = Handles.PositionHandle(obj.rotationCenter, Quaternion.identity);
+            Vector3 newPos = new Vector3(radiusDiference.x + obj.rotationCenter.x, radiusDiference.y + obj.rotationCenter.y);
+            obj.transform.position = new Vector3(newPos.x, newPos.y, newPos.z);
+        }
+        else
+        {
+            radiusDiference = obj.transform.position - obj.rotationCenter;
         }
 
-        if(obj.moverMode == MoverMode.CYCLE)
-        {
-            if (obj.points == null)
+        Handles.DrawWireDisc(obj.rotationCenter, Vector3.forward, obj.radius);
+
+    }
+
+    private void CycleOnScene(MoverScript obj){
+
+        if (obj.points == null)
             {
                 obj.points = new List<Vector3>();
                 obj.points.Add(obj.transform.position);
@@ -167,6 +181,14 @@ public class MoverScriptEditor : Editor {
                 //Numera as handles
                 Handles.Label(obj.points[i], i.ToString(), labelStyle);
 
+                //Lock
+                if(lockCycleTransforms[i]){
+                    obj.points[i] = obj.transform.position - transformsDiference[i];
+                }
+                else{
+                    transformsDiference[i] = obj.transform.position - obj.points[i];
+                }
+
                 //Desenha linha
                 if (lines)
                 {
@@ -181,7 +203,30 @@ public class MoverScriptEditor : Editor {
                 }
 
             }
+
+    }
+
+    private void OnSceneGUI()
+    {
+        
+        var obj = target as MoverScript;
+
+        switch (obj.moverMode)
+        {
+            case MoverMode.ROTATION:
+                RotationOnScene(obj);
+                break;
+
+            case MoverMode.CYCLE:
+                CycleOnScene(obj);
+                break;
+
+            default:
+                break;
+
+                
         }
+
     }
 
 }

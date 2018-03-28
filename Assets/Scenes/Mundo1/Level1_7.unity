@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -786,11 +785,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4542272673256610, guid: 453a391e9a750bc498e29f28f5dbe3ed, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 10.924999
+      value: -0.004999876
       objectReference: {fileID: 0}
     - target: {fileID: 4542272673256610, guid: 453a391e9a750bc498e29f28f5dbe3ed, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.9499999
+      value: 11.025
       objectReference: {fileID: 0}
     - target: {fileID: 4542272673256610, guid: 453a391e9a750bc498e29f28f5dbe3ed, type: 2}
       propertyPath: m_LocalPosition.z
@@ -852,9 +851,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moverMode: 1
   speed: 4
-  rotationCenter: {x: 5.35, y: -2, z: 0}
+  rotationCenter: {x: 3, y: 7.2, z: 0}
   reverse: 1
-  radius: 5.5750556
+  radius: 4.8445873
   points:
   - {x: 2.4750001, y: -14.125, z: 0}
   - {x: 9.400001, y: -14.125, z: 0}
@@ -1089,15 +1088,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.5523932
+      value: 1.5267175
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.93143594
+      value: 0.9160305
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.0012936611
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2020874, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_BackGroundColor.r
@@ -2641,11 +2640,11 @@ MonoBehaviour:
   reverse: 0
   radius: 0
   points:
-  - {x: -10.3, y: -3.5500002, z: 0}
-  - {x: 5.125, y: -3.775, z: 0}
+  - {x: 3.25, y: -9.099999, z: 0}
+  - {x: -0.675, y: -0.125, z: 0}
   - {x: -7.9500003, y: -9.775, z: 0}
-  - {x: 4.3250003, y: -10.349999, z: 0}
-  - {x: -1.375, y: -1.975, z: 0}
+  - {x: 5.225, y: -3.075, z: 0}
+  - {x: -9.775001, y: -3.4750001, z: 0}
   targetN: 0
   working: 1
 --- !u!1001 &1395003165
