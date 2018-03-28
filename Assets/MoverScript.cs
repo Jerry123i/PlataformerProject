@@ -113,8 +113,6 @@ public class MoverScript : MonoBehaviour {
         float r;
 
         r = (this.transform.position - rotationCenter).magnitude;
-        Debug.Log("K = " + (((Mathf.PI * r) / 180.0f)).ToString());
-
         return (180/(Mathf.PI * r));
         
     }

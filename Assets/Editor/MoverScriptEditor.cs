@@ -87,11 +87,20 @@ public class MoverScriptEditor : Editor {
             obj.points.Add(obj.transform.position);
         }
         if(lockCycleTransforms == null || lockCycleTransforms.Count < obj.points.Count){
+
+            if(lockCycleTransforms == null)
+            {
+                lockCycleTransforms = new List<bool>();
+            }
             for(int i = 0; i<obj.points.Count; i++){
-                lockCycleTransforms.Add(true);
+                lockCycleTransforms.Add(false);
             }
         }
         if(transformsDiference == null || transformsDiference.Count < obj.points.Count){
+            if(transformsDiference == null)
+            {
+                transformsDiference = new List<Vector3>();
+            }
             for(int i = 0; i<obj.points.Count; i++){
                 transformsDiference.Add(obj.transform.position - obj.points[i]);
             }
@@ -124,6 +133,8 @@ public class MoverScriptEditor : Editor {
             if (GUILayout.Button("X", GUILayout.Width(10), GUILayout.Height(10)))
             {
                 obj.points.RemoveAt(i);
+                transformsDiference.RemoveAt(i);
+                lockCycleTransforms.RemoveAt(i);
             }
 
             EditorGUILayout.EndHorizontal();
@@ -132,7 +143,7 @@ public class MoverScriptEditor : Editor {
         if (GUILayout.Button("Add Point"))
         {
             obj.points.Add(obj.transform.position);
-            lockCycleTransforms.Add(true);
+            lockCycleTransforms.Add(false);
             transformsDiference.Add(Vector3.zero);
         }
 
@@ -160,12 +171,38 @@ public class MoverScriptEditor : Editor {
     private void CycleOnScene(MoverScript obj){
 
         if (obj.points == null)
+        {
+            obj.points = new List<Vector3>();
+            obj.points.Add(obj.transform.position);
+        }
+        if (lockCycleTransforms == null || lockCycleTransforms.Count < obj.points.Count)
+        {
+
+            if (lockCycleTransforms == null)
             {
-                obj.points = new List<Vector3>();
-                obj.points.Add(obj.transform.position);
+                lockCycleTransforms = new List<bool>();
+            }
+            for (int i = 0; i < obj.points.Count; i++)
+            {
+                lockCycleTransforms.Add(false);
+            }
+        }
+
+        if (transformsDiference == null || transformsDiference.Count < obj.points.Count)
+        {
+            if(transformsDiference == null)
+            {
+                transformsDiference = new List<Vector3>();
             }
 
-            for (int i = 0; i< obj.points.Count; i++)
+            for (int i = 0; i < obj.points.Count; i++)
+            {
+                transformsDiference.Add(obj.transform.position - obj.points[i]);
+            }
+        }
+
+
+        for (int i = 0; i< obj.points.Count; i++)
             {
                 obj.points[i] = Handles.PositionHandle(obj.points[i], Quaternion.identity);
 
