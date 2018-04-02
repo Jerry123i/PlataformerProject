@@ -8,26 +8,9 @@ public class EnemyScript : MonoBehaviour {
     public float impulseVel = 12.0f;
 
 	
-    void Die()
+    void EnemyDie()
     {
-        Destroy(this.gameObject);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.GetComponent<PlayerScript>())
-        {
-
-            //collision.gameObject.GetComponent<PlayerScript>().Die();
-
-            if (collision.transform.position.y > (transform.position.y + (transform.localScale.y / 2)))
-            {                
-            }
-            else
-            {
-                
-            }
-        }
+        Destroy(gameObject);
     }
 
     private IEnumerator DeathAnimation()
@@ -36,7 +19,7 @@ public class EnemyScript : MonoBehaviour {
 
         yield return new WaitForSeconds(0.2f);
 
-        Die();
+        EnemyDie();
 
     }
 
@@ -45,7 +28,10 @@ public class EnemyScript : MonoBehaviour {
         GetComponent<Collider2D>().enabled = false;
         transform.localScale = new Vector3(transform.localScale.x, 0.15f, transform.localScale.z);
         transform.position = new Vector3(transform.position.x, transform.position.y - 0.4f, transform.position.z);
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+        if(GetComponent<Rigidbody2D>().bodyType != RigidbodyType2D.Static)
+        {
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+        }
     }
 
     public void PlayerKill(GameObject player)

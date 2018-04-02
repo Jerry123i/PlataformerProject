@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
 
+    private bool lockedMovement = true;
+
     public float moveSpeed;
     public float speedCap;
 
@@ -26,18 +28,21 @@ public class PlayerScript : MonoBehaviour {
     }
 
     void Update () {
-        
-        PlayerMove();
+
+        if (!lockedMovement)
+        {
+            PlayerMove();
+        }
         UpdateAnimator();
         EndlessPit();
         Suicide();
-              
+      
 	}
 
     public void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 
     void PlayerMove()
@@ -108,19 +113,14 @@ public class PlayerScript : MonoBehaviour {
             Die();
         }
     }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if(collision.gameObject.tag == "Enemy")
-    //    {
-    //        collision.gameObject.GetComponent<EnemyScript>().PlayerKill(gameObject);
-    //    }
-    //}
-
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (hitBox.IsTouching(collision.collider))
-        //    return;
+
+        if (lockedMovement)
+        {
+            lockedMovement = false;
+        }
 
         if(collision.gameObject.tag =="Enemy")
         {
@@ -128,8 +128,7 @@ public class PlayerScript : MonoBehaviour {
 
             foreach (var contact in collision.contacts)
             {
-
-
+                
                 if (transform.position.y + hitZoneOffset.y < contact.point.y)
                 {
                     Die();

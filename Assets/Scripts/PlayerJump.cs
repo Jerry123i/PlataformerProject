@@ -9,9 +9,7 @@ public class PlayerJump : MonoBehaviour {
 
     public float fallMultiplier;
     public float lowJumpMultiplier;
-
-    private Vector2 hSpeed;
-
+    
     private Animator animator;
 
     Rigidbody2D rb;
@@ -57,27 +55,7 @@ public class PlayerJump : MonoBehaviour {
         }
 
         return boolResult;
-
-        /*if(boxResult.collider != null)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
-
-        /*
-        if (Physics2D.Raycast((transform.position + ((transform.localScale / 2).magnitude) * Vector3.down), Vector2.down, 0.01f))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-        */
+                
     }
 
 

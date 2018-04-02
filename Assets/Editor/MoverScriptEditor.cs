@@ -23,6 +23,7 @@ public class MoverScriptEditor : Editor {
 
         obj.working = EditorGUILayout.Toggle("Starts Active", obj.working);
         obj.moverMode = (MoverMode) EditorGUILayout.EnumPopup("Mover Mode", obj.moverMode);
+        obj.moverType = (MoverType)EditorGUILayout.EnumPopup("Mover Type", obj.moverType);
 
         obj.speed = EditorGUILayout.FloatField("Speed", obj.speed);
 
@@ -113,7 +114,14 @@ public class MoverScriptEditor : Editor {
             EditorGUILayout.BeginHorizontal("Box");
             EditorGUILayout.BeginHorizontal();
             lockCycleTransforms[i] = EditorGUILayout.Toggle(lockCycleTransforms[i], GUILayout.Width(20));
-            EditorGUILayout.TextArea(i.ToString() + ":", GUILayout.MaxWidth(25));
+
+            //Teleporta para o ponto
+            if (GUILayout.Button(i.ToString()))
+            {
+                ToggleAllLocks(false);
+                obj.transform.position = new Vector3(obj.points[i].x, obj.points[i].y, obj.points[i].z);
+            }
+
             obj.points[i] = EditorGUILayout.Vector2Field("", obj.points[i]);
             EditorGUILayout.EndHorizontal();
             if (obj.targetN == i)
@@ -264,6 +272,14 @@ public class MoverScriptEditor : Editor {
                 
         }
 
+    }
+
+    private void ToggleAllLocks(bool x)
+    {
+        for(int i = 0; i < lockCycleTransforms.Count; i++)
+        {
+            lockCycleTransforms[i] = x;
+        }
     }
 
 }

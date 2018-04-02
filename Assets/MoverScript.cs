@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum MoverMode {CYCLE, ROTATION};
+public enum MoverType {PLATAFORM, ENEMY};
 
 public class MoverScript : MonoBehaviour {
 
     public MoverMode moverMode;
+    public MoverType moverType;
 
     public float speed;
 
@@ -53,7 +55,7 @@ public class MoverScript : MonoBehaviour {
     {
         transform.Translate((target - transform.position).normalized * speed * Time.deltaTime);
 
-        if ((target - transform.position).magnitude <= 0.1)
+        if ((target - transform.position).magnitude <= 0.05 * speed/4)
         {
             transform.position = target;
             RotateChangeTarget();
@@ -81,10 +83,15 @@ public class MoverScript : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        working = true;
 
-        passager = collision.gameObject.transform;
-        passager.transform.SetParent(this.transform);
+        if(moverType == MoverType.PLATAFORM)
+        {
+            working = true;
+
+            passager = collision.gameObject.transform;
+            passager.transform.SetParent(this.transform);
+        }
+        
     }
     
 

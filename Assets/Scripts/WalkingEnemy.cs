@@ -31,7 +31,6 @@ public class WalkingEnemy : EnemyScript
         //Verifica paredes
         else if(RHLeft.collider != null)
         {
-            Debug.Log(RHLeft.collider.gameObject.name);
             TurnAround();
         }
 
