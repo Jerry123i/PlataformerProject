@@ -68,7 +68,7 @@ public class CameraScript : MonoBehaviour {
             //transform.position = DivideByStepVector(transform.position);
 
             yield return null;
-        } while ( !(followAfter && ((targetPoint.y - transform.position.y) <= 0.1)) && !(!followAfter && ((targetPoint - transform.position).magnitude <= 0.1)));
+        } while ( !(followAfter && ((targetPoint.y - transform.position.y) <= 0.1)) && !(!followAfter && ((targetPoint - transform.position).magnitude <= 0.1 * speed/5)));
 
         if (!followAfter)
         {

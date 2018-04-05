@@ -189,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 25
   speedCap: 7
-  deacelerator: 20
+  deacelerator: 30
   hitBox: {fileID: 61778323632987622}
   hitZoneOffset: {x: 0, y: -0.40999985, z: 0}
 --- !u!212 &212322485386218444

@@ -22,8 +22,7 @@ public class PlayerJump : MonoBehaviour {
 
     private void Update()
     {
-
-        if (Input.GetKeyDown("w") && IsOnFloor())
+        if (Input.GetButtonDown("Jump") && IsOnFloor())
         {
             rb.velocity += Vector2.up * jumpVelocity;
         }
@@ -32,7 +31,7 @@ public class PlayerJump : MonoBehaviour {
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1.0f) * Time.deltaTime;
         }
-        else if(rb.velocity.y > 0 && !(Input.GetKey("w"))){
+        else if(rb.velocity.y > 0 && !(Input.GetButton("Jump"))){
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1.0f) * Time.deltaTime;
         }
 

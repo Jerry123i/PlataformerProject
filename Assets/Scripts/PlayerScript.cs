@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour {
     private bool lockedMovement = true;
 
     public float moveSpeed;
+    private float currentSpeed = 0;
     public float speedCap;
 
     public float deacelerator;
@@ -28,11 +29,8 @@ public class PlayerScript : MonoBehaviour {
     }
 
     void Update () {
-
-        if (!lockedMovement)
-        {
-            PlayerMove();
-        }
+                
+        PlayerMove();
         UpdateAnimator();
         EndlessPit();
         Suicide();
@@ -48,23 +46,23 @@ public class PlayerScript : MonoBehaviour {
     void PlayerMove()
     {                
 
-        if (Input.GetKey("a"))
+        if (Input.GetKey("left"))
         {
             if(rb.velocity.x > -speedCap)
             {
-                rb.velocity += moveSpeed * Time.deltaTime * Vector2.left;
+                rb.velocity += currentSpeed * Time.deltaTime * Vector2.left;
             }
         }
 
-        if (Input.GetKey("d"))
+        if (Input.GetKey("right"))
         {
             if (rb.velocity.x < speedCap)
             {
-                rb.velocity += moveSpeed * Time.deltaTime * Vector2.right;
+                rb.velocity += currentSpeed * Time.deltaTime * Vector2.right;
             }
         }
 
-        if(!Input.GetKey("a") && !Input.GetKey("d"))
+        if(!Input.GetKey("left") && !Input.GetKey("right"))
         {
             MovimentStoper();
         }  
@@ -120,6 +118,7 @@ public class PlayerScript : MonoBehaviour {
         if (lockedMovement)
         {
             lockedMovement = false;
+            currentSpeed = moveSpeed;
         }
 
         if(collision.gameObject.tag =="Enemy")
