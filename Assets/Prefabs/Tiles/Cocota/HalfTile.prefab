@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212652372483019278}
   - component: {fileID: 251320871708939858}
   - component: {fileID: 61074358417096950}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HalfTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

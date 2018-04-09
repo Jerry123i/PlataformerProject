@@ -93,14 +93,25 @@ public class PlayerScript : MonoBehaviour {
 
     private void UpdateAnimator()
     {
-        animator.SetBool("IsRunning", (Mathf.Abs(rb.velocity.x) > 1.0f));        
-        sr.flipX = (rb.velocity.x < 0);
+        animator.SetBool("IsRunning", (Mathf.Abs(rb.velocity.x) > 1.0f));
+
+        if (sr.flipX && Input.GetKeyDown("right"))
+        {
+            sr.flipX = false;
+        }
+
+        if(!sr.flipX && Input.GetKeyDown("left"))
+        {
+            sr.flipX = true;
+        }
+
     }
         
     private void EndlessPit()
     {
         if(transform.position.y <= -30.0f)
         {
+            Debug.Log("EndlessPit()");
             Die();
         }
     }

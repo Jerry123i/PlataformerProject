@@ -41,6 +41,10 @@ public class MoverScriptEditor : Editor {
                 CycleMenu(obj);
                 break;
 
+            case MoverMode.ONCE:
+                OnceMenu(obj);
+                break;
+
             default:
                 break;
 
@@ -74,6 +78,89 @@ public class MoverScriptEditor : Editor {
         EditorGUILayout.EndHorizontal();
 
         
+    }
+
+    private void OnceMenu(MoverScript obj)
+    {
+        string butonText;
+
+        //Incia listas
+        if (obj.points == null)
+        {
+            obj.points = new List<Vector3>();
+            obj.points.Add(obj.transform.position);
+        }
+        if (lockCycleTransforms == null || lockCycleTransforms.Count < obj.points.Count)
+        {
+
+            if (lockCycleTransforms == null)
+            {
+                lockCycleTransforms = new List<bool>();
+            }
+            for (int i = 0; i < obj.points.Count; i++)
+            {
+                lockCycleTransforms.Add(false);
+            }
+        }
+        if (transformsDiference == null || transformsDiference.Count < obj.points.Count)
+        {
+            if (transformsDiference == null)
+            {
+                transformsDiference = new List<Vector3>();
+            }
+            for (int i = 0; i < obj.points.Count; i++)
+            {
+                transformsDiference.Add(obj.transform.position - obj.points[i]);
+            }
+        }
+
+        EditorGUILayout.BeginVertical();
+        for (int i = 0; i < obj.points.Count; i++)
+        {
+
+            EditorGUILayout.BeginHorizontal("Box");
+            EditorGUILayout.BeginHorizontal();
+            lockCycleTransforms[i] = EditorGUILayout.Toggle(lockCycleTransforms[i], GUILayout.Width(20));
+
+
+            EditorGUILayout.TextField(i.ToString(), GUILayout.MaxWidth(20));
+            
+
+            obj.points[i] = EditorGUILayout.Vector2Field("", obj.points[i]);
+            EditorGUILayout.EndHorizontal();
+            if (obj.targetN == i)
+            {
+                butonText = "(T)";
+            }
+            else
+            {
+                butonText = "( )";
+            }
+
+            if (GUILayout.Button(butonText, GUILayout.Width(20)))
+            {
+                obj.targetN = i;
+            }
+
+            if (GUILayout.Button("X", GUILayout.Width(10), GUILayout.Height(10)))
+            {
+                obj.points.RemoveAt(i);
+                transformsDiference.RemoveAt(i);
+                lockCycleTransforms.RemoveAt(i);
+            }
+
+            EditorGUILayout.EndHorizontal();
+        }
+
+        if (GUILayout.Button("Add Point"))
+        {
+            obj.points.Add(obj.transform.position);
+            lockCycleTransforms.Add(false);
+            transformsDiference.Add(Vector3.zero);
+        }
+
+        EditorGUILayout.EndVertical();
+
     }
 
     private void CycleMenu(MoverScript obj)
@@ -176,6 +263,83 @@ public class MoverScriptEditor : Editor {
 
     }
 
+    private void OnceOnScene(MoverScript obj)
+    {
+        if (obj.points == null)
+        {
+            obj.points = new List<Vector3>();
+            obj.points.Add(obj.transform.position);
+        }
+        if (lockCycleTransforms == null || lockCycleTransforms.Count < obj.points.Count)
+        {
+
+            if (lockCycleTransforms == null)
+            {
+                lockCycleTransforms = new List<bool>();
+            }
+            for (int i = 0; i < obj.points.Count; i++)
+            {
+                lockCycleTransforms.Add(false);
+            }
+        }
+
+        if (transformsDiference == null || transformsDiference.Count < obj.points.Count)
+        {
+            if (transformsDiference == null)
+            {
+                transformsDiference = new List<Vector3>();
+            }
+
+            for (int i = 0; i < obj.points.Count; i++)
+            {
+                transformsDiference.Add(obj.transform.position - obj.points[i]);
+            }
+        }
+
+
+        for (int i = 0; i < obj.points.Count; i++)
+        {
+            obj.points[i] = Handles.PositionHandle(obj.points[i], Quaternion.identity);
+
+            var labelStyle = new GUIStyle();
+            labelStyle.fontSize = 18;
+
+            if (obj.targetN == i)
+            {
+                labelStyle.fontSize = 25;
+                labelStyle.fontStyle = FontStyle.BoldAndItalic;
+            }
+
+            //Numera as handles
+            Handles.Label(obj.points[i], i.ToString(), labelStyle);
+
+            //Lock
+            if (lockCycleTransforms[i])
+            {
+                obj.points[i] = obj.transform.position - transformsDiference[i];
+            }
+            else
+            {
+                transformsDiference[i] = obj.transform.position - obj.points[i];
+            }
+
+            //Desenha linha
+            if (lines)
+            {
+                if (i == obj.points.Count - 1)
+                {
+                    Handles.DrawLine(obj.points[i], obj.points[0]);
+                }
+                else
+                {
+                    Handles.DrawLine(obj.points[i], obj.points[i + 1]);
+                }
+            }
+
+        }
+
+    }
+
     private void CycleOnScene(MoverScript obj){
 
         if (obj.points == null)
@@ -264,6 +428,10 @@ public class MoverScriptEditor : Editor {
 
             case MoverMode.CYCLE:
                 CycleOnScene(obj);
+                break;
+
+            case MoverMode.ONCE:
+                OnceOnScene(obj);
                 break;
 
             default:

@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 27687230}
   - component: {fileID: 27687229}
   - component: {fileID: 27687228}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MoverTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 539616883}
   - component: {fileID: 539616882}
   - component: {fileID: 539616881}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MoverTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,7 +685,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 539616879}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.95, y: -12.125, z: 0}
+  m_LocalPosition: {x: 3, y: -12.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1759635771}
@@ -703,15 +703,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58654b27718b849408254f0cd9ab9484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moverMode: 0
+  moverMode: 2
   moverType: 0
   speed: 3.5
   rotationCenter: {x: 0, y: 0, z: 0}
   reverse: 0
   radius: 0
   points:
-  - {x: 11.05, y: -15.175, z: 0}
-  - {x: 3.95, y: -12.15, z: 0}
+  - {x: 3.95, y: -12.175, z: 0}
+  - {x: 11.05, y: -15.15, z: 0}
   targetN: 0
   working: 0
 --- !u!61 &539616882
@@ -886,15 +886,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.5267175
+      value: 1.5238096
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.9160305
+      value: 0.9142857
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.0019047619
       objectReference: {fileID: 0}
     - target: {fileID: 2020874, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_BackGroundColor.r
@@ -918,7 +918,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.0010718113
       objectReference: {fileID: 0}
     - target: {fileID: 2020874, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_HDR
@@ -1800,7 +1800,7 @@ GameObject:
   - component: {fileID: 1632331762}
   - component: {fileID: 1632331761}
   - component: {fileID: 1632331760}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MoverTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2463,7 +2463,7 @@ GameObject:
   - component: {fileID: 2086866844}
   - component: {fileID: 2086866843}
   - component: {fileID: 2086866842}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MoverTile (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

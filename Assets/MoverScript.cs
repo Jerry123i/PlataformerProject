@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MoverMode {CYCLE, ROTATION};
+public enum MoverMode {CYCLE, ROTATION, ONCE};
 public enum MoverType {PLATAFORM, ENEMY};
 
 public class MoverScript : MonoBehaviour {
@@ -27,7 +27,7 @@ public class MoverScript : MonoBehaviour {
 
     private void Awake()
     {
-        target = points[0];
+        target = points[targetN];
     }
 
     private void FixedUpdate()
@@ -44,11 +44,35 @@ public class MoverScript : MonoBehaviour {
                     RotationMovement();
                     break;
 
+                case MoverMode.ONCE:
+                    OnceMovement();
+                    break;
+
                 default:
                     break;
             }
         }
 
+    }
+
+    void OnceMovement()
+    {
+        transform.Translate((target - transform.position).normalized * speed * Time.deltaTime);
+
+        if ((target - transform.position).magnitude <= 0.05 * speed / 4)
+        {
+            transform.position = target;
+
+            if(!(targetN == points.Count - 1))
+            {
+                RotateChangeTarget();
+            }
+            else
+            {
+                working = false;
+            }
+            
+        }
     }
 
     void CycleMovement()

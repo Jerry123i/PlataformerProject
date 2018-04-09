@@ -46,9 +46,21 @@ public class PlayerJump : MonoBehaviour {
 
         boxResult = Physics2D.BoxCastAll(new Vector2(transform.position.x + GetComponent<BoxCollider2D>().offset.x, transform.position.y + GetComponent<BoxCollider2D>().offset.y), new Vector2(GetComponent<BoxCollider2D>().size.x, GetComponent<BoxCollider2D>().size.y/2), 0.0f, Vector2.down, GetComponent<BoxCollider2D>().size.y/2);
         
-        for (int i = 0; i<boxResult.Length; i++){            
-            if (boxResult[i].collider.gameObject.layer != LayerMask.NameToLayer("Player"))
+        for (int i = 0; i<boxResult.Length; i++){
+
+            GameObject resultGO = boxResult[i].collider.gameObject;
+
+            if (resultGO.layer != LayerMask.NameToLayer("Player") && resultGO.layer != LayerMask.NameToLayer("Enemy"))
             {
+
+                if (resultGO.GetComponent<PassTileScript>() != null)
+                {
+                    if (resultGO.GetComponent<PassTileScript>().playerInside)
+                    {
+                        return false;
+                    }
+                }
+
                 boolResult = true;
             }
         }
