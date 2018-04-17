@@ -10,7 +10,7 @@ public class CameraScript : MonoBehaviour {
 
     public float offsetMax;
     public float offsetMin;
-    public float height;
+    private float height;
 
     public bool followPlayer;
 
@@ -38,21 +38,19 @@ public class CameraScript : MonoBehaviour {
             }
 
             transform.position = DivideByStepVector(transform.position);
-
-            //transform.position = new Vector3(DivideByStep(player.GetComponent<Transform>().position.x + offset), DivideByStep(height), transform.position.z);
-            //transform.position = new Vector3(player.GetComponent<Transform>().position.x + offsetMax, DivideByStep(height), transform.position.z);
         }
     }
 
 
     public IEnumerator MoveCamera(Vector3 targetPoint, float speed, bool followAfter)
     {
+        Vector3 adjustedtarget;
+
         do
         {
             if (followAfter)
             {
-                Vector3 adjustedtarget;
-
+                
                 adjustedtarget = new Vector3(player.transform.position.x, targetPoint.y, targetPoint.z);
 
                 transform.position = Vector3.Lerp(transform.position, adjustedtarget, Time.deltaTime * 3.0f);
@@ -68,12 +66,15 @@ public class CameraScript : MonoBehaviour {
             //transform.position = DivideByStepVector(transform.position);
 
             yield return null;
-        } while ( !(followAfter && ((targetPoint.y - transform.position.y) <= 0.1)) && !(!followAfter && ((targetPoint - transform.position).magnitude <= 0.1 * speed/5)));
+
+        } while ( !(followAfter && (Mathf.Abs(targetPoint.y - transform.position.y) <= 0.1)) && !(!followAfter && ((targetPoint - transform.position).magnitude <= 0.1 * speed/5)));
 
         if (!followAfter)
         {
             transform.position = targetPoint;
         }
+
+        Debug.Log("Moved");
         
         height = DivideByStep(transform.position.y);
         followPlayer = followAfter;
