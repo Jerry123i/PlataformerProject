@@ -58,8 +58,6 @@ public class CameraAreaReconfigurator : MonoBehaviour {
 
         cam.StartCoroutine(cam.MoveCamera(transform.position, cameraSpeed, follow));
 
-        Debug.Log("ShiftCamera[" + this.gameObject.name + "]");
-
     }
 
 }

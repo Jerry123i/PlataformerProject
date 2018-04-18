@@ -10,6 +10,7 @@ public class PlayerJump : MonoBehaviour {
     public float fallMultiplier;
     public float lowJumpMultiplier;
     
+    
     private Animator animator;
 
     Rigidbody2D rb;
@@ -22,9 +23,11 @@ public class PlayerJump : MonoBehaviour {
 
     private void Update()
     {
+        
+
         if (Input.GetButtonDown("Jump") && IsOnFloor())
-        {
-            rb.velocity += Vector2.up * jumpVelocity;
+        {            
+            rb.velocity += Vector2.up * jumpVelocity;            
         }
 
         if(rb.velocity.y < 0)
@@ -50,8 +53,15 @@ public class PlayerJump : MonoBehaviour {
 
             GameObject resultGO = boxResult[i].collider.gameObject;
 
-            if (resultGO.layer != LayerMask.NameToLayer("Player") && resultGO.layer != LayerMask.NameToLayer("Enemy"))
+            if (resultGO.layer != LayerMask.NameToLayer("Player"))
             {
+
+                if (resultGO.tag == "Enemy")
+                {
+                    Debug.Log("Enemy");
+                    return false;
+                }
+
 
                 if (resultGO.GetComponent<PassTileScript>() != null)
                 {
@@ -62,6 +72,8 @@ public class PlayerJump : MonoBehaviour {
                 }
 
                 boolResult = true;
+
+                
             }
         }
 

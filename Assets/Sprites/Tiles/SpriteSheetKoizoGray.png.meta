@@ -32,6 +32,8 @@ TextureImporter:
     21300050: SpriteSheetKoizoGray_25
     21300052: SpriteSheetKoizoGray_26
     21300054: SpriteSheetKoizoGray_27
+    21300056: SpriteSheetKoizoGray_28
+    21300058: SpriteSheetKoizoGray_29
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -132,10 +134,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 350
-        width: 50
-        height: 50
+        x: 13
+        y: 362
+        width: 25
+        height: 25
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +148,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 350
-        width: 50
-        height: 50
+        x: 63
+        y: 362
+        width: 25
+        height: 25
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,9 +163,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 100
-        y: 350
+        y: 362
         width: 50
-        height: 50
+        height: 25
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,9 +177,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 150
-        y: 350
+        y: 362
         width: 50
-        height: 50
+        height: 25
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +190,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 300
-        width: 50
-        height: 50
+        x: 13
+        y: 318
+        width: 25
+        height: 13
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +204,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_5
       rect:
         serializedVersion: 2
-        x: 50
-        y: 300
-        width: 50
-        height: 50
+        x: 63
+        y: 318
+        width: 25
+        height: 13
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +218,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_6
       rect:
         serializedVersion: 2
-        x: 100
-        y: 300
-        width: 50
-        height: 50
+        x: 113
+        y: 318
+        width: 25
+        height: 13
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,10 +232,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_7
       rect:
         serializedVersion: 2
-        x: 150
-        y: 300
-        width: 50
-        height: 50
+        x: 163
+        y: 318
+        width: 25
+        height: 13
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +246,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 250
-        width: 50
-        height: 50
+        x: 9
+        y: 260
+        width: 30
+        height: 30
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,10 +260,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_9
       rect:
         serializedVersion: 2
-        x: 50
-        y: 250
-        width: 50
-        height: 50
+        x: 59
+        y: 260
+        width: 30
+        height: 30
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,10 +274,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_10
       rect:
         serializedVersion: 2
-        x: 100
-        y: 250
-        width: 50
-        height: 50
+        x: 109
+        y: 260
+        width: 30
+        height: 30
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,10 +288,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_11
       rect:
         serializedVersion: 2
-        x: 150
-        y: 250
-        width: 50
-        height: 50
+        x: 159
+        y: 260
+        width: 30
+        height: 30
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,10 +302,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 200
-        width: 50
-        height: 50
+        x: 9
+        y: 210
+        width: 30
+        height: 30
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,10 +316,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_13
       rect:
         serializedVersion: 2
-        x: 50
-        y: 200
-        width: 50
-        height: 50
+        x: 59
+        y: 210
+        width: 30
+        height: 30
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,10 +330,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_14
       rect:
         serializedVersion: 2
-        x: 100
-        y: 200
-        width: 50
-        height: 50
+        x: 109
+        y: 210
+        width: 30
+        height: 30
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,10 +344,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_15
       rect:
         serializedVersion: 2
-        x: 150
-        y: 200
-        width: 50
-        height: 50
+        x: 159
+        y: 210
+        width: 30
+        height: 30
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,9 +359,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 150
+        y: 169
         width: 50
-        height: 50
+        height: 13
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,9 +373,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 50
-        y: 150
+        y: 169
         width: 50
-        height: 50
+        height: 13
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,10 +386,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_18
       rect:
         serializedVersion: 2
-        x: 100
-        y: 150
-        width: 50
-        height: 50
+        x: 113
+        y: 169
+        width: 25
+        height: 13
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,10 +400,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_19
       rect:
         serializedVersion: 2
-        x: 150
-        y: 150
-        width: 50
-        height: 50
+        x: 163
+        y: 169
+        width: 25
+        height: 13
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,10 +414,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_20
       rect:
         serializedVersion: 2
-        x: 0
-        y: 100
-        width: 50
-        height: 50
+        x: 13
+        y: 112
+        width: 25
+        height: 25
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,10 +428,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_21
       rect:
         serializedVersion: 2
-        x: 50
-        y: 100
-        width: 50
-        height: 50
+        x: 63
+        y: 112
+        width: 25
+        height: 25
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,9 +443,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 100
-        y: 100
+        y: 112
         width: 50
-        height: 50
+        height: 25
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -455,9 +457,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 150
-        y: 100
+        y: 112
         width: 50
-        height: 50
+        height: 25
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -468,10 +470,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_24
       rect:
         serializedVersion: 2
-        x: 0
-        y: 50
-        width: 50
-        height: 50
+        x: 13
+        y: 62
+        width: 25
+        height: 17
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -482,10 +484,10 @@ TextureImporter:
       name: SpriteSheetKoizoGray_25
       rect:
         serializedVersion: 2
-        x: 50
-        y: 50
-        width: 50
-        height: 50
+        x: 63
+        y: 62
+        width: 25
+        height: 15
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -497,9 +499,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 100
-        y: 50
+        y: 69
         width: 50
-        height: 50
+        height: 13
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -511,9 +513,37 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 150
-        y: 50
+        y: 69
         width: 50
-        height: 50
+        height: 13
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheetKoizoGray_28
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 20
+        width: 25
+        height: 25
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheetKoizoGray_29
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 20
+        width: 25
+        height: 25
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
