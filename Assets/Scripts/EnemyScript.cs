@@ -32,6 +32,10 @@ public class EnemyScript : MonoBehaviour {
         {
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
         }
+        if(GetComponent<MoverScript>() != null)
+        {
+            GetComponent<MoverScript>().enabled = false;
+        }
     }
 
     public void PlayerKill(GameObject player)

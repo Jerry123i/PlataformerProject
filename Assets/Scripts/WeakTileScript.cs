@@ -7,13 +7,13 @@ public class WeakTileScript : MonoBehaviour {
 
     bool isShaking;
     float time;
-    float maxTime;
+    public float maxTime = 0.7f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player" && !isShaking)
         {
-            StartCoroutine(StartShake(0.7f));
+            StartCoroutine(StartShake(maxTime));
         }
     }
 

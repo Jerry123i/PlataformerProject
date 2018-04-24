@@ -9,46 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1229810521102032}
+  m_RootGameObject: {fileID: 1420686824449808}
   m_IsPrefabParent: 1
---- !u!1 &1229810521102032
+--- !u!1 &1420686824449808
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4408498499825108}
-  - component: {fileID: 212906300532254828}
-  - component: {fileID: 95215959220427742}
-  - component: {fileID: 114561495977611722}
-  - component: {fileID: 58066915577191108}
+  - component: {fileID: 4184570185902042}
+  - component: {fileID: 212820056793912104}
+  - component: {fileID: 95911737439487020}
+  - component: {fileID: 114421348834334568}
+  - component: {fileID: 58333524157971560}
   m_Layer: 0
-  m_Name: CocotaFlyingSpikes2
+  m_Name: AssaiFlyingSpikesB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4408498499825108
+--- !u!4 &4184570185902042
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1229810521102032}
+  m_GameObject: {fileID: 1420686824449808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.009228, y: -2.0984569, z: 0}
+  m_LocalPosition: {x: 9.448969, y: -10.310591, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58066915577191108
+--- !u!58 &58333524157971560
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1229810521102032}
+  m_GameObject: {fileID: 1420686824449808}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -58,16 +58,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.45
---- !u!95 &95215959220427742
+--- !u!95 &95911737439487020
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1229810521102032}
+  m_GameObject: {fileID: 1420686824449808}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6c450ff059ac38a488ba4f6992ee0bb2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 31ba31d3812ea2649a1c58477d4bd977, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -75,23 +75,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114561495977611722
+--- !u!114 &114421348834334568
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1229810521102032}
+  m_GameObject: {fileID: 1420686824449808}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d940a0d1dbfbca243b97dc6e43837030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &212906300532254828
+--- !u!212 &212820056793912104
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1229810521102032}
+  m_GameObject: {fileID: 1420686824449808}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -120,7 +120,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b9f24609815ae314f9f29aa662481113, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6890f9a611e87b74589b069802c56791, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
