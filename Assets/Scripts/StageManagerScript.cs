@@ -4,7 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StageManagerScript : MonoBehaviour {
-    
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
+
     public void LoadStage(string stageName)
     {
         SceneManager.LoadScene(stageName);

@@ -15,6 +15,8 @@ public class DoorScript : MonoBehaviour {
 
     private StageManagerScript sm;
 
+    public bool manualDoor;
+
     private void Awake()
     {
         sm = FindObjectOfType<StageManagerScript>();
@@ -88,16 +90,34 @@ public class DoorScript : MonoBehaviour {
     {
         if (open && (collision.GetComponent<PlayerScript>()))
         {
-            animator.SetTrigger("DoorSwitch");
+            animator.SetTrigger("DoorSwitchOpen");
         }
-
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (open && (collision.GetComponent<PlayerScript>()))
+        {            
+            animator.SetTrigger("DoorSwitchClose");
+        }
+    }
+        
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (open && (collision.GetComponent<PlayerScript>()) && (animator.GetCurrentAnimatorStateInfo(0).IsName("Open")))
         {
-            sm.LoadStage(nextStageName);
+            if (!manualDoor)
+            {
+                sm.LoadStage(nextStageName);
+            }
+            else
+            {
+                if (Input.GetButtonDown("Vertical"))
+                {
+                    sm.LoadStage(nextStageName);
+                }
+            }
         }
     }
 
