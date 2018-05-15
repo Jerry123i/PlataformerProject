@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 8
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,6 +39,7 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -54,11 +55,10 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
+    m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -758,10 +758,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveStep: 0.05
-  offsetMax: 0
-  offsetMin: 0
-  height: 0
-  followPlayer: 0
+  offsetMaxX: 0
+  offsetMinX: 0
+  offsetMaxY: 0
+  offsetMinY: 0
+  followPlayerX: 0
+  followPlayerY: 0
 --- !u!1001 &307911571
 Prefab:
   m_ObjectHideFlags: 0
@@ -1659,10 +1661,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLimit: 0.5
-  offsetMax: 0
-  offsetMin: 0
+  offsetMaxX: -4.53
+  offsetMinX: -0.48
+  offsetMaxY: 0
+  offsetMinY: 0
   cameraSpeed: 20
-  follow: 1
+  followX: 1
+  followY: 0
   active: 1
 --- !u!61 &1264769725
 BoxCollider2D:

@@ -14,15 +14,24 @@ public class CameraScriptEditor : Editor {
     private void OnSceneGUI()
     {
         var obj = target as CameraScript;
-                
 
-        if (obj.followPlayer)
+
+        if (obj.followPlayerX)
         {
             Handles.color = Color.red;
             Vector3 pos = obj.transform.position;
 
-            Handles.DrawLine(new Vector3((pos.x + obj.offsetMin),(pos.y - 3.0f)), new Vector3((pos.x + obj.offsetMin), (pos.y + 3.0f)));
-            Handles.DrawLine(new Vector3((pos.x + obj.offsetMax), (pos.y - 3.0f)), new Vector3((pos.x + obj.offsetMax), (pos.y + 3.0f)));
+            Handles.DrawLine(new Vector3((pos.x + obj.offsetMinX), (pos.y - 3.0f)), new Vector3((pos.x + obj.offsetMinX), (pos.y + 3.0f)));
+            Handles.DrawLine(new Vector3((pos.x + obj.offsetMaxX), (pos.y - 3.0f)), new Vector3((pos.x + obj.offsetMaxX), (pos.y + 3.0f)));
+        }
+
+        if (obj.followPlayerY)
+        {
+            Handles.color = Color.red;
+            Vector3 pos = obj.transform.position;
+
+            Handles.DrawLine(new Vector3((pos.x - 3.0f), (pos.y + obj.offsetMinY)), new Vector3((pos.x + 3.0f), (pos.y + obj.offsetMinY)));
+            Handles.DrawLine(new Vector3((pos.x - 3.0f), (pos.y + obj.offsetMaxY)), new Vector3((pos.x + 3.0f), (pos.y + obj.offsetMaxY)));
         }
 
     }

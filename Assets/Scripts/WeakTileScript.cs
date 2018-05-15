@@ -13,7 +13,18 @@ public class WeakTileScript : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player" && !isShaking)
         {
-            StartCoroutine(StartShake(maxTime));
+
+            foreach (var contact in collision.contacts)
+            {
+
+                if (contact.point.y > transform.position.y)
+                {
+                    StartCoroutine(StartShake(maxTime));
+                    return;
+                }
+            }
+
+            
         }
     }
 
@@ -21,7 +32,7 @@ public class WeakTileScript : MonoBehaviour {
     {
         Shake(shakeDuration);
         yield return new WaitForSeconds(shakeDuration);
-        transform.DOLocalMoveY(-20.0f, 1.0f);
+        transform.DOLocalMoveY((transform.position.y - 15.0f), 1.0f);
         this.GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(2.0f);
         Destroy(this.gameObject);

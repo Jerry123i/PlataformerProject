@@ -8,12 +8,17 @@ public class CameraAreaReconfigurator : MonoBehaviour {
 
     public float timeLimit;
 
-    public float offsetMax;
-    public float offsetMin;
-    private float height;
+    public float offsetMaxX;
+    public float offsetMinX;
+    private float YAnchor;
+
+    public float offsetMaxY;
+    public float offsetMinY;
+    private float XAnchor;
 
     public float cameraSpeed;
-    public bool follow;
+    public bool followX;
+    public bool followY;
 
     public bool active;
     
@@ -52,11 +57,15 @@ public class CameraAreaReconfigurator : MonoBehaviour {
         CameraScript cam;
         cam = Camera.main.GetComponent<CameraScript>();
 
-        cam.followPlayer = false;
-        cam.offsetMax = offsetMax;
-        cam.offsetMin = offsetMin;
+        cam.followPlayerX = false;
+        cam.offsetMaxX = offsetMaxX;
+        cam.offsetMinX = offsetMinX;
 
-        cam.StartCoroutine(cam.MoveCamera(transform.position, cameraSpeed, follow));
+        cam.followPlayerY = false;
+        cam.offsetMaxY = offsetMaxY;
+        cam.offsetMinY = offsetMinY;
+
+        cam.StartCoroutine(cam.MoveCamera(transform.position, cameraSpeed, followX, followY));
 
     }
 

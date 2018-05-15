@@ -1236,6 +1236,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114994080078976386, guid: 5919ce21c51fe29428c74fb48f5717f4,
+        type: 2}
+      propertyPath: nextStageName
+      value: Level2_3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5919ce21c51fe29428c74fb48f5717f4, type: 2}
   m_IsPrefabParent: 0
@@ -1617,9 +1622,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveStep: 0.05
-  offsetMax: -1.61
-  offsetMin: -8.4
-  followPlayer: 1
+  offsetMaxX: -4.07
+  offsetMinX: -8.38
+  offsetMaxY: 0
+  offsetMinY: 0
+  followPlayerX: 1
+  followPlayerY: 0
 --- !u!4 &1544206458 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4760815392646928, guid: 8096e8af643a1464c910a8ae5cd91cce,
