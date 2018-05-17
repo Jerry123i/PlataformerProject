@@ -35,11 +35,14 @@ public class CameraScript : MonoBehaviour {
 
             if(player.GetComponent<Transform>().position.x > transform.position.x + offsetMaxX)
             {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x - offsetMaxX, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
+                //transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x - offsetMaxX, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + (Mathf.Abs(offsetMaxX)), transform.position.y, -10.0f), Time.deltaTime * 2.2f);
             }
+
             if(player.GetComponent<Transform>().position.x < transform.position.x + offsetMinX)
             {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x + offsetMinX, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
+                //transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x + offsetMinX, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x - (Mathf.Abs(offsetMinX)), transform.position.y, -10.0f), Time.deltaTime * 2.2f);
             }
 
             transform.position = DivideByStepVector(transform.position);
@@ -50,11 +53,11 @@ public class CameraScript : MonoBehaviour {
 
             if (player.GetComponent<Transform>().position.y > transform.position.y + offsetMaxY)
             {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x ,player.GetComponent<Transform>().position.y - offsetMaxY, -10.0f), Time.deltaTime * 2.2f);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x ,transform.position.y + (Mathf.Abs(offsetMaxY)), -10.0f), Time.deltaTime * 2.2f);
             }
             if (player.GetComponent<Transform>().position.y < transform.position.y + offsetMinY)
             {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, player.GetComponent<Transform>().position.y + offsetMaxY, -10.0f), Time.deltaTime * 2.2f);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y - (Mathf.Abs(offsetMinY)) , -10.0f), Time.deltaTime * 2.2f);
             }
 
             transform.position = DivideByStepVector(transform.position);

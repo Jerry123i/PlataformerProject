@@ -30,8 +30,10 @@ public class CameraScriptEditor : Editor {
             Handles.color = Color.red;
             Vector3 pos = obj.transform.position;
 
-            Handles.DrawLine(new Vector3((pos.x - 3.0f), (pos.y + obj.offsetMinY)), new Vector3((pos.x + 3.0f), (pos.y + obj.offsetMinY)));
-            Handles.DrawLine(new Vector3((pos.x - 3.0f), (pos.y + obj.offsetMaxY)), new Vector3((pos.x + 3.0f), (pos.y + obj.offsetMaxY)));
+            float offsetXMiddle = (obj.offsetMaxX + obj.offsetMinX) / 2;
+
+            Handles.DrawLine(new Vector3((pos.x - 3.0f + offsetXMiddle), (pos.y + obj.offsetMinY)), new Vector3((pos.x + 3.0f + offsetXMiddle), (pos.y + obj.offsetMinY)));
+            Handles.DrawLine(new Vector3((pos.x - 3.0f + offsetXMiddle), (pos.y + obj.offsetMaxY)), new Vector3((pos.x + 3.0f + offsetXMiddle), (pos.y + obj.offsetMaxY)));
         }
 
     }
