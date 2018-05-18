@@ -19,6 +19,8 @@ public class CameraScript : MonoBehaviour {
     public bool followPlayerX;
     public bool followPlayerY;
 
+    public float LerpT = 2.2f;
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -36,13 +38,13 @@ public class CameraScript : MonoBehaviour {
             if(player.GetComponent<Transform>().position.x > transform.position.x + offsetMaxX)
             {
                 //transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x - offsetMaxX, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
-                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + (Mathf.Abs(offsetMaxX)), transform.position.y, -10.0f), Time.deltaTime * 2.2f);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + (Mathf.Abs(offsetMaxX)), transform.position.y, -10.0f), Time.deltaTime * LerpT);
             }
 
             if(player.GetComponent<Transform>().position.x < transform.position.x + offsetMinX)
             {
                 //transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x + offsetMinX, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
-                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x - (Mathf.Abs(offsetMinX)), transform.position.y, -10.0f), Time.deltaTime * 2.2f);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x - (Mathf.Abs(offsetMinX)), transform.position.y, -10.0f), Time.deltaTime * LerpT);
             }
 
             transform.position = DivideByStepVector(transform.position);
@@ -53,11 +55,11 @@ public class CameraScript : MonoBehaviour {
 
             if (player.GetComponent<Transform>().position.y > transform.position.y + offsetMaxY)
             {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x ,transform.position.y + (Mathf.Abs(offsetMaxY)), -10.0f), Time.deltaTime * 2.2f);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x ,transform.position.y + (Mathf.Abs(offsetMaxY)), -10.0f), Time.deltaTime * LerpT);
             }
             if (player.GetComponent<Transform>().position.y < transform.position.y + offsetMinY)
             {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y - (Mathf.Abs(offsetMinY)) , -10.0f), Time.deltaTime * 2.2f);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y - (Mathf.Abs(offsetMinY)) , -10.0f), Time.deltaTime * LerpT);
             }
 
             transform.position = DivideByStepVector(transform.position);
@@ -68,14 +70,15 @@ public class CameraScript : MonoBehaviour {
 
     public IEnumerator MoveCamera(Vector3 targetPoint, float speed, bool followAfterX, bool followAfterY)
     {
+
         Vector3 adjustedtarget;
 
         do
         {
-
+            
             if (followAfterX)
             {
-                
+
                 adjustedtarget = new Vector3(player.transform.position.x, targetPoint.y, targetPoint.z);
 
                 transform.position = Vector3.Lerp(transform.position, adjustedtarget, Time.deltaTime * 3.0f);
@@ -95,22 +98,54 @@ public class CameraScript : MonoBehaviour {
 
             }
 
-            if(!followAfterX && !followAfterY)
+            if (!followAfterX && !followAfterY)
             {
                 transform.Translate((targetPoint - transform.position).normalized * speed * Time.deltaTime);
             }
-            
+
             //transform.position = DivideByStepVector(transform.position);
 
             yield return null;
 
-        } while ( !(followAfterX && (Mathf.Abs(targetPoint.y - transform.position.y) <= 0.1)) && !(!followAfterX && ((targetPoint - transform.position).magnitude <= 0.1 * speed/5)));
+            
+
+            if (followAfterX && followAfterY)
+            {                
+                break;
+            }
+            if (!followAfterX && !followAfterY)
+            {
+                if ((targetPoint - transform.position).magnitude <= 0.1 * speed / 5)
+                {
+                    break;
+                }
+            }
+            
+
+            else if (followAfterX)
+            {
+                if (Mathf.Abs(targetPoint.y - transform.position.y) <= 0.1 * speed / 5)
+                {
+                    break;
+                }
+            }
+            else if (followAfterY)
+            {
+                if (Mathf.Abs(targetPoint.x - transform.position.x) <= 0.1 * speed / 5)
+                {
+                    break;
+                }
+            }
+
+
+        } while (true);
+        //} while (!(followAfterX && (Mathf.Abs(targetPoint.y - transform.position.y) <= 0.1 * speed )) && !(!followAfterX && ((targetPoint - transform.position).magnitude <= 0.1 * speed/5)));
 
         if (!followAfterX && !followAfterY)
         {
             transform.position = targetPoint;
         }
-        
+
         
         YAnchor = DivideByStep(transform.position.y);
         XAnchor = DivideByStep(transform.position.x);
@@ -118,6 +153,19 @@ public class CameraScript : MonoBehaviour {
         followPlayerY = followAfterY;
 
     }
+
+    public IEnumerator MoveCamera(Vector3 targetPoint, float speed, bool followAfterX, bool followAfterY, float LerpT)
+    {
+
+        StartCoroutine(MoveCamera(targetPoint, speed, followAfterX, followAfterY));
+
+        this.LerpT = LerpT;
+
+        yield return null;
+
+    }
+
+
 
     private Vector3 DivideByStepVector(Vector3 v)
     {

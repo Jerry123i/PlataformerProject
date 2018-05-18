@@ -39,7 +39,7 @@ public class PlayerScript : MonoBehaviour {
 
     public void Die()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         //Destroy(this.gameObject);
     }
 
@@ -109,9 +109,9 @@ public class PlayerScript : MonoBehaviour {
         
     private void EndlessPit()
     {
-        if(transform.position.y <= -30.0f)
+        if(transform.position.y <= -50.0f)
         {
-            Debug.Log("EndlessPit()");
+            Debug.Log("EndlessPit():" + this.name);
             Die();
         }
     }
@@ -141,6 +141,7 @@ public class PlayerScript : MonoBehaviour {
                 
                 if (transform.position.y + hitZoneOffset.y < contact.point.y)
                 {
+                    
                     Die();
                     return;
                 }

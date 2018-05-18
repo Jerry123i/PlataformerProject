@@ -24,8 +24,10 @@ public class CameraReconfiguratorEditor : Editor {
             Handles.color = Color.red;
             Vector3 pos = obj.transform.position;
 
-            Handles.DrawLine(new Vector3((pos.x + obj.offsetMinX), (pos.y - 3.0f)), new Vector3((pos.x + obj.offsetMinX), (pos.y + 3.0f)));
-            Handles.DrawLine(new Vector3((pos.x + obj.offsetMaxX), (pos.y - 3.0f)), new Vector3((pos.x + obj.offsetMaxX), (pos.y + 3.0f)));
+            float offsetYMiddle = (obj.offsetMaxY + obj.offsetMinY) / 2;
+
+            Handles.DrawLine(new Vector3((pos.x + obj.offsetMinX), (pos.y - 3.0f + offsetYMiddle)), new Vector3((pos.x + obj.offsetMinX), (pos.y + 3.0f + offsetYMiddle)));
+            Handles.DrawLine(new Vector3((pos.x + obj.offsetMaxX), (pos.y - 3.0f + offsetYMiddle)), new Vector3((pos.x + obj.offsetMaxX), (pos.y + 3.0f + offsetYMiddle)));
         }
 
         if (obj.followY)
@@ -34,6 +36,7 @@ public class CameraReconfiguratorEditor : Editor {
             Vector3 pos = obj.transform.position;
 
             float offsetXMiddle = (obj.offsetMaxX + obj.offsetMinX) / 2;
+            
 
             Handles.DrawLine(new Vector3((pos.x - 3.0f + offsetXMiddle), (pos.y + obj.offsetMinY)), new Vector3((pos.x + 3.0f + offsetXMiddle), (pos.y + obj.offsetMinY)));
             Handles.DrawLine(new Vector3((pos.x - 3.0f + offsetXMiddle), (pos.y + obj.offsetMaxY)), new Vector3((pos.x + 3.0f + offsetXMiddle), (pos.y + obj.offsetMaxY)));

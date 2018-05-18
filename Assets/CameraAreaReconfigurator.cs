@@ -20,6 +20,8 @@ public class CameraAreaReconfigurator : MonoBehaviour {
     public bool followX;
     public bool followY;
 
+    public float LerpT = 2.2f;
+
     public bool active;
     
     private void Awake()
@@ -65,7 +67,7 @@ public class CameraAreaReconfigurator : MonoBehaviour {
         cam.offsetMaxY = offsetMaxY;
         cam.offsetMinY = offsetMinY;
 
-        cam.StartCoroutine(cam.MoveCamera(transform.position, cameraSpeed, followX, followY));
+        cam.StartCoroutine(cam.MoveCamera(transform.position, cameraSpeed, followX, followY, LerpT));
 
     }
 

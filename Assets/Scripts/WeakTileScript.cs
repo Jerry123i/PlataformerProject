@@ -34,7 +34,7 @@ public class WeakTileScript : MonoBehaviour {
         yield return new WaitForSeconds(shakeDuration);
         transform.DOLocalMoveY((transform.position.y - 15.0f), 1.0f);
         this.GetComponent<Collider2D>().enabled = false;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.95f);
         Destroy(this.gameObject);
     }
 

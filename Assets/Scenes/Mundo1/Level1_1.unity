@@ -650,12 +650,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveStep: 0.05
-  offsetMaxX: 0
-  offsetMinX: -2.57
+  offsetMaxX: -2
+  offsetMinX: -2
   offsetMaxY: 0
   offsetMinY: 0
   followPlayerX: 1
   followPlayerY: 0
+  LerpT: 4
 --- !u!1001 &300175979
 Prefab:
   m_ObjectHideFlags: 0
@@ -1000,7 +1001,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 444956, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.7
+      value: -12.54
       objectReference: {fileID: 0}
     - target: {fileID: 444956, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1032,11 +1033,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.5267175
+      value: 1.6666666
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.9160305
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
@@ -1450,7 +1451,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4550684557021634, guid: 94fe800ebe340b141bbffd9797e6f3b0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -12.95
+      value: -14.47
       objectReference: {fileID: 0}
     - target: {fileID: 4550684557021634, guid: 94fe800ebe340b141bbffd9797e6f3b0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2082,6 +2083,7 @@ MonoBehaviour:
   offsetMinY: 0
   followPlayerX: 0
   followPlayerY: 0
+  LerpT: 2.2
 --- !u!81 &1463586695
 AudioListener:
   m_ObjectHideFlags: 0
