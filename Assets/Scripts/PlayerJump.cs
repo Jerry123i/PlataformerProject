@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum GravityState {NORMAL, FALL, LOWJUMP}
 public class PlayerJump : MonoBehaviour {
 
     [Range(1, 10)]
@@ -9,7 +11,11 @@ public class PlayerJump : MonoBehaviour {
 
     public float fallMultiplier;
     public float lowJumpMultiplier;
-    
+
+    private GravityState gravityState;
+    private float gravityMultiplier;
+
+    private float terminalVelocity = 18.0f;
     
     private Animator animator;
 
@@ -17,27 +23,22 @@ public class PlayerJump : MonoBehaviour {
 
     private void Awake()
     {
+        gravityState = GravityState.NORMAL;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        
 
         if (Input.GetButtonDown("Jump") && IsOnFloor())
         {            
             rb.velocity += Vector2.up * jumpVelocity;            
         }
 
-        if(rb.velocity.y < 0)
-        {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1.0f) * Time.deltaTime;
-        }
-        else if(rb.velocity.y > 0 && !(Input.GetButton("Jump"))){
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1.0f) * Time.deltaTime;
-        }
-
+        GravitySetter();
+        TerminalVelocity();
+                
         animator.SetBool("IsJumping", !IsOnFloor());
 
     }
@@ -58,7 +59,6 @@ public class PlayerJump : MonoBehaviour {
 
                 if (resultGO.tag == "Enemy")
                 {
-                    Debug.Log("Enemy");
                     return false;
                 }
 
@@ -73,12 +73,56 @@ public class PlayerJump : MonoBehaviour {
 
                 boolResult = true;
 
-                
             }
         }
 
         return boolResult;
                 
+    }
+
+    private void TerminalVelocity()
+    {
+        if(rb.velocity.y < -terminalVelocity)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, -terminalVelocity);
+        }
+    }
+
+    private void GravitySetter()
+    {
+
+        if (IsOnFloor())
+        {
+            gravityState = GravityState.NORMAL;
+        }
+
+        if (rb.velocity.y < 0)
+        {
+            gravityState = GravityState.FALL;
+        }
+        if (rb.velocity.y > 0 && !(Input.GetButton("Jump")))
+        {
+            gravityState = GravityState.LOWJUMP;
+        }
+
+        switch (gravityState)
+        {
+
+            case GravityState.NORMAL:
+                gravityMultiplier = 1.0f;
+                break;
+            case GravityState.FALL:
+                gravityMultiplier = fallMultiplier;
+                break;
+            case GravityState.LOWJUMP:
+                gravityMultiplier = lowJumpMultiplier;
+                break;
+
+        }
+
+        rb.velocity += Vector2.up * Physics2D.gravity.y * (gravityMultiplier - 1.0f) * Time.deltaTime;
+
+
     }
 
 

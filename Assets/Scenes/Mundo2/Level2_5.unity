@@ -959,17 +959,17 @@ Prefab:
     - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
       propertyPath: followY
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
       propertyPath: followX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
       propertyPath: offsetMinX
-      value: -3.74
+      value: -6.12
       objectReference: {fileID: 0}
     - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
@@ -979,7 +979,7 @@ Prefab:
     - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
       propertyPath: offsetMaxX
-      value: 1.11
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
@@ -990,6 +990,11 @@ Prefab:
         type: 2}
       propertyPath: timeLimit
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
+        type: 2}
+      propertyPath: cameraSpeed
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 401df009e1b25ef4b8726603d580e255, type: 2}
@@ -1003,7 +1008,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4865616807000112, guid: 401df009e1b25ef4b8726603d580e255, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.68
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 4865616807000112, guid: 401df009e1b25ef4b8726603d580e255, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1036,22 +1041,22 @@ Prefab:
     - target: {fileID: 61427166401955190, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
       propertyPath: m_Offset.x
-      value: -4.626447
+      value: -1.0596156
       objectReference: {fileID: 0}
     - target: {fileID: 61427166401955190, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
       propertyPath: m_Size.x
-      value: 14.506219
+      value: 13.042241
       objectReference: {fileID: 0}
     - target: {fileID: 61427166401955190, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
       propertyPath: m_Offset.y
-      value: -1.5171711
+      value: -0.46982694
       objectReference: {fileID: 0}
     - target: {fileID: 61427166401955190, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
       propertyPath: m_Size.y
-      value: 4.2926927
+      value: 7.90021
       objectReference: {fileID: 0}
     - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
@@ -1061,12 +1066,12 @@ Prefab:
     - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
       propertyPath: followY
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
       propertyPath: followX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
@@ -1081,7 +1086,7 @@ Prefab:
     - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
       propertyPath: offsetMaxX
-      value: 6.18
+      value: 5.82
       objectReference: {fileID: 0}
     - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
         type: 2}
@@ -1096,6 +1101,11 @@ Prefab:
     - target: {fileID: 1136069882036376, guid: 401df009e1b25ef4b8726603d580e255, type: 2}
       propertyPath: m_Name
       value: CameraReconfigurator (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114562175247545632, guid: 401df009e1b25ef4b8726603d580e255,
+        type: 2}
+      propertyPath: cameraSpeed
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 401df009e1b25ef4b8726603d580e255, type: 2}
@@ -1203,11 +1213,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.5267175
+      value: 1.4705882
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.9160305
+      value: 0.88235295
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
@@ -1274,6 +1284,7 @@ MonoBehaviour:
   offsetMinY: -3.13
   followPlayerX: 1
   followPlayerY: 1
+  LerpT: 2.2
 --- !u!1001 &1611597688
 Prefab:
   m_ObjectHideFlags: 0

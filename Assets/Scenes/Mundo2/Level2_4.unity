@@ -495,7 +495,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4627557245991908, guid: 9c063af32ed3ae2438e8c53bb7b654e6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 23
+      value: 22.25
       objectReference: {fileID: 0}
     - target: {fileID: 4627557245991908, guid: 9c063af32ed3ae2438e8c53bb7b654e6, type: 2}
       propertyPath: m_LocalPosition.y
@@ -811,6 +811,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 95180337121173982, guid: 7d70e6b0da8d39d4caa284e9e3374886,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 71f9d3336c1fddc439ec1c121e4517c5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d70e6b0da8d39d4caa284e9e3374886, type: 2}
   m_IsPrefabParent: 0
@@ -823,7 +828,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4068908777515024, guid: 5919ce21c51fe29428c74fb48f5717f4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 23.025
+      value: 22.25
       objectReference: {fileID: 0}
     - target: {fileID: 4068908777515024, guid: 5919ce21c51fe29428c74fb48f5717f4, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1106,6 +1111,11 @@ Prefab:
       propertyPath: m_Name
       value: AssaiFlyingSpikesA (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 95180337121173982, guid: 7d70e6b0da8d39d4caa284e9e3374886,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 71f9d3336c1fddc439ec1c121e4517c5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d70e6b0da8d39d4caa284e9e3374886, type: 2}
   m_IsPrefabParent: 0
@@ -1150,11 +1160,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.5267175
+      value: 1.4705882
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.9160305
+      value: 0.88235295
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
@@ -1221,6 +1231,7 @@ MonoBehaviour:
   offsetMinY: 0
   followPlayerX: 1
   followPlayerY: 0
+  LerpT: 2.2
 --- !u!4 &1570700883 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4760815392646928, guid: 8096e8af643a1464c910a8ae5cd91cce,

@@ -47,7 +47,9 @@ public class EnemyScript : MonoBehaviour {
 
     private void ImpulsePlayer(Rigidbody2D rb)
     {
+        
         rb.velocity = new Vector2(rb.velocity.x, impulseVel);
+        
     }
 
 }

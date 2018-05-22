@@ -35,9 +35,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4991754794627002}
-  - component: {fileID: 61590719906840384}
   - component: {fileID: 251378192560524902}
   - component: {fileID: 114926932892059206}
+  - component: {fileID: 60036769354799886}
   m_Layer: 10
   m_Name: WeakTile2
   m_TagString: Untagged
@@ -72,8 +72,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61590719906840384
-BoxCollider2D:
+--- !u!60 &60036769354799886
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -84,19 +84,24 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0125}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.25, y: 1.25}
-    newSize: {x: 0.25, y: 0.25}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.25, y: 1.225}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.6}
+      - {x: -0.625, y: 0.57}
+      - {x: -0.625, y: -0.625}
+      - {x: 0.625, y: -0.625}
+      - {x: 0.625, y: 0.57}
+      - {x: 0.5, y: 0.6}
 --- !u!114 &114926932892059206
 MonoBehaviour:
   m_ObjectHideFlags: 1
