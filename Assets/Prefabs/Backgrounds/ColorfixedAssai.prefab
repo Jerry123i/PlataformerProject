@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 61297499106664734}
   - component: {fileID: 82587534797562036}
   - component: {fileID: 114698028580712462}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ColorfixedAssai
   m_TagString: Untagged
   m_Icon: {fileID: 0}

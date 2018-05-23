@@ -16,8 +16,8 @@ public class WalkingEnemy : EnemyScript
 
     void Update()
     {
-        RaycastHit2D RHDown = Physics2D.Raycast(feeler.position, Vector3.down, 0.2f, layerMask);
-        RaycastHit2D RHLeft = Physics2D.Raycast(new Vector3(feeler.position.x, feeler.position.y + 0.05f, feeler.position.z), Vector3.left, 0.2f, layerMask);
+        RaycastHit2D RHDown = Physics2D.Raycast(feeler.position, Vector3.down, 0.6f, layerMask);
+        RaycastHit2D RHLeft = Physics2D.Raycast(new Vector3(feeler.position.x, feeler.position.y + 0.05f, feeler.position.z), Vector3.left, 0.6f, layerMask);
         
 
         transform.Translate(direction.normalized * speed * Time.deltaTime);
@@ -30,7 +30,7 @@ public class WalkingEnemy : EnemyScript
 
         //Verifica paredes
         else if(RHLeft.collider != null)
-        {
+        {   
             TurnAround();
         }
 

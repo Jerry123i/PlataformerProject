@@ -141,7 +141,6 @@ public class PlayerScript : MonoBehaviour {
                 
                 if (transform.position.y + hitZoneOffset.y < contact.point.y)
                 {
-                    
                     Die();
                     return;
                 }

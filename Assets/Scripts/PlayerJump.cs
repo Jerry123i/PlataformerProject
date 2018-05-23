@@ -36,11 +36,11 @@ public class PlayerJump : MonoBehaviour {
             rb.velocity += Vector2.up * jumpVelocity;            
         }
 
-        GravitySetter();
-        TerminalVelocity();
-                
         animator.SetBool("IsJumping", !IsOnFloor());
 
+        GravitySetter();
+        TerminalVelocity();
+             
     }
 
     bool IsOnFloor()        
