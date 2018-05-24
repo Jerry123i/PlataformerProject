@@ -5,13 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class StageManagerScript : MonoBehaviour {
 
+    public SaveScript save;
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
+        save = new SaveScript();
     }
 
     public void LoadStage(string stageName)
     {
+        save.saveInfo.GetLevel(stageName).completed = true;
         SceneManager.LoadScene(stageName);
     }
 

@@ -25,7 +25,6 @@ public class DoorScript : MonoBehaviour {
 
     private void Update()
     {
-
         if (VerifyUnlock())
         {
             LockUnlock(true);
