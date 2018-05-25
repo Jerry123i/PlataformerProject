@@ -11,14 +11,14 @@ public class SaveScript {
     public SaveInfo saveInfo;
 
     private static string savePath = Application.persistentDataPath + "/koizoSave.dat";
-
+    
 
     public SaveScript()
     {
         if (currentLevels == null)
         {
             currentLevels = new LevelInfo[]{
-                new LevelInfo(1,1),
+                new LevelInfo(1,1, startsAvailable: true),
                 new LevelInfo(1,2),
                 new LevelInfo(1,3),
                 new LevelInfo(1,4),
@@ -41,6 +41,8 @@ public class SaveScript {
 
     public void LoadSave()
     {
+        Debug.Log(savePath);
+
         if(File.Exists(savePath))
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -148,6 +150,8 @@ public class SaveInfo
         return true;
     }
 
+   
+
 }
 
 [System.Serializable]
@@ -158,12 +162,14 @@ public class LevelInfo
 
     public readonly string name;
 
+
+    public bool available;
     public bool completed;
 
 
     public bool[] bonusChalanges;
 
-    public LevelInfo(int worldNumber, int levelNumber, int bonus)
+    public LevelInfo(int worldNumber, int levelNumber, int bonus = 0, bool startsAvailable = false)
     {
 
         this.world = worldNumber;
@@ -172,21 +178,16 @@ public class LevelInfo
         this.name = "Level" + world.ToString() + "_" + level.ToString();
 
         this.completed = false;
+        this.available = startsAvailable;
 
         bonusChalanges = new bool[bonus];
+
     }
 
-    public LevelInfo(int worldNumber, int levelNumber)
+    public override string ToString()
     {
-
-        this.world = worldNumber;
-        this.level = levelNumber;
-
-        this.name = "Level" + world.ToString() + "_" + level.ToString();
-
-        this.completed = false;
-
-        bonusChalanges = new bool[0];
+        return name;
     }
+
 
 }

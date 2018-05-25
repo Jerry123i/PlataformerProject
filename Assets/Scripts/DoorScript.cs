@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour {
 
     public string nextStageName;
+    public int worldDoor;
 
     [HideInInspector]
     public bool open;
@@ -14,12 +15,23 @@ public class DoorScript : MonoBehaviour {
     private Animator animator;
 
     private StageManagerScript sm;
+    private MenuManagerScript mm;
 
-    public bool manualDoor;
+    public bool hubDoor;
 
     private void Awake()
     {
         sm = FindObjectOfType<StageManagerScript>();
+
+        if (hubDoor)
+        {
+            mm = FindObjectOfType<MenuManagerScript>();
+        }
+        else
+        {
+            mm = null;
+        }
+
         animator = GetComponent<Animator>();
     }
 
@@ -106,15 +118,17 @@ public class DoorScript : MonoBehaviour {
     {
         if (open && (collision.GetComponent<PlayerScript>()) && (animator.GetCurrentAnimatorStateInfo(0).IsName("Open")))
         {
-            if (!manualDoor)
+         
+            if (!hubDoor)
             {
+                sm.save.saveInfo.GetLevel(nextStageName).available = true;
                 sm.LoadStage(nextStageName);
             }
             else
             {
                 if (Input.GetButtonDown("Vertical"))
                 {
-                    sm.LoadStage(nextStageName);
+                    mm.OpenStageMenu(worldDoor);
                 }
             }
         }

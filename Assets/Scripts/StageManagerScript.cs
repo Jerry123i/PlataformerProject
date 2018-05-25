@@ -11,6 +11,7 @@ public class StageManagerScript : MonoBehaviour {
     {
         DontDestroyOnLoad(this);
         save = new SaveScript();
+        save.saveInfo.GetLevel(1, 1).available = true;
     }
 
     public void LoadStage(string stageName)
