@@ -25,6 +25,7 @@ public class SaveScript {
                 new LevelInfo(1,5),
                 new LevelInfo(1,5),
                 new LevelInfo(1,6),
+                new LevelInfo(1,7),
                 new LevelInfo(2,1),
                 new LevelInfo(2,2),
                 new LevelInfo(2,3),

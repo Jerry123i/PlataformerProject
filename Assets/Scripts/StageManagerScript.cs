@@ -22,7 +22,12 @@ public class StageManagerScript : MonoBehaviour {
 
     private void Update()
     {
-        if(Input.GetKeyDown("1"))
+        if (Input.GetKeyDown("0"))
+        {
+            SceneManager.LoadScene("MainHub");
+        }
+
+        if (Input.GetKeyDown("1"))
         {
             SceneManager.LoadScene("Level2_1");
         }

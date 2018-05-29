@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
 
-    private bool lockedMovement = true;
+    public bool lockedMovement = true;
 
     public float moveSpeed;
     private float currentSpeed = 0;
