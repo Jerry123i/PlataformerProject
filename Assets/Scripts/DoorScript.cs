@@ -121,12 +121,13 @@ public class DoorScript : MonoBehaviour {
          
             if (!hubDoor)
             {
-                sm.save.saveInfo.GetLevel(nextStageName).available = true;
+                StageManagerScript.save.saveInfo.GetLevel(nextStageName).available = true;
+                
                 sm.LoadStage(nextStageName);
             }
             else
             {
-                if (Input.GetButtonDown("Vertical"))
+                if (Input.GetButtonDown("Vertical") && mm.ActiveMenu == null)
                 {
                     mm.OpenStageMenu(worldDoor);
                 }

@@ -8,10 +8,11 @@ public class WeakTileScript : MonoBehaviour {
     bool isShaking;
     float time;
     public float maxTime = 0.7f;
+    new public bool enabled = true;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player" && !isShaking)
+        if(collision.gameObject.tag == "Player" && !isShaking && enabled)
         {
 
             foreach (var contact in collision.contacts)
@@ -28,7 +29,7 @@ public class WeakTileScript : MonoBehaviour {
         }
     }
 
-   IEnumerator StartShake(float shakeDuration)
+   public IEnumerator StartShake(float shakeDuration)
     {
         Shake(shakeDuration);
         yield return new WaitForSeconds(shakeDuration);

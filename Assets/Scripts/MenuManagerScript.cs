@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 public class MenuManagerScript : MonoBehaviour {
 
     public WorldMenuScript[] menusCanvas;
-    private WorldMenuScript activeMenu;
     private SaveScript save;
+
+    public WorldMenuScript ActiveMenu { get; private set; }
 
     private void Awake()
     {
@@ -18,7 +19,7 @@ public class MenuManagerScript : MonoBehaviour {
     private void Start()
     {
         Debug.Log("Start");
-        save = FindObjectOfType<StageManagerScript>().save;
+        save = StageManagerScript.save;
 
     }
 
@@ -39,32 +40,31 @@ public class MenuManagerScript : MonoBehaviour {
 
     public void OpenStageMenu(int n)
     {
-        activeMenu = null;
 
         foreach(WorldMenuScript wms in menusCanvas)
         {
             if(wms.worldNumber == n)
             {
-                activeMenu = wms;
+                ActiveMenu = wms;
             }
         }
-        if(activeMenu == null)
+        if(ActiveMenu == null)
         {
             Debug.Break();
         }
 
+        ActiveMenu.gameObject.SetActive(true);
 
-        activeMenu.gameObject.SetActive(true);
-
-        for(int i = 0; i < activeMenu.list.Count; i++)
+        for(int i = 0; i < ActiveMenu.list.Count; i++)
         {
-            activeMenu.list[i].interactable = save.saveInfo.GetLevel(activeMenu.worldNumber, i + 1).available;
+            ActiveMenu.list[i].interactable = save.saveInfo.GetLevel(ActiveMenu.worldNumber, i + 1).available;
         }
     }
 
     public void CloseStageMenu()
     {
-        activeMenu.gameObject.SetActive(false);
+        ActiveMenu.gameObject.SetActive(false);
+        ActiveMenu = null;
     }
 
 }

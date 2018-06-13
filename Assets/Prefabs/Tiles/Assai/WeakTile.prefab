@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTime: 0.7
+  enabled: 1
 --- !u!212 &212044805174187698
 SpriteRenderer:
   m_ObjectHideFlags: 1

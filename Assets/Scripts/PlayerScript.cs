@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
 
-    public bool lockedMovement = true;
+    private bool lockedMovement = true;
 
     public float moveSpeed;
     private float currentSpeed = 0;
@@ -20,6 +20,27 @@ public class PlayerScript : MonoBehaviour {
     public Collider2D hitBox;
 
     public Vector3 hitZoneOffset;
+
+    public bool LockedMovement
+    {
+        get
+        {
+            return lockedMovement;
+        }
+
+        set
+        {
+            lockedMovement = value;
+            if (lockedMovement)
+            {
+                currentSpeed = 0;
+            }
+            else
+            {
+                currentSpeed = moveSpeed;
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -126,9 +147,9 @@ public class PlayerScript : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (lockedMovement)
+        if (LockedMovement)
         {
-            lockedMovement = false;
+            LockedMovement = false;
             currentSpeed = moveSpeed;
         }
 

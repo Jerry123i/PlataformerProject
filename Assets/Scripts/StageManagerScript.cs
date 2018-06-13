@@ -5,11 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class StageManagerScript : MonoBehaviour {
 
-    public SaveScript save;
+    public static SaveScript save;
+    public static StageManagerScript instance;
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);
+        }
         DontDestroyOnLoad(this);
+
         save = new SaveScript();
         save.saveInfo.GetLevel(1, 1).available = true;
     }

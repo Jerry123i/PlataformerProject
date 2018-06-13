@@ -12,14 +12,14 @@ public class WorldMenuScript : MonoBehaviour {
     private void OnEnable()
     {
         Debug.Log(this.name + "Enabled");
-        FindObjectOfType<PlayerScript>().lockedMovement = true;
+        FindObjectOfType<PlayerScript>().LockedMovement = true;
         EventSystem.current.SetSelectedGameObject(list[0].gameObject);
     }
 
     private void OnDisable()
     {
         Debug.Log(this.name + "Disabled");
-        FindObjectOfType<PlayerScript>().lockedMovement = false;
+        FindObjectOfType<PlayerScript>().LockedMovement = false;
     }
 
 }
