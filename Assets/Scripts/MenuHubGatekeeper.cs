@@ -72,6 +72,7 @@ public class MenuHubGatekeeper : MonoBehaviour {
         Vector3 cameraPreviousPosition;
 
         FindObjectOfType<PlayerScript>().LockedMovement = true;
+        FindObjectOfType<PlayerScript>().GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         cameraGO.GetComponent<CameraScript>().enabled = false;
         cameraPreviousPosition = cameraGO.transform.position;
         cameraGO.transform.DOMove(new Vector3(weakTile1.transform.position.x, weakTile1.transform.position.y, Camera.main.transform.position.z), 0.6f);
@@ -91,6 +92,16 @@ public class MenuHubGatekeeper : MonoBehaviour {
 
         StageManagerScript.save.saveInfo.GetLevel(2, 1).available = true;
 
+    }
+
+    public void StartAnimations(int world)
+    {
+        switch (world)
+        {
+            case 2:
+                StartCoroutine(OpenGate2());
+                break;
+        }
     }
 
 }
