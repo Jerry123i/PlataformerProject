@@ -26,7 +26,12 @@ public class StageManagerScript : MonoBehaviour {
 
     public void LoadStage(string stageName)
     {
-        save.saveInfo.GetLevel(stageName).completed = true;
+
+        if(save.saveInfo.GetLevel(stageName) != null)
+        {
+            save.saveInfo.GetLevel(stageName).completed = true;
+        }
+
         SceneManager.LoadScene(stageName);
     }
 

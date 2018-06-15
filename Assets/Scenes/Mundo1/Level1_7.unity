@@ -165,7 +165,7 @@ Prefab:
     - target: {fileID: 114994080078976386, guid: 5919ce21c51fe29428c74fb48f5717f4,
         type: 2}
       propertyPath: nextStageName
-      value: MainMenu
+      value: MainHub
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5919ce21c51fe29428c74fb48f5717f4, type: 2}
@@ -606,6 +606,7 @@ MonoBehaviour:
   offsetMinY: 0
   followPlayerX: 1
   followPlayerY: 0
+  LerpT: 2.2
 --- !u!4 &297798357 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4760815392646928, guid: 98214c2fe97c6074ab78c147a85bb4d8,
@@ -1066,11 +1067,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.6666666
+      value: 1.4705882
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.88235295
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.y

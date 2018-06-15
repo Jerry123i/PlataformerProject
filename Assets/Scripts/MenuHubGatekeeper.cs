@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class MenuHubGatekeeper : MonoBehaviour {
 
-    private List<WorldGate> gates;
+    
     private int gateToOpen;
 
     static int totalLevels = 2;
@@ -17,54 +17,80 @@ public class MenuHubGatekeeper : MonoBehaviour {
 
     private GameObject cameraGO;
 
-    private void Update()
+    public List<GameObject> gateTriggers;
+
+    private void Start()
     {
-        if (Input.GetKeyDown("h"))
-        {
-            StartCoroutine(OpenGate2());
-        }
+        Debug.Log("MenuHub Start");
     }
 
     private void Awake()
     {
-        gates = new List<WorldGate>();
-
-        for (int i = 0; i<totalLevels; i++)
-        {
-            gates.Add(new WorldGate());
-        }
-
-        gates[0].opened = true;
+        Debug.Log("MenuHub Awake()");
         cameraGO = Camera.main.gameObject;
         DontDestroyOnLoad(this);
+        UpdateWorldInfo();
+        OpenAllValidGates();
+        ReadyNextGate();
+
+
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log("MenuHub OnSceneLoade()");
         cameraGO = Camera.main.gameObject;
         UpdateWorldInfo();
+        OpenAllValidGates();
+        ReadyNextGate();
+
     }
 
     private void UpdateWorldInfo()
     {
-        for(int i = 0; i<totalLevels; i++)
+        for(int i = 1; i<=totalLevels; i++)
         {
-            if(StageManagerScript.save.saveInfo.CheckWorldCompletion(i + 1))
+            if(StageManagerScript.save.saveInfo.CheckWorldCompletion(i))
             {
-                gates[i].completed = true;
-
-                if(gates[i].completed == true && i!= totalLevels-1)
+                StageManagerScript.save.saveInfo.gates[i].completed = true;
+            }
+            
+            if(StageManagerScript.save.saveInfo.gates[i].completed == true && i != totalLevels)
+            {
+                if(StageManagerScript.save.saveInfo.gates[i].opened == false)
                 {
-                    if(gates[i+1].opened == false)
-                    {
-                        gateToOpen = i + 1;
-                    }
+                    gateToOpen = i + 1;
                 }
-
             }
         }
     }
 
+    private void OpenAllValidGates()
+    {
+        if (StageManagerScript.save.saveInfo.gates[2].opened)
+        {
+            Destroy(weakTile1);
+            Destroy(weakTile2);
+        }
+    }
+
+    private void ReadyNextGate()
+    {
+        Debug.Log("Isso ta rodando?");
+
+        foreach(GameObject go in gateTriggers)
+        {
+            if(go != null)
+            {
+                go.SetActive(false);
+            }
+        }
+
+        if(gateToOpen != 0)
+        {
+            gateTriggers[gateToOpen].SetActive(true);
+        }
+    }
 
     IEnumerator OpenGate2()
     {
@@ -99,13 +125,18 @@ public class MenuHubGatekeeper : MonoBehaviour {
         switch (world)
         {
             case 2:
-                StartCoroutine(OpenGate2());
+                StartCoroutine(OpenGate2());                
                 break;
         }
+
+        StageManagerScript.save.saveInfo.gates[world].opened = true;
+        gateToOpen = 0;
+
     }
 
 }
 
+[System.Serializable]
 public class WorldGate{
 
     public bool completed;

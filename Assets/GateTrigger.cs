@@ -9,7 +9,7 @@ public class GateTrigger : MonoBehaviour {
 
     private void Awake()
     {
-        parent = transform.parent.gameObject.GetComponent<MenuHubGatekeeper>();
+        parent = FindObjectOfType<MenuHubGatekeeper>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

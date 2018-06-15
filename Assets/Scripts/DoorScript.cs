@@ -75,26 +75,12 @@ public class DoorScript : MonoBehaviour {
 
     private bool CheckLockEnemy()
     {
-        if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return GameObject.FindGameObjectsWithTag("Enemy").Length == 0;
     }
 
     private bool CheckLockCollect()
     {
-        if (GameObject.FindGameObjectsWithTag("Collectible").Length == 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return GameObject.FindGameObjectsWithTag("Collectible").Length == 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -121,7 +107,10 @@ public class DoorScript : MonoBehaviour {
          
             if (!hubDoor)
             {
-                StageManagerScript.save.saveInfo.GetLevel(nextStageName).available = true;
+                if(nextStageName != "MainHub")
+                {
+                    StageManagerScript.save.saveInfo.GetLevel(nextStageName).available = true;
+                }                
                 
                 sm.LoadStage(nextStageName);
             }

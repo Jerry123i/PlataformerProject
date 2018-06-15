@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine;
 
 
 public class SaveScript {
+
+    static int totalLevels=2;
 
     public LevelInfo[] currentLevels;
     public SaveInfo saveInfo;
@@ -70,6 +71,15 @@ public class SaveScript {
 
         SaveInfo data = new SaveInfo(currentLevels);
 
+        data.gates = new List<WorldGate>();
+
+        for (int i = 0; i < totalLevels+1; i++)
+        {
+            data.gates.Add(new WorldGate());
+        }
+
+        data.gates[0].opened = true;
+
         bf.Serialize(file, data);
         file.Close();
 
@@ -83,6 +93,7 @@ public class SaveScript {
 public class SaveInfo
 {
     public LevelInfo[] levelInfos;
+    public List<WorldGate> gates;
 
     public SaveInfo(LevelInfo[] levels)
     {
