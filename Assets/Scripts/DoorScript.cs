@@ -13,24 +13,11 @@ public class DoorScript : MonoBehaviour {
     public bool lockEnemy, lockCollect;
     
     private Animator animator;
-
-    private StageManagerScript sm;
-    private MenuManagerScript mm;
-
+    
     public bool hubDoor;
 
     private void Awake()
     {
-        sm = FindObjectOfType<StageManagerScript>();
-
-        if (hubDoor)
-        {
-            mm = FindObjectOfType<MenuManagerScript>();
-        }
-        else
-        {
-            mm = null;
-        }
 
         animator = GetComponent<Animator>();
     }
@@ -121,14 +108,19 @@ public class DoorScript : MonoBehaviour {
          
             if (!hubDoor)
             {
-                sm.save.saveInfo.GetLevel(nextStageName).available = true;
-                sm.LoadStage(nextStageName);
+                if (!(nextStageName == "MainHub"))
+                {
+                    StageManagerScript.instance.save.saveInfo.GetLevel(nextStageName).available = true;
+                }
+
+                StageManagerScript.instance.LoadStage(nextStageName);
+
             }
             else
             {
-                if (Input.GetButtonDown("Vertical"))
+                if (Input.GetButtonDown("Vertical") && MenuManagerScript.instance.activeMenu == null)
                 {
-                    mm.OpenStageMenu(worldDoor);
+                    MenuManagerScript.instance.OpenStageMenu(worldDoor);
                 }
             }
         }

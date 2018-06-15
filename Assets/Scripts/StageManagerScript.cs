@@ -6,9 +6,20 @@ using UnityEngine.SceneManagement;
 public class StageManagerScript : MonoBehaviour {
 
     public SaveScript save;
+    public static StageManagerScript instance;
 
     private void Awake()
     {
+
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
         DontDestroyOnLoad(this);
         save = new SaveScript();
         save.saveInfo.GetLevel(1, 1).available = true;
@@ -16,7 +27,12 @@ public class StageManagerScript : MonoBehaviour {
 
     public void LoadStage(string stageName)
     {
-        save.saveInfo.GetLevel(stageName).completed = true;
+
+        if(save.saveInfo.GetLevel(stageName) != null)
+        {
+            save.saveInfo.GetLevel(stageName).completed = true;
+        }
+        
         SceneManager.LoadScene(stageName);
     }
 
@@ -56,5 +72,11 @@ public class StageManagerScript : MonoBehaviour {
             SceneManager.LoadScene("Level2_7");
         }
     }
+
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
+
 
 }

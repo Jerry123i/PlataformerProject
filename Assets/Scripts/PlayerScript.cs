@@ -5,7 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
 
-    public bool lockedMovement = true;
+    private bool lockedMovement;
+    public bool LockedMovement { get { return lockedMovement; }
+
+        set
+        {
+            lockedMovement = value;
+            if (value)
+            {
+                currentSpeed = 0;
+            }
+            else
+            {
+                currentSpeed = moveSpeed;
+            }
+        }
+    }
+
+    
 
     public float moveSpeed;
     private float currentSpeed = 0;
@@ -23,6 +40,7 @@ public class PlayerScript : MonoBehaviour {
 
     private void Awake()
     {
+        LockedMovement = true;
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -126,9 +144,9 @@ public class PlayerScript : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (lockedMovement)
+        if (LockedMovement)
         {
-            lockedMovement = false;
+            LockedMovement = false;
             currentSpeed = moveSpeed;
         }
 
