@@ -7,6 +7,7 @@ public enum GravityState {NORMAL, FALL, LOWJUMP}
 public class PlayerJump : MonoBehaviour {
 
     [Range(1, 10)]
+              
     public float jumpVelocity;
 
     public float fallMultiplier;
@@ -19,6 +20,8 @@ public class PlayerJump : MonoBehaviour {
     
     private Animator animator;
 
+    private PlayerScript player;
+
     Rigidbody2D rb;
 
     private void Awake()
@@ -26,18 +29,22 @@ public class PlayerJump : MonoBehaviour {
         gravityState = GravityState.NORMAL;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        player = GetComponent<PlayerScript>();
     }
 
     private void Update()
     {
 
-        if (Input.GetButtonDown("Jump") && IsOnFloor())
-        {            
-            rb.velocity += Vector2.up * jumpVelocity;            
+        if (!player.LockedMovement)
+        {
+            if (Input.GetButtonDown("Jump") && IsOnFloor())
+            {
+                rb.velocity += Vector2.up * jumpVelocity;
+            }
+
         }
 
         animator.SetBool("IsJumping", !IsOnFloor());
-
         GravitySetter();
         TerminalVelocity();
              

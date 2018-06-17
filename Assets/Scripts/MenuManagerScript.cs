@@ -8,11 +8,15 @@ using UnityEngine.EventSystems;
 public class MenuManagerScript : MonoBehaviour {
 
     public WorldMenuScript[] menusCanvas;
+
     [SerializeField]
     public WorldMenuScript activeMenu;
     private SaveScript save;
 
     public static MenuManagerScript instance;
+
+    public WorldMenuScript ActiveMenu { get; private set; }
+
 
     private void Awake()
     {
@@ -31,7 +35,9 @@ public class MenuManagerScript : MonoBehaviour {
     private void Start()
     {
         Debug.Log("Start");
-        save = StageManagerScript.instance.save;
+
+        save = StageManagerScript.save;
+
 
     }
 
@@ -50,29 +56,31 @@ public class MenuManagerScript : MonoBehaviour {
     public void OpenStageMenu(int n)
     {
 
+
         PlayerScript player;
         player = FindObjectOfType<PlayerScript>();
         FindObjectOfType<PlayerScript>().LockedMovement = true;
 
         activeMenu = null;
 
+
         foreach(WorldMenuScript wms in menusCanvas)
         {
             if(wms.worldNumber == n)
             {
-                activeMenu = wms;
+                ActiveMenu = wms;
             }
         }
-        if(activeMenu == null)
+        if(ActiveMenu == null)
         {
             Debug.Break();
         }
-        
-        activeMenu.gameObject.SetActive(true);
 
-        for(int i = 0; i < activeMenu.list.Count; i++)
+        ActiveMenu.gameObject.SetActive(true);
+
+        for(int i = 0; i < ActiveMenu.list.Count; i++)
         {
-            activeMenu.list[i].interactable = save.saveInfo.GetLevel(activeMenu.worldNumber, i + 1).available;
+            ActiveMenu.list[i].interactable = save.saveInfo.GetLevel(ActiveMenu.worldNumber, i + 1).available;
         }
 
         if (activeMenu.list[0].interactable)
@@ -92,6 +100,7 @@ public class MenuManagerScript : MonoBehaviour {
 
     public void CloseStageMenu()
     {
+
         PlayerScript player;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         if (player == null)
@@ -100,8 +109,9 @@ public class MenuManagerScript : MonoBehaviour {
         }
         player.LockedMovement = false;
 
-        activeMenu.gameObject.SetActive(false);
-        activeMenu = null;
+        ActiveMenu.gameObject.SetActive(false);
+        ActiveMenu = null;
+
     }
 
 }

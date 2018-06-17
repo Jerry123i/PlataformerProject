@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class StageManagerScript : MonoBehaviour {
 
-    public SaveScript save;
+    public static SaveScript save;
+
     public static StageManagerScript instance;
 
     private void Awake()
     {
 
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -21,6 +22,7 @@ public class StageManagerScript : MonoBehaviour {
         }
 
         DontDestroyOnLoad(this);
+
         save = new SaveScript();
         save.saveInfo.GetLevel(1, 1).available = true;
     }
@@ -32,7 +34,7 @@ public class StageManagerScript : MonoBehaviour {
         {
             save.saveInfo.GetLevel(stageName).completed = true;
         }
-        
+
         SceneManager.LoadScene(stageName);
     }
 
