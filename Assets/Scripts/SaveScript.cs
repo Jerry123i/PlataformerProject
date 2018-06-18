@@ -16,6 +16,8 @@ public class SaveScript {
 
     public SaveScript()
     {
+        LoadSave();
+
         if (currentLevels == null)
         {
             currentLevels = new LevelInfo[]{
@@ -36,8 +38,6 @@ public class SaveScript {
                 new LevelInfo(2,7)
                 };
         }
-
-        LoadSave();
 
     }
 
@@ -87,6 +87,17 @@ public class SaveScript {
 
     }
 
+    public void UpdateSave()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(savePath);
+
+        bf.Serialize(file, saveInfo);
+
+        file.Close();
+
+    }
+
 }
 
 [System.Serializable]
@@ -99,6 +110,13 @@ public class SaveInfo
     {
         levelInfos = levels;
     }
+
+    public SaveInfo(LevelInfo[] levels, List<WorldGate> worldGates)
+    {
+        levelInfos = levels;
+        gates = worldGates;
+    }
+
 
     public LevelInfo GetLevel(string levelName)
     {
@@ -173,7 +191,6 @@ public class LevelInfo
     public readonly int level;
 
     public readonly string name;
-
 
     public bool available;
     public bool completed;

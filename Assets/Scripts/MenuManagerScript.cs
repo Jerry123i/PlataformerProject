@@ -10,12 +10,12 @@ public class MenuManagerScript : MonoBehaviour {
     public WorldMenuScript[] menusCanvas;
 
     [SerializeField]
-    public WorldMenuScript activeMenu;
-    private SaveScript save;
+    private WorldMenuScript activeMenu;
+    //private SaveScript save;
 
     public static MenuManagerScript instance;
 
-    public WorldMenuScript ActiveMenu { get; private set; }
+    public WorldMenuScript ActiveMenu { get { return activeMenu; } private set { activeMenu = value; } }
 
 
     private void Awake()
@@ -32,14 +32,13 @@ public class MenuManagerScript : MonoBehaviour {
         DontDestroyOnLoad(this);
     }
 
-    private void Start()
+    /*private void Start()
     {
         Debug.Log("Start");
 
         save = StageManagerScript.save;
 
-
-    }
+    }*/
 
     private void OnEnable()
 
@@ -61,7 +60,7 @@ public class MenuManagerScript : MonoBehaviour {
         player = FindObjectOfType<PlayerScript>();
         FindObjectOfType<PlayerScript>().LockedMovement = true;
 
-        activeMenu = null;
+        ActiveMenu = null;
 
 
         foreach(WorldMenuScript wms in menusCanvas)
@@ -80,20 +79,23 @@ public class MenuManagerScript : MonoBehaviour {
 
         for(int i = 0; i < ActiveMenu.list.Count; i++)
         {
-            ActiveMenu.list[i].interactable = save.saveInfo.GetLevel(ActiveMenu.worldNumber, i + 1).available;
+            ActiveMenu.list[i].interactable = StageManagerScript.save.saveInfo.GetLevel(ActiveMenu.worldNumber, i + 1).available;
         }
 
-        if (activeMenu.list[0].interactable)
+        //Debug.Log("activeMenu:" + activeMenu.ToString());
+        //Debug.Log("activeMen")
+
+        if (ActiveMenu.list[0].interactable)
         {
             Debug.Log("Button1 selected");
-            EventSystem.current.SetSelectedGameObject(activeMenu.list[0].gameObject);
-            activeMenu.list[0].gameObject.GetComponent<MenuButtonScript>().OnSelect(new BaseEventData(EventSystem.current));
+            EventSystem.current.SetSelectedGameObject(ActiveMenu.list[0].gameObject);
+            ActiveMenu.list[0].gameObject.GetComponent<MenuButtonScript>().OnSelect(new BaseEventData(EventSystem.current));
         }
         else
         {
             Debug.Log("Back selected");
-            EventSystem.current.SetSelectedGameObject(activeMenu.list[activeMenu.list.Count - 1].gameObject);
-            activeMenu.list[activeMenu.list.Count - 1].gameObject.GetComponent<MenuBackButtonScript>().OnSelect(new BaseEventData(EventSystem.current));
+            EventSystem.current.SetSelectedGameObject(ActiveMenu.list[ActiveMenu.list.Count - 1].gameObject);
+            ActiveMenu.list[activeMenu.list.Count - 1].gameObject.GetComponent<MenuBackButtonScript>().OnSelect(new BaseEventData(EventSystem.current));
         }
 
     }

@@ -97,7 +97,7 @@ public class DoorScript : MonoBehaviour {
 
                 if (!(nextStageName == "MainHub"))
                 {
-                    StageManagerScript.instance.save.saveInfo.GetLevel(nextStageName).available = true;
+                    StageManagerScript.save.saveInfo.GetLevel(nextStageName).available = true;
                 }
 
                 StageManagerScript.instance.LoadStage(nextStageName);
@@ -105,7 +105,7 @@ public class DoorScript : MonoBehaviour {
             }
             else
             {
-                if (Input.GetButtonDown("Vertical") && MenuManagerScript.instance.activeMenu == null)
+                if (Input.GetButtonDown("Vertical") && MenuManagerScript.instance.ActiveMenu == null)
                 {
                     MenuManagerScript.instance.OpenStageMenu(worldDoor);
                 }

@@ -17,15 +17,13 @@ public class MenuButtonScript : MonoBehaviour, ISelectHandler {
     private void OnEnable()
     {
         button.onClick.AddListener(delegate { StageManagerScript.instance.LoadStage(level); });
-    }
-
-    
+    }    
 
     public void OnSelect(BaseEventData eventData)
     {
         Debug.Log(name + ": OnSelect");
-        //Animator animator = GetComponent<Animator>();
-        //animator.SetTrigger("Highlighted");        
+        Animator animator = GetComponent<Animator>();
+        animator.SetTrigger("Highlighted");        
     }
 
 }

@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour {
         set
         {
             lockedMovement = value;
-            if (value)
+            if (lockedMovement)
             {
                 currentSpeed = 0;
             }
@@ -36,27 +36,6 @@ public class PlayerScript : MonoBehaviour {
     public Collider2D hitBox;
 
     public Vector3 hitZoneOffset;
-
-    public bool LockedMovement
-    {
-        get
-        {
-            return lockedMovement;
-        }
-
-        set
-        {
-            lockedMovement = value;
-            if (lockedMovement)
-            {
-                currentSpeed = 0;
-            }
-            else
-            {
-                currentSpeed = moveSpeed;
-            }
-        }
-    }
 
     private void Awake()
     {

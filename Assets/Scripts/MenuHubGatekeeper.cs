@@ -20,25 +20,17 @@ public class MenuHubGatekeeper : MonoBehaviour {
     public List<GameObject> gateTriggers;
 
     private void Start()
-    {
-        Debug.Log("MenuHub Start");
-    }
-
-    private void Awake()
-    {
-        Debug.Log("MenuHub Awake()");
+    {      
         cameraGO = Camera.main.gameObject;
         DontDestroyOnLoad(this);
         UpdateWorldInfo();
         OpenAllValidGates();
         ReadyNextGate();
-
-
     }
 
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Debug.Log("MenuHub OnSceneLoade()");
+    {        
         cameraGO = Camera.main.gameObject;
         UpdateWorldInfo();
         OpenAllValidGates();

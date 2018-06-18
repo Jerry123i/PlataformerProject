@@ -12,7 +12,7 @@ public class MenuBackButtonScript : MenuButtonScript , ISelectHandler {
         button.onClick.AddListener(delegate { MenuManagerScript.instance.CloseStageMenu(); });
     }
 
-    public void OnSelect(BaseEventData eventData)
+    public new void OnSelect(BaseEventData eventData)
     {
         Debug.Log(name + "OnSelect");
     }

@@ -9,9 +9,16 @@ public class StageManagerScript : MonoBehaviour {
 
     public static StageManagerScript instance;
 
+    private void Start()
+    {
+        Debug.Log("Stage Manager(Start)");
+        save = new SaveScript();
+        save.saveInfo.GetLevel(1, 1).available = true;
+    }
+
     private void Awake()
     {
-
+     
         if (instance == null)
         {
             instance = this;
@@ -21,10 +28,7 @@ public class StageManagerScript : MonoBehaviour {
             Destroy(this.gameObject);
         }
 
-        DontDestroyOnLoad(this);
-
-        save = new SaveScript();
-        save.saveInfo.GetLevel(1, 1).available = true;
+        DontDestroyOnLoad(this);        
     }
 
     public void LoadStage(string stageName)
@@ -35,6 +39,7 @@ public class StageManagerScript : MonoBehaviour {
             save.saveInfo.GetLevel(stageName).completed = true;
         }
 
+        save.UpdateSave();
         SceneManager.LoadScene(stageName);
     }
 
