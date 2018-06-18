@@ -18,14 +18,13 @@ public class SaveScript {
     {
         LoadSave();
 
-        if (currentLevels == null)
+        if (saveInfo.levelInfos == null)
         {
-            currentLevels = new LevelInfo[]{
+            saveInfo.levelInfos = new LevelInfo[]{
                 new LevelInfo(1,1, startsAvailable: true),
                 new LevelInfo(1,2),
                 new LevelInfo(1,3),
                 new LevelInfo(1,4),
-                new LevelInfo(1,5),
                 new LevelInfo(1,5),
                 new LevelInfo(1,6),
                 new LevelInfo(1,7),
@@ -38,6 +37,8 @@ public class SaveScript {
                 new LevelInfo(2,7)
                 };
         }
+
+        currentLevels = saveInfo.levelInfos;
 
     }
 

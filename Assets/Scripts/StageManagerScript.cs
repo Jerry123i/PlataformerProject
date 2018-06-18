@@ -11,17 +11,22 @@ public class StageManagerScript : MonoBehaviour {
 
     private void Start()
     {
-        Debug.Log("Stage Manager(Start)");
-        save = new SaveScript();
-        save.saveInfo.GetLevel(1, 1).available = true;
+        Debug.Log("Stage Manager(Start)");        
     }
 
     private void Awake()
     {
-     
+
+        Debug.Log("Stage Manager(Awake)");
+
         if (instance == null)
         {
             instance = this;
+            if(save == null)
+            {
+                save = new SaveScript();
+                save.saveInfo.GetLevel(1, 1).available = true;
+            }
         }
         else if (instance != this)
         {
@@ -33,10 +38,10 @@ public class StageManagerScript : MonoBehaviour {
 
     public void LoadStage(string stageName)
     {
-
-        if(save.saveInfo.GetLevel(stageName) != null)
+        Debug.Log(SceneManager.GetActiveScene());
+        if(save.saveInfo.GetLevel(SceneManager.GetActiveScene().name) != null)
         {
-            save.saveInfo.GetLevel(stageName).completed = true;
+            save.saveInfo.GetLevel(SceneManager.GetActiveScene().name).completed = true;
         }
 
         save.UpdateSave();
