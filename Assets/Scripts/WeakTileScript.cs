@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class WeakTileScript : MonoBehaviour {
 
-    bool isShaking;
+    protected bool isShaking;
     float time;
     public float maxTime = 0.7f;
     new public bool enabled = true;
@@ -29,17 +29,22 @@ public class WeakTileScript : MonoBehaviour {
         }
     }
 
-   public IEnumerator StartShake(float shakeDuration)
+   public virtual IEnumerator StartShake(float shakeDuration)
     {
         Shake(shakeDuration);
         yield return new WaitForSeconds(shakeDuration);
-        transform.DOLocalMoveY((transform.position.y - 15.0f), 1.0f);
-        this.GetComponent<Collider2D>().enabled = false;
+        Fall();
         yield return new WaitForSeconds(0.95f);
         Destroy(this.gameObject);
     }
 
-    void Shake(float t)
+    protected virtual void Fall()
+    {
+        transform.DOLocalMoveY((transform.position.y - 15.0f), 1.0f);
+        this.GetComponent<Collider2D>().enabled = false;
+    }
+
+    protected virtual void Shake(float t)
     {
         isShaking = true;
         transform.GetChild(0).transform.DOShakePosition(t, .1f, 10, fadeOut: false);
