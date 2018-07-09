@@ -7,34 +7,61 @@ public class LaserScript : MonoBehaviour {
     public GameObject laserPrefab;
 
     private Animator animator;
+    private Collider2D trigger;
 
     public int lenghtOfLaser;
+    private GameObject[] lasers;
 
     public float downTime;
     public float upTime;
     public float startDelay;
 
+    private float colliderTurnOnDelay = 0.38f;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        trigger = GetComponent<Collider2D>();
+
+        GameObject ray = null;
+
+        lasers = new GameObject[lenghtOfLaser];
+
+        for (int i = 0; i < lenghtOfLaser; i++)
+        {
+            if (i == 0)
+            {
+                ray = Instantiate(laserPrefab, transform);
+                ray.transform.Translate(2.5f, 0.0f, 0.0f, transform);
+            }
+            else
+            {
+                GameObject rayB = Instantiate(laserPrefab, transform);
+                rayB.transform.Translate((2.5f * i), 0.0f, 0.0f, ray.transform);
+                ray = rayB;
+            }
+
+            lasers[i] = ray;
+
+        }
+
     }
 
-    // Use this for initialization
+   
     void Start () {
         StartCoroutine(FireRoutine(startDelay, upTime));
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     IEnumerator FireRoutine(float dowT, float upT)
     {
         yield return new WaitForSeconds(dowT);
 
         StartShooting();
 
+        yield return new WaitForSeconds(colliderTurnOnDelay);
+
+        ActivateColliders();
+        
         yield return new WaitForSeconds(upT);
         StopShooting();
         StartCoroutine(FireRoutine(downTime, upTime));
@@ -43,23 +70,22 @@ public class LaserScript : MonoBehaviour {
 
     void StartShooting()
     {
-        GameObject ray = null;
-
         animator.SetTrigger("Fire");
 
-        for(int i = 0; i<lenghtOfLaser; i++)
+        foreach (GameObject ray in lasers)
         {
-            if (i == 0)
-            {
-                ray = Instantiate(laserPrefab, transform);
-                ray.transform.Translate(0.0f, 0.0f, 0.0f, transform);
-            }
-            else
-            {
-                GameObject rayB = Instantiate(laserPrefab, transform);
-                rayB.transform.Translate((2.5f * i), 0.0f, 0.0f, ray.transform);
-                ray = rayB;
-            }
+            ray.GetComponent<Animator>().SetTrigger("Fire");
+        }
+
+    }
+
+    void ActivateColliders()
+    {
+        trigger.enabled = true;
+
+        foreach(GameObject ray in lasers)
+        {
+            ray.GetComponent<Collider2D>().enabled = true;
         }
 
     }
@@ -67,6 +93,14 @@ public class LaserScript : MonoBehaviour {
     void StopShooting()
     {
         animator.SetTrigger("Stop");
+        trigger.enabled = false;
+
+        foreach(GameObject ray in lasers)
+        {
+            ray.GetComponent<Animator>().SetTrigger("Stop");
+            ray.GetComponent<Collider2D>().enabled = false;
+        }
+
     }
 
 }
