@@ -16,7 +16,7 @@ public class LaserScript : MonoBehaviour {
     public float upTime;
     public float startDelay;
 
-    private float colliderTurnOnDelay = 0.38f;
+    private float colliderTurnOnDelay = 0.34f;
 
     private void Awake()
     {
@@ -45,6 +45,11 @@ public class LaserScript : MonoBehaviour {
 
         }
 
+        if(upTime <= 0.4f)
+        {
+            colliderTurnOnDelay = upTime * (4/7);
+        }
+
     }
 
    
@@ -62,7 +67,7 @@ public class LaserScript : MonoBehaviour {
 
         ActivateColliders();
         
-        yield return new WaitForSeconds(upT);
+        yield return new WaitForSeconds(upT - colliderTurnOnDelay);
         StopShooting();
         StartCoroutine(FireRoutine(downTime, upTime));
 
