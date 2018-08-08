@@ -34,7 +34,14 @@ public class SaveScript {
                 new LevelInfo(2,4),
                 new LevelInfo(2,5),
                 new LevelInfo(2,6),
-                new LevelInfo(2,7)
+                new LevelInfo(2,7),
+                new LevelInfo(3,1),
+                new LevelInfo(3,2),
+                new LevelInfo(3,3),
+                new LevelInfo(3,4),
+                new LevelInfo(3,5),
+                new LevelInfo(3,6),
+                new LevelInfo(3,7)
                 };
         }
 
