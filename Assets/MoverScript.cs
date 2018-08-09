@@ -105,7 +105,7 @@ public class MoverScript : MonoBehaviour {
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
 
         if(moverType == MoverType.PLATAFORM)
