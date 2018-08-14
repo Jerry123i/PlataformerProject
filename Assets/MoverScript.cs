@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,6 +25,8 @@ public class MoverScript : MonoBehaviour {
     private Transform passager;
 
     public bool working = true;
+    public Action onWorkingChanged;
+
 
     private void Awake()
     {
@@ -108,9 +111,12 @@ public class MoverScript : MonoBehaviour {
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
 
+        
+
         if(moverType == MoverType.PLATAFORM)
         {
             working = true;
+            if(onWorkingChanged != null ) onWorkingChanged();
 
             passager = collision.gameObject.transform;
             passager.transform.SetParent(this.transform);

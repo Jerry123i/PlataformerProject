@@ -6,20 +6,24 @@ public class ConjointedMoverScript : MoverScript
 {
 
     public MoverScript jointedMoverScript;
-
+    
 	// Use this for initialization
 	void Start () {
 
         moverMode = jointedMoverScript.moverMode;
         working = jointedMoverScript.working;
+
+        jointedMoverScript.onWorkingChanged += () => { working = jointedMoverScript.working; };
 		
 	}
 
-    protected override void OnCollisionEnter2D(Collision2D collision)
-    {
+    //protected override void OnCollisionEnter2D(Collision2D collision)
+    //{
         
-    }
+    //}
     //TODO FAZER ELE LIGAR QUANDO O OUTRO LIGA TAMBÉM
+
+    // Amor e felicidade para todos :3
 
 
 

@@ -9,7 +9,7 @@ public class CameraReconfiguratorEditor : Editor {
     public float cameraLadoX = 20f;
     public float cameraLadoY = 12f;
 
-    private void OnSceneGUI()
+    protected void OnSceneGUI()
     {
         var obj = target as CameraAreaReconfigurator;
 

@@ -57,7 +57,7 @@ public class MoverScriptEditor : Editor {
 
     }
 
-    private void RotationMenu(MoverScript obj)
+    protected void RotationMenu(MoverScript obj)
     {
 
 
@@ -80,7 +80,7 @@ public class MoverScriptEditor : Editor {
         
     }
 
-    private void OnceMenu(MoverScript obj)
+    protected void OnceMenu(MoverScript obj)
     {
         string butonText;
 
@@ -163,7 +163,7 @@ public class MoverScriptEditor : Editor {
 
     }
 
-    private void CycleMenu(MoverScript obj)
+    protected void CycleMenu(MoverScript obj)
     {
 
         string butonText;
@@ -245,7 +245,7 @@ public class MoverScriptEditor : Editor {
         EditorGUILayout.EndVertical();
     }
 
-    private void RotationOnScene(MoverScript obj){
+    protected void RotationOnScene(MoverScript obj){
         
         obj.rotationCenter = Handles.PositionHandle(obj.rotationCenter, Quaternion.identity);
 
@@ -263,7 +263,7 @@ public class MoverScriptEditor : Editor {
 
     }
 
-    private void OnceOnScene(MoverScript obj)
+    protected void OnceOnScene(MoverScript obj)
     {
         if (obj.points == null)
         {
@@ -340,7 +340,7 @@ public class MoverScriptEditor : Editor {
 
     }
 
-    private void CycleOnScene(MoverScript obj){
+    protected void CycleOnScene(MoverScript obj){
 
         if (obj.points == null)
         {
@@ -415,7 +415,7 @@ public class MoverScriptEditor : Editor {
 
     }
 
-    private void OnSceneGUI()
+    protected void OnSceneGUI()
     {
         
         var obj = target as MoverScript;
@@ -442,7 +442,7 @@ public class MoverScriptEditor : Editor {
 
     }
 
-    private void ToggleAllLocks(bool x)
+    protected void ToggleAllLocks(bool x)
     {
         for(int i = 0; i < lockCycleTransforms.Count; i++)
         {
