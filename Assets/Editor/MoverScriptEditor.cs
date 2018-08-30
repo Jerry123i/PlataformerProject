@@ -410,9 +410,7 @@ public class MoverScriptEditor : Editor {
                         Handles.DrawLine(obj.points[i], obj.points[i + 1]);
                     }
                 }
-
             }
-
     }
 
     protected void OnSceneGUI()
@@ -435,11 +433,8 @@ public class MoverScriptEditor : Editor {
                 break;
 
             default:
-                break;
-
-                
+                break;                
         }
-
     }
 
     protected void ToggleAllLocks(bool x)
