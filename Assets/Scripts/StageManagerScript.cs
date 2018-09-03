@@ -57,31 +57,31 @@ public class StageManagerScript : MonoBehaviour {
 
         if (Input.GetKeyDown("1"))
         {
-            SceneManager.LoadScene("Level2_1");
+            SceneManager.LoadScene("Level3_1");
         }
         if (Input.GetKeyDown("2"))
         {
-            SceneManager.LoadScene("Level2_2");
+            SceneManager.LoadScene("Level3_2");
         }
         if (Input.GetKeyDown("3"))
         {
-            SceneManager.LoadScene("Level2_3");
+            SceneManager.LoadScene("Level3_3");
         }
         if (Input.GetKeyDown("4"))
         {
-            SceneManager.LoadScene("Level2_4");
+            SceneManager.LoadScene("Level3_4");
         }
         if (Input.GetKeyDown("5"))
         {
-            SceneManager.LoadScene("Level2_5");
+            SceneManager.LoadScene("Level3_5");
         }
         if (Input.GetKeyDown("6"))
         {
-            SceneManager.LoadScene("Level2_6");
+            SceneManager.LoadScene("Level3_6");
         }
         if (Input.GetKeyDown("7"))
         {
-            SceneManager.LoadScene("Level2_7");
+            SceneManager.LoadScene("Level3_7");
         }
     }
 

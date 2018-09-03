@@ -50,4 +50,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mundo2/Level2_1.unity
     guid: e6496bcce951d914ea6beb46799d7e42
+  - enabled: 1
+    path: Assets/Scenes/Mundo3/Level3_1.unity
+    guid: 0f88f9046e096ba45aed90abf6893fe9
+  - enabled: 1
+    path: Assets/Scenes/Mundo3/Level3_2.unity
+    guid: b38a6e20aa4059f40b2a7592a5606187
+  - enabled: 1
+    path: Assets/Scenes/Mundo3/Level3_3.unity
+    guid: 803aea82d673fef4daaf1e8270d40e2d
+  - enabled: 1
+    path: Assets/Scenes/Mundo3/Level3_4.unity
+    guid: 96b8b9a04b703684c8e7e325d8efdba4
+  - enabled: 1
+    path: Assets/Scenes/Mundo3/Level3_5.unity
+    guid: 55e833626d914244992bf8876183171c
+  - enabled: 1
+    path: Assets/Scenes/Mundo3/Level3_6.unity
+    guid: 2e6ebd527d3453d48b7ad14e77986ab3
+  - enabled: 1
+    path: Assets/Scenes/Mundo3/Level3_7.unity
+    guid: 6b0f5e19f3da5b54ea0171cc7b7f68b3
   m_configObjects: {}

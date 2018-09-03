@@ -9,7 +9,7 @@ public class MenuHubGatekeeper : MonoBehaviour {
     
     private int gateToOpen;
 
-    static int totalLevels = 2;
+    static int totalLevels = 3;
 
     public GameObject weakTile1;
     public GameObject weakTile2;
