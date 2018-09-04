@@ -429,6 +429,7 @@ MonoBehaviour:
   offsetMinY: 0
   followPlayerX: 0
   followPlayerY: 0
+  LerpT: 2.2
 --- !u!1 &340713122
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,11 +939,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.5267175
+      value: 1.4134276
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.9160305
+      value: 0.84805655
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
@@ -1235,6 +1236,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 212652372483019278, guid: 1bd8d5c63a241ee4fa568d3508e43727,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1caec177400044545a72502402694751,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bd8d5c63a241ee4fa568d3508e43727, type: 2}
   m_IsPrefabParent: 0
@@ -3568,6 +3575,7 @@ MonoBehaviour:
   offsetMinY: 0
   followPlayerX: 0
   followPlayerY: 0
+  LerpT: 2.2
 --- !u!114 &1779601930
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class SaveScript {
 
-    static int totalLevels=2;
+    const string expectedSaveVer = "0.01";
 
-    public LevelInfo[] currentLevels;
+    static int totalWorlds=3;    
+
+    public List<LevelInfo> currentLevels;
     public SaveInfo saveInfo;
 
     private static string savePath = Application.persistentDataPath + "/koizoSave.dat";
@@ -20,29 +22,31 @@ public class SaveScript {
 
         if (saveInfo.levelInfos == null)
         {
-            saveInfo.levelInfos = new LevelInfo[]{
-                new LevelInfo(1,1, startsAvailable: true),
-                new LevelInfo(1,2),
-                new LevelInfo(1,3),
-                new LevelInfo(1,4),
-                new LevelInfo(1,5),
-                new LevelInfo(1,6),
-                new LevelInfo(1,7),
-                new LevelInfo(2,1),
-                new LevelInfo(2,2),
-                new LevelInfo(2,3),
-                new LevelInfo(2,4),
-                new LevelInfo(2,5),
-                new LevelInfo(2,6),
-                new LevelInfo(2,7),
-                new LevelInfo(3,1),
-                new LevelInfo(3,2),
-                new LevelInfo(3,3),
-                new LevelInfo(3,4),
-                new LevelInfo(3,5),
-                new LevelInfo(3,6),
-                new LevelInfo(3,7)
-                };
+            saveInfo.levelInfos = new List<LevelInfo>();
+
+            saveInfo.levelInfos.Add(new LevelInfo(1, 1, startsAvailable: true));
+            saveInfo.levelInfos.Add(new LevelInfo(1, 2));
+            saveInfo.levelInfos.Add(new LevelInfo(1, 3));
+            saveInfo.levelInfos.Add(new LevelInfo(1, 4));
+            saveInfo.levelInfos.Add(new LevelInfo(1, 5));
+            saveInfo.levelInfos.Add(new LevelInfo(1, 6));
+            saveInfo.levelInfos.Add(new LevelInfo(1, 7));
+            saveInfo.levelInfos.Add(new LevelInfo(2, 1));
+            saveInfo.levelInfos.Add(new LevelInfo(2, 2));
+            saveInfo.levelInfos.Add(new LevelInfo(2, 3));
+            saveInfo.levelInfos.Add(new LevelInfo(2, 4));
+            saveInfo.levelInfos.Add(new LevelInfo(2, 5));        
+            saveInfo.levelInfos.Add(new LevelInfo(2, 6));
+            saveInfo.levelInfos.Add(new LevelInfo(2, 7));
+            saveInfo.levelInfos.Add(new LevelInfo(3, 1));
+            saveInfo.levelInfos.Add(new LevelInfo(3, 2));
+            saveInfo.levelInfos.Add(new LevelInfo(3, 3));
+            saveInfo.levelInfos.Add(new LevelInfo(3, 4));
+            saveInfo.levelInfos.Add(new LevelInfo(3, 5));
+            saveInfo.levelInfos.Add(new LevelInfo(3, 6));
+            saveInfo.levelInfos.Add(new LevelInfo(3, 7));
+
+            saveInfo.ver = expectedSaveVer;
         }
 
         currentLevels = saveInfo.levelInfos;
@@ -63,6 +67,12 @@ public class SaveScript {
             saveInfo = info;
 
             file.Close();
+
+            if(saveInfo.ver != expectedSaveVer)
+            {
+                UpdateSaveVer(saveInfo);
+            }
+
         }
         else
         {
@@ -81,7 +91,7 @@ public class SaveScript {
 
         data.gates = new List<WorldGate>();
 
-        for (int i = 0; i < totalLevels+1; i++)
+        for (int i = 0; i < totalWorlds+1; i++)
         {
             data.gates.Add(new WorldGate());
         }
@@ -106,20 +116,28 @@ public class SaveScript {
 
     }
 
+    public void UpdateSaveVer(SaveInfo saveInfo)
+    {
+        //TODO
+            //Verificar quais níveis existem e quais eu quero e adicionar os que não tem
+    }
+
 }
 
 [System.Serializable]
 public class SaveInfo
 {
-    public LevelInfo[] levelInfos;
+    public List<LevelInfo> levelInfos;
     public List<WorldGate> gates;
 
-    public SaveInfo(LevelInfo[] levels)
+    public string ver;
+
+    public SaveInfo(List<LevelInfo> levels)
     {
         levelInfos = levels;
     }
 
-    public SaveInfo(LevelInfo[] levels, List<WorldGate> worldGates)
+    public SaveInfo(List<LevelInfo> levels, List<WorldGate> worldGates)
     {
         levelInfos = levels;
         gates = worldGates;

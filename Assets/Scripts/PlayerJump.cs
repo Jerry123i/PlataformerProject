@@ -13,6 +13,7 @@ public class PlayerJump : MonoBehaviour {
     public float fallMultiplier;
     public float lowJumpMultiplier;
 
+    [SerializeField]
     private GravityState gravityState;
     private float gravityMultiplier;
 
