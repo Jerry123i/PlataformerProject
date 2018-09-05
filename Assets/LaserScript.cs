@@ -16,6 +16,8 @@ public class LaserScript : MonoBehaviour {
     public float upTime;
     public float startDelay;
 
+    public bool infinite;
+
     private float colliderTurnOnDelay = 0.34f;
 
     private void Awake()
@@ -66,11 +68,13 @@ public class LaserScript : MonoBehaviour {
         yield return new WaitForSeconds(colliderTurnOnDelay);
 
         ActivateColliders();
-        
-        yield return new WaitForSeconds(upT - colliderTurnOnDelay);
-        StopShooting();
-        StartCoroutine(FireRoutine(downTime, upTime));
 
+        if (!infinite)
+        {
+            yield return new WaitForSeconds(upT - colliderTurnOnDelay);
+            StopShooting();
+            StartCoroutine(FireRoutine(downTime, upTime));    
+        }
     }
 
     void StartShooting()
@@ -95,7 +99,7 @@ public class LaserScript : MonoBehaviour {
 
     }
 
-    void StopShooting()
+    public void StopShooting()
     {
         animator.SetTrigger("Stop");
         trigger.enabled = false;

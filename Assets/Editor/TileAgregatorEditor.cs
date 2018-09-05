@@ -15,6 +15,7 @@ public class TileAgregatorEditor : Editor {
         if (GUILayout.Button("Full Agregate", GUILayout.Height(35)))
         {
             obj.myCollider = obj.gameObject.GetComponent<BoxCollider2D>();
+            obj.gameObject.layer = LayerMask.NameToLayer("Tile");
             GetChildrensBox(obj);
             CenterOnChildren(obj);
             AddCollidersList(obj.myCollider, obj.childColiders);

@@ -67,7 +67,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1, y: 0.85}
+  m_Size: {x: 2.1, y: 0.95}
   m_EdgeRadius: 0
 --- !u!95 &95605663220966454
 Animator:
@@ -115,6 +115,7 @@ MonoBehaviour:
   downTime: 2
   upTime: 3
   startDelay: 2
+  infinite: 0
 --- !u!212 &212881754272262760
 SpriteRenderer:
   m_ObjectHideFlags: 1

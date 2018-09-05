@@ -5,34 +5,26 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class MenuHubGatekeeper : MonoBehaviour {
-
     
     private int gateToOpen;
 
     static int totalLevels = 3;
 
+    //Gate 2 stuff
     public GameObject weakTile1;
     public GameObject weakTile2;
-    public GameObject movingPlataformWorld2;
+
+    //Gate 3 stuff
+    public GameObject laserBarrier;
 
     private GameObject cameraGO;
 
     public List<GameObject> gateTriggers;
-
-    private void Start()
-    {      
-        //cameraGO = Camera.main.gameObject;
-        //DontDestroyOnLoad(this);
-        //UpdateWorldInfo();
-       // OpenAllValidGates();
-        //ReadyNextGate();
-    }
-
+    
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -78,6 +70,12 @@ public class MenuHubGatekeeper : MonoBehaviour {
             Destroy(weakTile1);
             Destroy(weakTile2);
         }
+
+        if (StageManagerScript.save.saveInfo.gates[3].opened)
+        {
+            Destroy(laserBarrier);
+        }
+
     }
 
     private void ReadyNextGate()
@@ -125,12 +123,40 @@ public class MenuHubGatekeeper : MonoBehaviour {
 
     }
 
+    IEnumerator OpenGate3()
+    {
+        Vector3 cameraPreviousPosition;
+
+        FindObjectOfType<PlayerScript>().LockedMovement = true;
+        FindObjectOfType<PlayerScript>().GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        cameraGO.GetComponent<CameraScript>().enabled = false;
+        cameraPreviousPosition = cameraGO.transform.position;
+        cameraGO.transform.DOMove(new Vector3(laserBarrier.transform.position.x, laserBarrier.transform.position.y, Camera.main.transform.position.z - 2.5f), 0.6f);
+
+        yield return new WaitForSeconds(1.1f);
+
+        laserBarrier.GetComponent<LaserScript>().StopShooting();
+
+        yield return new WaitForSeconds(0.8f);
+
+        cameraGO.transform.DOMove(cameraPreviousPosition, 0.6f);
+        cameraGO.GetComponent<CameraScript>().enabled = true;
+        FindObjectOfType<PlayerScript>().LockedMovement = false;
+
+        StageManagerScript.save.saveInfo.GetLevel(3, 1).available = true;
+
+
+    }
+
     public void StartAnimations(int world)
     {
         switch (world)
         {
             case 2:
                 StartCoroutine(OpenGate2());    
+                break;
+            case 3:
+                StartCoroutine(OpenGate3());
                 break;
         }
 
