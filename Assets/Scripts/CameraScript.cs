@@ -19,7 +19,7 @@ public class CameraScript : MonoBehaviour {
     public bool followPlayerX;
     public bool followPlayerY;
 
-    public float LerpT = 2.2f;
+    public float LerpT = .001f;
 
     private void Awake()
     {
@@ -38,16 +38,18 @@ public class CameraScript : MonoBehaviour {
             if(player.GetComponent<Transform>().position.x > transform.position.x + offsetMaxX)
             {
                 //transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x - offsetMaxX, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
-                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + (Mathf.Abs(offsetMaxX)), transform.position.y, -10.0f), Time.deltaTime * LerpT);
+                //transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + (Mathf.Abs(offsetMaxX)), transform.position.y, -10.0f), Time.deltaTime * LerpT);
+                transform.position = new Vector3(transform.position.x + (Mathf.Abs(offsetMaxX)), transform.position.y, -10.0f);
             }
 
             if(player.GetComponent<Transform>().position.x < transform.position.x + offsetMinX)
             {
                 //transform.position = Vector3.Lerp(transform.position, new Vector3(player.GetComponent<Transform>().position.x + offsetMinX, transform.position.y, -10.0f), Time.deltaTime * 2.2f);
-                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x - (Mathf.Abs(offsetMinX)), transform.position.y, -10.0f), Time.deltaTime * LerpT);
+                //transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x - (Mathf.Abs(offsetMinX)), transform.position.y, -10.0f), Time.deltaTime * LerpT);
+                transform.position = new Vector3(transform.position.x - (Mathf.Abs(offsetMinX)), transform.position.y, -10.0f);
             }
 
-            transform.position = DivideByStepVector(transform.position);
+            //transform.position = DivideByStepVector(transform.position);
         }
 
         if (followPlayerY)
@@ -55,11 +57,13 @@ public class CameraScript : MonoBehaviour {
 
             if (player.GetComponent<Transform>().position.y > transform.position.y + offsetMaxY)
             {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x ,transform.position.y + (Mathf.Abs(offsetMaxY)), -10.0f), Time.deltaTime * LerpT);
+                //transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x ,transform.position.y + (Mathf.Abs(offsetMaxY)), -10.0f), Time.deltaTime * LerpT);
+                transform.position = new Vector3 (transform.position.x ,transform.position.y + (Mathf.Abs(offsetMaxY)), -10.0f);
             }
             if (player.GetComponent<Transform>().position.y < transform.position.y + offsetMinY)
             {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y - (Mathf.Abs(offsetMinY)) , -10.0f), Time.deltaTime * LerpT);
+                //transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y - (Mathf.Abs(offsetMinY)) , -10.0f), Time.deltaTime * LerpT);
+                transform.position = new Vector3(transform.position.x, transform.position.y - (Mathf.Abs(offsetMinY)), -10.0f);
             }
 
             transform.position = DivideByStepVector(transform.position);
@@ -169,17 +173,20 @@ public class CameraScript : MonoBehaviour {
 
     private Vector3 DivideByStepVector(Vector3 v)
     {
-        return new Vector3(DivideByStep(v.x), DivideByStep(v.y), DivideByStep(v.z));
+        //return new Vector3(DivideByStep(v.x), DivideByStep(v.y), DivideByStep(v.z));
+
+        return v;
     }
 
 
 
     private float DivideByStep(float val)
     {
-        float x;
+        //float x;
 
-        x = Mathf.RoundToInt(val / moveStep);
-        return (x * moveStep);
+        //x = Mathf.RoundToInt(val / moveStep);
+        //return (x * moveStep);
+        return val;
     }
 
 

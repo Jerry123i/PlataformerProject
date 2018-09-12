@@ -53,6 +53,7 @@ public class CameraAreaReconfigurator : MonoBehaviour {
             active = true;
         }
     }
+
     private void ShiftCamera()
     {
         active = false;
