@@ -47,12 +47,20 @@ public class PlayerScript : MonoBehaviour {
 
     void Update () {
                 
-        PlayerMove();
-        UpdateAnimator();
         EndlessPit();
         Suicide();
       
 	}
+
+    private void FixedUpdate()
+    {
+        PlayerMove();
+    }
+
+    private void LateUpdate()
+    {
+        UpdateAnimator();                
+    }
 
     public void Die()
     {

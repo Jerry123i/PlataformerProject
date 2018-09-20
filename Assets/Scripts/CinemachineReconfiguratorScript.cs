@@ -3,54 +3,72 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class CinemachineReconfiguratorScript : MonoBehaviour {
 
-    public GameObject focusPoint;
+    public CinemachineVirtualCamera cinemachine;
 
-    public CinemachineVirtualCamera cinemachineFolow;
-    public CinemachineVirtualCamera cinemachineStatic;
-
+    private GlobalCinemachineDirector director;
 
     private float clock;
     public float timeLimit;
 
-    public bool active;
+    public bool triggerIsActive;
+    public bool firstCamera;
+    public bool staticCamera;
 
     private void Awake()
     {
-        cinemachineStatic.Priority = 20;
-        cinemachineFolow.Priority = 10;
+        director = FindObjectOfType<GlobalCinemachineDirector>();        
     }
 
-    private void Update()
+    private void Start()
     {
-        if(clock>= timeLimit)
+        if (firstCamera)
         {
             MoveCamera();
         }
     }
 
+    private void Update()
+    {
+        if (!staticCamera)
+        {
+            if(clock>= timeLimit)
+            {
+                MoveCamera();
+            }
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerScript>())
+        if (!staticCamera)
         {
-            clock += Time.deltaTime;
+            if (collision.GetComponent<PlayerScript>())
+            {
+                clock += Time.deltaTime;
+            }
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerScript>())
+        if (!staticCamera)
         {
-            clock = 0;
-            active = true;
+            if (collision.GetComponent<PlayerScript>())
+            {
+                clock = 0;
+                triggerIsActive = true;
+            }
         }
     }
 
 
     void MoveCamera()
     {
-        cinemachineFolow.Priority = 100;        
+        director.ActivateCamera(cinemachine);
     }
 
 }
