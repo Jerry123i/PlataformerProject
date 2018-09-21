@@ -41,6 +41,15 @@ public class CinemachineReconfiguratorScript : MonoBehaviour {
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerScript>())
+        {
+            Debug.Log("Trigger enter(" + name + ")");
+        }
+
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (!staticCamera)
@@ -68,6 +77,7 @@ public class CinemachineReconfiguratorScript : MonoBehaviour {
 
     void MoveCamera()
     {
+        Debug.Log("Camera move call(" + name+")");
         director.ActivateCamera(cinemachine);
     }
 
