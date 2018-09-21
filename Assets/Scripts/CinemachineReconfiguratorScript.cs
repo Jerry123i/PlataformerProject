@@ -32,7 +32,7 @@ public class CinemachineReconfiguratorScript : MonoBehaviour {
 
     private void Update()
     {
-        if (!staticCamera)
+        if (!staticCamera && triggerIsActive)
         {
             if(clock>= timeLimit)
             {
@@ -79,6 +79,7 @@ public class CinemachineReconfiguratorScript : MonoBehaviour {
     {
         Debug.Log("Camera move call(" + name+")");
         director.ActivateCamera(cinemachine);
+        triggerIsActive = false;
     }
 
 }
