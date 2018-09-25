@@ -13,24 +13,28 @@ public class MenuHubGatekeeper : MonoBehaviour {
     //Gate 2 stuff
     public GameObject weakTile1;
     public GameObject weakTile2;
+    public GameObject gate2Camera;
 
     //Gate 3 stuff
     public GameObject laserBarrier;
+    public GameObject gate3Camera;
 
-    private GameObject cameraGO;
+    public GameObject cameraFollow;
 
     public List<GameObject> gateTriggers;
+
+    private GlobalCinemachineDirector director;
     
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        director = FindObjectOfType<GlobalCinemachineDirector>();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("OnSceneLoad MenuHUBGate");
-
-        cameraGO = Camera.main.gameObject;
+                
         UpdateWorldInfo();
         OpenAllValidGates();
         ReadyNextGate();
@@ -102,9 +106,10 @@ public class MenuHubGatekeeper : MonoBehaviour {
 
         FindObjectOfType<PlayerScript>().LockedMovement = true;
         FindObjectOfType<PlayerScript>().GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        cameraGO.GetComponent<CameraScript>().enabled = false;
-        cameraPreviousPosition = cameraGO.transform.position;
-        cameraGO.transform.DOMove(new Vector3(weakTile1.transform.position.x, weakTile1.transform.position.y, Camera.main.transform.position.z), 0.6f);
+        //cameraFollow.GetComponent<CameraScript>().enabled = false;
+        cameraPreviousPosition = cameraFollow.transform.position;
+        director.ActivateCamera(gate2Camera);
+        gate2Camera.transform.DOMove(new Vector3(weakTile1.transform.position.x, weakTile1.transform.position.y, Camera.main.transform.position.z), 0.6f);
 
         yield return new WaitForSeconds(1.1f);
 
@@ -115,8 +120,9 @@ public class MenuHubGatekeeper : MonoBehaviour {
 
         yield return new WaitForSeconds(1.7f);
 
-        cameraGO.transform.DOMove(cameraPreviousPosition, 0.6f);
-        cameraGO.GetComponent<CameraScript>().enabled = true;
+        gate2Camera.transform.DOMove(cameraPreviousPosition, 0.6f);
+        //cameraFollow.GetComponent<CameraScript>().enabled = true;
+        director.ActivateCamera(cameraFollow);
         FindObjectOfType<PlayerScript>().LockedMovement = false;
 
         StageManagerScript.save.saveInfo.GetLevel(2, 1).available = true;
@@ -129,9 +135,10 @@ public class MenuHubGatekeeper : MonoBehaviour {
 
         FindObjectOfType<PlayerScript>().LockedMovement = true;
         FindObjectOfType<PlayerScript>().GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        cameraGO.GetComponent<CameraScript>().enabled = false;
-        cameraPreviousPosition = cameraGO.transform.position;
-        cameraGO.transform.DOMove(new Vector3(laserBarrier.transform.position.x, laserBarrier.transform.position.y, Camera.main.transform.position.z - 2.5f), 0.6f);
+        //cameraFollow.GetComponent<CameraScript>().enabled = false;
+        cameraPreviousPosition = cameraFollow.transform.position;
+        director.ActivateCamera(gate3Camera);
+        gate3Camera.transform.DOMove(new Vector3(laserBarrier.transform.position.x, laserBarrier.transform.position.y, Camera.main.transform.position.z - 2.5f), 0.6f);
 
         yield return new WaitForSeconds(1.1f);
 
@@ -139,8 +146,9 @@ public class MenuHubGatekeeper : MonoBehaviour {
 
         yield return new WaitForSeconds(0.8f);
 
-        cameraGO.transform.DOMove(cameraPreviousPosition, 0.6f);
-        cameraGO.GetComponent<CameraScript>().enabled = true;
+        cameraFollow.transform.DOMove(cameraPreviousPosition, 0.6f);
+        //cameraFollow.GetComponent<CameraScript>().enabled = true;
+        director.ActivateCamera(cameraFollow);
         FindObjectOfType<PlayerScript>().LockedMovement = false;
 
         StageManagerScript.save.saveInfo.GetLevel(3, 1).available = true;

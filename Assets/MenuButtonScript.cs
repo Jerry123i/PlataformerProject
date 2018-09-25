@@ -20,8 +20,7 @@ public class MenuButtonScript : MonoBehaviour, ISelectHandler {
     }
 
     public void OnSelect(BaseEventData eventdata)
-    {
-        Debug.Log(name + ": onselect");
+    {        
         Animator animator = GetComponent<Animator>();
         animator.SetTrigger("Highlighted");
     }

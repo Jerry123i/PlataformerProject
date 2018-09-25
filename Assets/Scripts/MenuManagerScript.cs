@@ -53,15 +53,10 @@ public class MenuManagerScript : MonoBehaviour {
 
 
     public void OpenStageMenu(int n)
-    {
-
-
-        PlayerScript player;
-        player = FindObjectOfType<PlayerScript>();
+    {       
         FindObjectOfType<PlayerScript>().LockedMovement = true;
 
         ActiveMenu = null;
-
 
         foreach(WorldMenuScript wms in menusCanvas)
         {
@@ -77,13 +72,13 @@ public class MenuManagerScript : MonoBehaviour {
 
         ActiveMenu.gameObject.SetActive(true);
 
-        for(int i = 0; i < ActiveMenu.list.Count; i++)
+        for(int i = 0; i < ActiveMenu.list.Count - 1; i++)
         {
+            Debug.Log("Botao[" + i + "] ( "+ ActiveMenu.list[i].name + ") / Fase " + ActiveMenu.worldNumber + "_" + (i+1));
             ActiveMenu.list[i].interactable = StageManagerScript.save.saveInfo.GetLevel(ActiveMenu.worldNumber, i + 1).available;
         }
 
-        //Debug.Log("activeMenu:" + activeMenu.ToString());
-        //Debug.Log("activeMen")
+        Debug.Log("activeMenu:" + activeMenu.ToString());
 
         if (ActiveMenu.list[0].interactable)
         {
@@ -94,7 +89,8 @@ public class MenuManagerScript : MonoBehaviour {
         else
         {
             Debug.Log("Back selected");
-            EventSystem.current.SetSelectedGameObject(ActiveMenu.list[ActiveMenu.list.Count - 1].gameObject);
+            EventSystem.current.SetSelectedGameObject(ActiveMenu.list[ActiveMenu.list.Count- 1].gameObject);
+            Debug.Log("Deveria ser o back:" + ActiveMenu.list[activeMenu.list.Count - 1].gameObject.ToString());
             ActiveMenu.list[activeMenu.list.Count - 1].gameObject.GetComponent<MenuBackButtonScript>().OnSelect(new BaseEventData(EventSystem.current));
         }
 
@@ -102,7 +98,6 @@ public class MenuManagerScript : MonoBehaviour {
 
     public void CloseStageMenu()
     {
-
         PlayerScript player;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         if (player == null)
@@ -113,7 +108,6 @@ public class MenuManagerScript : MonoBehaviour {
 
         ActiveMenu.gameObject.SetActive(false);
         ActiveMenu = null;
-
     }
 
 }
