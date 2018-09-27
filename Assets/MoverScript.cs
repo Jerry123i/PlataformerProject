@@ -33,7 +33,17 @@ public class MoverScript : MonoBehaviour {
         target = points[targetN];
     }
 
+    private void Update()
+    {
+        
+    }
+
     private void FixedUpdate()
+    {
+
+    }
+
+    private void LateUpdate()
     {
         if (working)
         {
@@ -55,7 +65,7 @@ public class MoverScript : MonoBehaviour {
                     break;
             }
         }
-
+        
     }
 
     void OnceMovement()
