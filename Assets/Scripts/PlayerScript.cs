@@ -64,8 +64,17 @@ public class PlayerScript : MonoBehaviour {
 
     public void Die()
     {
-         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //Destroy(this.gameObject);
+        lockedMovement = true;        
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        StartCoroutine(DeathAnimation());
+    }
+
+    IEnumerator DeathAnimation()
+    {
+        animator.SetTrigger("Die");
+        yield return null;
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void PlayerMove()

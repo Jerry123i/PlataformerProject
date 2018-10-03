@@ -1440,7 +1440,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4550684557021634, guid: 94fe800ebe340b141bbffd9797e6f3b0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14.4
+      value: -14.32
       objectReference: {fileID: 0}
     - target: {fileID: 4550684557021634, guid: 94fe800ebe340b141bbffd9797e6f3b0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1473,16 +1473,6 @@ Prefab:
     - target: {fileID: 1248105755673450, guid: 94fe800ebe340b141bbffd9797e6f3b0, type: 2}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 50407988241294526, guid: 94fe800ebe340b141bbffd9797e6f3b0,
-        type: 2}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114018438034881602, guid: 94fe800ebe340b141bbffd9797e6f3b0,
-        type: 2}
-      propertyPath: fallMultiplier
-      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94fe800ebe340b141bbffd9797e6f3b0, type: 2}
