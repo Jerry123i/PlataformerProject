@@ -12,7 +12,6 @@ public class MoverScript : MonoBehaviour {
     public MoverType moverType;
 
     public float speed;
-
     
     public Vector3 rotationCenter;
     public bool reverse;
@@ -25,8 +24,7 @@ public class MoverScript : MonoBehaviour {
     private Transform passager;
 
     public bool working = true;
-    public Action onWorkingChanged;
-
+    public Action onWorkingChanged;   
 
     private void Awake()
     {
@@ -39,11 +37,6 @@ public class MoverScript : MonoBehaviour {
     }
 
     private void FixedUpdate()
-    {
-
-    }
-
-    private void LateUpdate()
     {
         if (working)
         {
@@ -65,6 +58,11 @@ public class MoverScript : MonoBehaviour {
                     break;
             }
         }
+    }
+
+    private void LateUpdate()
+    {
+        
         
     }
 
@@ -119,25 +117,33 @@ public class MoverScript : MonoBehaviour {
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
-    {
+    {       
 
         
+        
+    }
 
-        if(moverType == MoverType.PLATAFORM)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (moverType == MoverType.PLATAFORM)
         {
             working = true;
-            if(onWorkingChanged != null ) onWorkingChanged();
+            if (onWorkingChanged != null) onWorkingChanged();
 
             passager = collision.gameObject.transform;
             passager.transform.SetParent(this.transform);
         }
-        
     }
-    
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        transform.DetachChildren();
+    }
+
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        transform.DetachChildren();
+        
     }
 
     private void RotateChangeTarget()

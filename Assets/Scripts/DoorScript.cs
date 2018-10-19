@@ -105,7 +105,7 @@ public class DoorScript : MonoBehaviour {
             }
             else
             {
-                if (Input.GetButtonDown("Vertical") && MenuManagerScript.instance.ActiveMenu == null)
+                if (Input.GetAxisRaw("Vertical") >= 1 && MenuManagerScript.instance.ActiveMenu == null)
                 {
                     MenuManagerScript.instance.OpenStageMenu(worldDoor);
                 }

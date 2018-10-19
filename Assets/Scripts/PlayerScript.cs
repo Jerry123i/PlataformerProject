@@ -37,8 +37,11 @@ public class PlayerScript : MonoBehaviour {
 
     public Vector3 hitZoneOffset;
 
+    public float idleClock;
+
     private void Awake()
     {
+        idleClock = 0;
         LockedMovement = true;
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -49,6 +52,20 @@ public class PlayerScript : MonoBehaviour {
                 
         EndlessPit();
         Suicide();
+        idleClock += Time.deltaTime;
+        if(idleClock >= 4f)
+        {
+            idleClock = 0.0f;
+            if(Random.Range(0,2) == 1)
+            {
+                animator.SetTrigger("IdleLook");
+            }
+            else
+            {
+                animator.SetTrigger("IdleBlink");
+            }
+        }
+
       
 	}
 
@@ -66,6 +83,7 @@ public class PlayerScript : MonoBehaviour {
     {
         lockedMovement = true;        
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        GetComponent<Collider2D>().enabled = false;
         StartCoroutine(DeathAnimation());
     }
 
@@ -73,30 +91,32 @@ public class PlayerScript : MonoBehaviour {
     {
         animator.SetTrigger("Die");
         yield return null;
-        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 );
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void PlayerMove()
     {                
 
-        if (Input.GetKey("left"))
+        if (Input.GetAxisRaw("Horizontal") <= -1)
         {
+            idleClock = 0;
             if(rb.velocity.x > -speedCap)
             {
                 rb.velocity += currentSpeed * Time.deltaTime * Vector2.left;
             }
         }
 
-        if (Input.GetKey("right"))
+        if (Input.GetAxisRaw("Horizontal") >= 1)
         {
+            idleClock = 0;
             if (rb.velocity.x < speedCap)
             {
                 rb.velocity += currentSpeed * Time.deltaTime * Vector2.right;
             }
         }
 
-        if(!Input.GetKey("left") && !Input.GetKey("right"))
+        if(Input.GetAxisRaw("Horizontal") == 0)
         {
             MovimentStoper();
         }  
@@ -119,7 +139,7 @@ public class PlayerScript : MonoBehaviour {
 
         rb.velocity += Time.deltaTime * a * Vector2.right * deacelerator;
 
-        if (Mathf.Abs(rb.velocity.x) < 0.2f){
+        if (Mathf.Abs(rb.velocity.x) < 0.35f){
             rb.velocity = (new Vector2(0.0f, rb.velocity.y));
         }
 
@@ -129,12 +149,12 @@ public class PlayerScript : MonoBehaviour {
     {
         animator.SetBool("IsRunning", (Mathf.Abs(rb.velocity.x) > 1.0f));
 
-        if (sr.flipX && Input.GetKeyDown("right"))
+        if (Input.GetAxisRaw("Horizontal") >= 1)
         {
             sr.flipX = false;
         }
 
-        if(!sr.flipX && Input.GetKeyDown("left"))
+        if (Input.GetAxisRaw("Horizontal") <= -1)
         {
             sr.flipX = true;
         }
@@ -152,7 +172,7 @@ public class PlayerScript : MonoBehaviour {
 
     private void Suicide()
     {
-        if(Input.GetKey("r")){
+        if(Input.GetButtonDown("Suicide")){
             Die();
         }
     }

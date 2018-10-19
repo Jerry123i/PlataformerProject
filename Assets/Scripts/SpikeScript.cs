@@ -8,6 +8,7 @@ public class SpikeScript : MonoBehaviour {
     {
         if (collision.GetComponent<PlayerScript>())
         {
+            Debug.Log("Kill");
             collision.GetComponent<PlayerScript>().Die();
         }
     }

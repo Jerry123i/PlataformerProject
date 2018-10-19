@@ -41,6 +41,7 @@ public class PlayerJump : MonoBehaviour {
             if (Input.GetButtonDown("Jump") && IsOnFloor())
             {
                 rb.velocity += Vector2.up * jumpVelocity;
+                player.idleClock = 0;
             }
 
         }

@@ -351,7 +351,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4248107391232178, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.15
+      value: -2.1
       objectReference: {fileID: 0}
     - target: {fileID: 4248107391232178, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2524,7 +2524,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 853280397}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.39500028, y: -2.575, z: 0}
+  m_LocalPosition: {x: 0.425, y: -2.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 202874062}
@@ -2648,7 +2648,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4266492628567160, guid: 836b8a294bdc1734db51139f2c5289d1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.025
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4266492628567160, guid: 836b8a294bdc1734db51139f2c5289d1, type: 2}
       propertyPath: m_RootOrder
@@ -2968,14 +2968,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 0
-  moverType: 0
+  moverType: 1
   speed: 7
   rotationCenter: {x: 0, y: 0, z: 0}
   reverse: 0
   radius: 0
   points:
-  - {x: -5.35, y: -2.1750002, z: 0}
-  - {x: 5.9500003, y: -2.1750002, z: 0}
+  - {x: -5.35, y: -2.125, z: 0}
+  - {x: 5.9500003, y: -2.125, z: 0}
   targetN: 0
   working: 1
 --- !u!4 &972859047 stripped
@@ -3484,7 +3484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 0
-  moverType: 0
+  moverType: 1
   speed: 6
   rotationCenter: {x: 0, y: 0, z: 0}
   reverse: 0
@@ -4004,7 +4004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 0
-  moverType: 0
+  moverType: 1
   speed: 6
   rotationCenter: {x: 0, y: 0, z: 0}
   reverse: 0
@@ -4528,13 +4528,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 0
-  moverType: 0
+  moverType: 1
   speed: 4.3
   rotationCenter: {x: 0, y: 0, z: 0}
   reverse: 1
   radius: 0
   points:
-  - {x: -6.5, y: 2.5249999, z: 0}
+  - {x: -6.5, y: 2.525, z: 0}
   - {x: -6.5, y: -0.275, z: 0}
   targetN: 1
   working: 1
@@ -4601,11 +4601,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 1
-  moverType: 0
+  moverType: 1
   speed: 7
-  rotationCenter: {x: 1.25, y: 5.325, z: 0}
+  rotationCenter: {x: 1.25, y: 5.3250003, z: 0}
   reverse: 1
-  radius: 3.4250002
+  radius: 3.4499993
   points:
   - {x: -0.1, y: 1.875, z: 0}
   - {x: -0.1, y: 4.875, z: 0}
@@ -5059,11 +5059,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 1
-  moverType: 0
+  moverType: 1
   speed: 7
-  rotationCenter: {x: 1.25, y: 5.325, z: 0}
+  rotationCenter: {x: 1.25, y: 5.3250003, z: 0}
   reverse: 1
-  radius: 3.4249997
+  radius: 3.4000003
   points:
   - {x: -0.1, y: 1.875, z: 0}
   - {x: -0.1, y: 4.875, z: 0}

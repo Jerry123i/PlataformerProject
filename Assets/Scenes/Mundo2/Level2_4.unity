@@ -500,14 +500,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 0
-  moverType: 0
+  moverType: 1
   speed: 7
   rotationCenter: {x: 0, y: 0, z: 0}
   reverse: 0
   radius: 0
   points:
-  - {x: -7.2599993, y: -7.924999, z: 0}
-  - {x: -7.2599993, y: -12.224999, z: 0}
+  - {x: -7.25, y: -7.925, z: 0}
+  - {x: -7.25, y: -12.225, z: 0}
   targetN: 0
   working: 1
 --- !u!1001 &986530783
@@ -943,14 +943,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 0
-  moverType: 0
+  moverType: 1
   speed: 7
   rotationCenter: {x: 0, y: 0, z: 0}
   reverse: 0
   radius: 0
   points:
-  - {x: 0.15, y: -7.4799995, z: 0}
-  - {x: 0.15, y: -11.78, z: 0}
+  - {x: 0.15, y: -7.475, z: 0}
+  - {x: 0.15, y: -11.775001, z: 0}
   targetN: 0
   working: 1
 --- !u!4 &1378278321 stripped
@@ -975,7 +975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 1
-  moverType: 0
+  moverType: 1
   speed: 4
   rotationCenter: {x: 18.02671, y: -11.989479, z: 0}
   reverse: 1
@@ -1081,15 +1081,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.9592326
+      value: 1.3157895
       objectReference: {fileID: 0}
     - target: {fileID: 408844, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.5755396
+      value: 0.7894737
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.0023980816
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2020874, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_BackGroundColor.r
@@ -1113,7 +1113,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2084274, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.0014388489
+      value: 0.0009871669
       objectReference: {fileID: 0}
     - target: {fileID: 2020874, guid: 5d02a4c22e4863b4e879b42840169238, type: 2}
       propertyPath: m_HDR
@@ -1235,7 +1235,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1586322301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.24, y: -3.3, z: -10.05}
+  m_LocalPosition: {x: -4.242671, y: -3.3, z: -10.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1116071829}
@@ -1341,7 +1341,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4362315176301126, guid: 09827ef85bb2ff64da5dba5de3e35ba0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.239998
+      value: -4.242669
       objectReference: {fileID: 0}
     - target: {fileID: 4362315176301126, guid: 09827ef85bb2ff64da5dba5de3e35ba0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1598,7 +1598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 1
-  moverType: 0
+  moverType: 1
   speed: 4
   rotationCenter: {x: 11.474027, y: -12.011794, z: 0}
   reverse: 1
