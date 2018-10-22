@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -999,7 +999,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 449067754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.717396, y: 6.4, z: -10}
+  m_LocalPosition: {x: -21.720001, y: 6.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1306450028}
@@ -4043,7 +4043,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4362315176301126, guid: 09827ef85bb2ff64da5dba5de3e35ba0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.0032897
+      value: 5.9999995
       objectReference: {fileID: 0}
     - target: {fileID: 4362315176301126, guid: 09827ef85bb2ff64da5dba5de3e35ba0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4397,6 +4397,11 @@ Prefab:
       propertyPath: lowJumpMultiplier
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 212322485386218444, guid: 94fe800ebe340b141bbffd9797e6f3b0,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 096e9c85f1606a640aa83f14ca06e0ef, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94fe800ebe340b141bbffd9797e6f3b0, type: 2}
   m_IsPrefabAsset: 0

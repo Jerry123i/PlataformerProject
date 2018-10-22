@@ -47,7 +47,6 @@ public class BackGroundMusicControler : MonoBehaviour {
         {
             insideSource.volume += changeMusicRate*Time.deltaTime;
             outsideSource.volume -= changeMusicRate*Time.deltaTime;
-            Debug.Log("tick = " + (changeMusicRate * Time.deltaTime).ToString());
             yield return null;
         }
 

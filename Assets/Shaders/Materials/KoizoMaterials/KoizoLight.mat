@@ -7,17 +7,33 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: KoizoLight
-  m_Shader: {fileID: 4800000, guid: 5297b30ebc0505344818c7f11d14f0c0, type: 3}
+  m_Shader: {fileID: 4800000, guid: 44db572bbb0ff6846a3017131f45c84e, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_35DE968E:
+        m_Texture: {fileID: 2800000, guid: 0f7a0ec959cc6774b8a6c61ce774cce9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_44EF2081:
+        m_Texture: {fileID: 2800000, guid: fbc8df2d5113dc546a8cf761d022f5e9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_ADA6FBBF:
+        m_Texture: {fileID: 2800000, guid: 0f7a0ec959cc6774b8a6c61ce774cce9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_AE769C7A:
+        m_Texture: {fileID: 2800000, guid: c71b31ba082a4e847b2b699321fde9d4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AlphaTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -87,6 +103,22 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_1218B167: {r: 0.34509805, g: 0.027450982, b: 0.80392164, a: 0}
+    - Color_1D55877C: {r: 0.20784315, g: 0.6509804, b: 0.7960785, a: 0}
+    - Color_218869ED: {r: 0.7019608, g: 0.15294118, b: 0.5529412, a: 0}
+    - Color_40FCBF52: {r: 0.1254902, g: 0.13725491, b: 0.7058824, a: 0}
+    - Color_5F7AB9C1: {r: 0.50980395, g: 0.003921569, b: 0.47450984, a: 0}
+    - Color_840FA53A: {r: 0.2901961, g: 0.17254902, b: 0.29803923, a: 0}
+    - Color_85D89BD4: {r: 0.54901963, g: 0.82745105, b: 0.5019608, a: 1}
+    - Color_9734A3D7: {r: 0, g: 0.29803923, b: 0, a: 0}
+    - Color_9E56C4BC: {r: 0.3215112, g: 0.8018868, b: 0.45189887, a: 0}
+    - Color_B4FF8023: {r: 0.45882356, g: 0.77647066, b: 0.90196085, a: 0}
+    - Color_B8925538: {r: 0.38431376, g: 0.2627451, b: 0.34901962, a: 0}
+    - Color_BB60EDC3: {r: 0.8313726, g: 0.9607844, b: 0.8000001, a: 1}
+    - Color_BC33433B: {r: 0.11764707, g: 0.44705886, b: 0.10196079, a: 0}
+    - Color_C7099757: {r: 0, g: 0, b: 0, a: 0}
+    - Color_E39EABE4: {r: 0, g: 0, b: 0, a: 0}
+    - Color_EF3CB65D: {r: 0.23529413, g: 0.67058825, b: 0.20784315, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
