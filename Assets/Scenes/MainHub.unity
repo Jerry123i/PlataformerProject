@@ -2503,7 +2503,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: cd73fb1042a58f54db0bab2f2826383b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1cdeae2f9ff246d4084e073ac25862fc, type: 3}
   m_Color: {r: 0.3254902, g: 0.427451, b: 0.61960787, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2521,8 +2521,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 225949992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36.76, y: 14.25, z: -0.043665186}
-  m_LocalScale: {x: 7.174069, y: 12.710016, z: 1}
+  m_LocalPosition: {x: 36.94, y: 14.18, z: -0.043665186}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 25
@@ -7365,7 +7365,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: cd73fb1042a58f54db0bab2f2826383b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1cdeae2f9ff246d4084e073ac25862fc, type: 3}
   m_Color: {r: 0, g: 0.29803923, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7383,8 +7383,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 886753481}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.34, y: 18.88, z: -0.043665186}
-  m_LocalScale: {x: 7.174069, y: 12.710016, z: 1}
+  m_LocalPosition: {x: 18.32, y: 17.97, z: -0.043665186}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 24
@@ -16260,7 +16260,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: cd73fb1042a58f54db0bab2f2826383b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1cdeae2f9ff246d4084e073ac25862fc, type: 3}
   m_Color: {r: 0.8313726, g: 0.28627452, b: 0.68235296, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -16278,8 +16278,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1422580760}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.1, y: 14.37, z: -0.043665186}
-  m_LocalScale: {x: 7.174069, y: 12.710016, z: 1}
+  m_LocalPosition: {x: 47.1, y: 14.17, z: -0.043665186}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 26
