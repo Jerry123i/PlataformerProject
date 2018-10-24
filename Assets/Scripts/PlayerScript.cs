@@ -163,11 +163,11 @@ public class PlayerScript : MonoBehaviour {
         
     private void EndlessPit()
     {
-        if(transform.position.y <= -50.0f)
-        {
-            Debug.Log("EndlessPit():" + this.name);
-            Die();
-        }
+        //if(transform.position.y <= -50.0f)
+        //{
+        //    Debug.Log("EndlessPit():" + this.name);
+        //    Die();
+        //}
     }
 
     private void Suicide()

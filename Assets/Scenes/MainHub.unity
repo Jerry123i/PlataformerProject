@@ -8534,7 +8534,7 @@ GameObject:
   - component: {fileID: 1034133761}
   - component: {fileID: 1034133760}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
