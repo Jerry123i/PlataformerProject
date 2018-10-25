@@ -7,7 +7,10 @@ public class IntroEnding : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene("MainHub");
+        if(collision.GetComponent<PlayerScript>() != null)
+        {
+            SceneManager.LoadScene("MainHub");
+        }
     }
 
 }

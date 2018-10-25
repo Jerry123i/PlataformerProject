@@ -8,12 +8,7 @@ public class StageManagerScript : MonoBehaviour {
     public static SaveScript save;
 
     public static StageManagerScript instance;
-
-    private void Start()
-    {
-        Debug.Log("Stage Manager(Start)");        
-    }
-
+    
     private void Awake()
     {
 
@@ -26,6 +21,7 @@ public class StageManagerScript : MonoBehaviour {
             {
                 save = new SaveScript();
                 save.saveInfo.GetLevel(1, 1).available = true;
+                SceneManager.LoadScene("IntroScene");
             }
         }
         else if (instance != this)

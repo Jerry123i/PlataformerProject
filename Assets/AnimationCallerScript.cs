@@ -8,7 +8,7 @@ public class AnimationCallerScript : MonoBehaviour {
     {
         if(collision.gameObject.GetComponent<PlayerScript>() != null)
         {
-            collision.GetComponent<Animator>().SetTrigger("StartFallAnimation");
+            collision.gameObject.GetComponent<PlayerScript>().StartCoroutine(collision.gameObject.GetComponent<PlayerScript>().StartFallAnimation());
             collision.GetComponent<Rigidbody2D>().gravityScale = 1.3f;
             Destroy(gameObject);
         }

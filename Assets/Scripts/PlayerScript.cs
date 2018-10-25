@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
 
-
+    [SerializeField]
     private bool lockedMovement = true;
     public bool LockedMovement { get { return lockedMovement; }
 
@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour {
             }
             else
             {
+                Debug.Log("UNLOCK MOVEMENT");
                 currentSpeed = moveSpeed;
             }
         }
@@ -76,7 +77,9 @@ public class PlayerScript : MonoBehaviour {
 
     private void LateUpdate()
     {
-        UpdateAnimator();                
+        
+         UpdateAnimator();                
+        
     }
 
     public void Die()
@@ -86,13 +89,23 @@ public class PlayerScript : MonoBehaviour {
         GetComponent<Collider2D>().enabled = false;
         StartCoroutine(DeathAnimation());
     }
-
+    
     IEnumerator DeathAnimation()
     {
         animator.SetTrigger("Die");
         yield return null;
         yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 );
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public IEnumerator StartFallAnimation()
+    {
+        animator.SetTrigger("StartFallAnimation");
+        LockedMovement = true;        
+        yield return null;
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f);
+        //yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.averageDuration);
+        Debug.Log("coroutine ends");
+        LockedMovement = false;
     }
 
     void PlayerMove()
@@ -180,15 +193,14 @@ public class PlayerScript : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (LockedMovement)
+        if (LockedMovement && !(SceneManager.GetActiveScene().name == "MainHub" || SceneManager.GetActiveScene().name == "IntroScene"))
         {
             LockedMovement = false;
             currentSpeed = moveSpeed;
         }
 
         if(collision.gameObject.tag =="Enemy")
-        {
-            
+        {          
 
             foreach (var contact in collision.contacts)
             {
