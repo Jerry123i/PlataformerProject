@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -327,11 +327,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4760815392646928, guid: 98214c2fe97c6074ab78c147a85bb4d8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 17.775
+      value: 17.75
       objectReference: {fileID: 0}
     - target: {fileID: 4760815392646928, guid: 98214c2fe97c6074ab78c147a85bb4d8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.325
+      value: 10.35
       objectReference: {fileID: 0}
     - target: {fileID: 4760815392646928, guid: 98214c2fe97c6074ab78c147a85bb4d8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -431,11 +431,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4760815392646928, guid: 98214c2fe97c6074ab78c147a85bb4d8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 16.525
+      value: 16.5
       objectReference: {fileID: 0}
     - target: {fileID: 4760815392646928, guid: 98214c2fe97c6074ab78c147a85bb4d8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.325
+      value: 10.35
       objectReference: {fileID: 0}
     - target: {fileID: 4760815392646928, guid: 98214c2fe97c6074ab78c147a85bb4d8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -481,7 +481,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4362315176301126, guid: 09827ef85bb2ff64da5dba5de3e35ba0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.250001
+      value: -10.65
       objectReference: {fileID: 0}
     - target: {fileID: 4362315176301126, guid: 09827ef85bb2ff64da5dba5de3e35ba0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -715,7 +715,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4971170237833124, guid: c7132b61a529fbd40813cd15e40f056a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 12.5
+      value: 12.45
       objectReference: {fileID: 0}
     - target: {fileID: 4971170237833124, guid: c7132b61a529fbd40813cd15e40f056a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1095,7 +1095,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1002563458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.379998, y: 20.23, z: -10.05}
+  m_LocalPosition: {x: -11.611998, y: 20.23, z: -10.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1426778914}

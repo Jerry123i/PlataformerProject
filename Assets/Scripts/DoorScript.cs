@@ -14,9 +14,7 @@ public class DoorScript : MonoBehaviour {
     
     private Animator animator;
     
-    public bool hubDoor;
-
-    private void Awake()
+    protected virtual void Awake()
     {
 
         animator = GetComponent<Animator>();
@@ -70,7 +68,7 @@ public class DoorScript : MonoBehaviour {
         return GameObject.FindGameObjectsWithTag("Collectible").Length == 0;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (open && (collision.GetComponent<PlayerScript>()))
         {
@@ -78,7 +76,7 @@ public class DoorScript : MonoBehaviour {
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (open && (collision.GetComponent<PlayerScript>()))
         {            
@@ -87,29 +85,19 @@ public class DoorScript : MonoBehaviour {
     }
         
 
-    private void OnTriggerStay2D(Collider2D collision)
+    protected virtual void OnTriggerStay2D(Collider2D collision)
     {
         if (open && (collision.GetComponent<PlayerScript>()) && (animator.GetCurrentAnimatorStateInfo(0).IsName("Open")))
         {
          
-            if (!hubDoor)
+            
+            if (!(nextStageName == "MainHub"))
             {
-
-                if (!(nextStageName == "MainHub"))
-                {
-                    StageManagerScript.save.saveInfo.GetLevel(nextStageName).available = true;
-                }
-
-                StageManagerScript.instance.LoadStage(nextStageName);
-
+                StageManagerScript.save.saveInfo.GetLevel(nextStageName).available = true;
             }
-            else
-            {
-                if (Input.GetAxisRaw("Vertical") >= 1 && MenuManagerScript.instance.ActiveMenu == null)
-                {
-                    MenuManagerScript.instance.OpenStageMenu(worldDoor);
-                }
-            }
+
+            StageManagerScript.instance.LoadStage(nextStageName);
+
         }
     }
 

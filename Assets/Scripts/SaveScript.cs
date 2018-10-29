@@ -2,6 +2,7 @@
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class SaveScript {
@@ -102,6 +103,8 @@ public class SaveScript {
         file.Close();
 
         saveInfo = data;
+
+        SceneManager.LoadScene("IntroScene");
 
     }
 

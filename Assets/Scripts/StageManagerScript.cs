@@ -20,8 +20,8 @@ public class StageManagerScript : MonoBehaviour {
             if(save == null)
             {
                 save = new SaveScript();
-                save.saveInfo.GetLevel(1, 1).available = true;
-                SceneManager.LoadScene("IntroScene");
+                save.saveInfo.GetLevel(1, 1).available = true;                
+                //SceneManager.LoadScene("IntroScene");
             }
         }
         else if (instance != this)

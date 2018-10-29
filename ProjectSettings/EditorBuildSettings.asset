@@ -71,4 +71,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mundo3/Level3_7.unity
     guid: 6b0f5e19f3da5b54ea0171cc7b7f68b3
+  - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: 704d1b796414d4d458cbabc6a1111fb3
   m_configObjects: {}
