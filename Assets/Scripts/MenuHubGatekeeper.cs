@@ -21,6 +21,10 @@ public class MenuHubGatekeeper : MonoBehaviour {
     public GameObject gate3Camera;
     public GameObject gate3Spotlight;
 
+    //Gate 4 stuff
+    public GameObject particleObject;
+    public GameObject gate4Camera;
+
     public GameObject cameraFollow;
 
     public List<GameObject> gateTriggers;
@@ -82,6 +86,11 @@ public class MenuHubGatekeeper : MonoBehaviour {
         {
             Destroy(laserBarrier);
             Destroy(gate3Spotlight);
+        }
+
+        if (StageManagerScript.save.saveInfo.gates[4].opened)
+        {
+            Destroy(particleObject);
         }
 
     }
@@ -162,6 +171,27 @@ public class MenuHubGatekeeper : MonoBehaviour {
 
         StageManagerScript.save.saveInfo.GetLevel(3, 1).available = true;
 
+    }
+
+    IEnumerator OpenGate4()
+    {
+        Vector3 cameraPreviousPosition;
+
+        FindObjectOfType<PlayerScript>().LockedMovement = true;
+        FindObjectOfType<PlayerScript>().GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        cameraPreviousPosition = cameraFollow.transform.position;
+        director.ActivateCamera(gate4Camera);
+        gate3Camera.transform.DOMove(new Vector3(particleObject.transform.position.x, particleObject.transform.position.y + 2.0f, Camera.main.transform.position.z - 2.5f), 0.6f);
+
+        yield return new WaitForSeconds(0.3f);
+
+        particleObject.SetActive(true);
+
+        yield return new WaitForSeconds(2.0f);
+
+        cameraFollow.transform.DOMove(cameraPreviousPosition, 0.6f);
+        director.ActivateCamera(cameraFollow);
+        FindObjectOfType<PlayerScript>().LockedMovement = false;
 
     }
 
@@ -174,6 +204,9 @@ public class MenuHubGatekeeper : MonoBehaviour {
                 break;
             case 3:
                 StartCoroutine(OpenGate3());
+                break;
+            case 4:
+                StartCoroutine(OpenGate4());
                 break;
         }
 

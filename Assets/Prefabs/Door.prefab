@@ -77,7 +77,7 @@ Animator:
   m_GameObject: {fileID: 1927067266429858}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5394d9b6f7ea5c94195724d8d4e2ecdc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 61b306e65bb91134ebecc0c77e38a91c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -102,7 +102,6 @@ MonoBehaviour:
   open: 0
   lockEnemy: 0
   lockCollect: 0
-  hubDoor: 0
 --- !u!212 &212104871138192784
 SpriteRenderer:
   m_ObjectHideFlags: 1

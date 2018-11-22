@@ -9,7 +9,7 @@ public class SaveScript {
 
     const string expectedSaveVer = "0.01";
 
-    static int totalWorlds=3;    
+    static int totalWorlds=4;    
 
     public List<LevelInfo> currentLevels;
     public SaveInfo saveInfo;
