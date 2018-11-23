@@ -8,7 +8,7 @@ public class MenuHubGatekeeper : MonoBehaviour {
     
     private int gateToOpen;
 
-    static int totalLevels = 3;
+    static int totalLevels = 4;
 
     //Gate 2 stuff
     public GameObject weakTile1;
@@ -55,8 +55,7 @@ public class MenuHubGatekeeper : MonoBehaviour {
     private void UpdateWorldInfo()
     {
         for(int i = 1; i<=totalLevels; i++)
-        {
-            
+        {            
             if(StageManagerScript.save.saveInfo.CheckWorldCompletion(i))
             {
                 StageManagerScript.save.saveInfo.gates[i].completed = true;
@@ -90,7 +89,8 @@ public class MenuHubGatekeeper : MonoBehaviour {
 
         if (StageManagerScript.save.saveInfo.gates[4].opened)
         {
-            Destroy(particleObject);
+            particleObject.GetComponent<ParticleSystem>().Play();            
+            particleObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
         }
 
     }
@@ -181,13 +181,14 @@ public class MenuHubGatekeeper : MonoBehaviour {
         FindObjectOfType<PlayerScript>().GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         cameraPreviousPosition = cameraFollow.transform.position;
         director.ActivateCamera(gate4Camera);
-        gate3Camera.transform.DOMove(new Vector3(particleObject.transform.position.x, particleObject.transform.position.y + 2.0f, Camera.main.transform.position.z - 2.5f), 0.6f);
+        gate4Camera.transform.DOMove(new Vector3(particleObject.transform.position.x, particleObject.transform.position.y +6.5f, Camera.main.transform.position.z - 2.5f), 0.6f);
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1.2f);
 
-        particleObject.SetActive(true);
+        particleObject.GetComponent<ParticleSystem>().Play();
+        particleObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(2.2f);
 
         cameraFollow.transform.DOMove(cameraPreviousPosition, 0.6f);
         director.ActivateCamera(cameraFollow);

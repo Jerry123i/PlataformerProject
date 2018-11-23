@@ -959,7 +959,7 @@ Prefab:
     - target: {fileID: 114994080078976386, guid: 62288833e1774354bacbe679360fbad8,
         type: 2}
       propertyPath: nextStageName
-      value: Level3_6
+      value: MainHub
       objectReference: {fileID: 0}
     - target: {fileID: 1229116064705446, guid: 62288833e1774354bacbe679360fbad8, type: 2}
       propertyPath: m_Layer
