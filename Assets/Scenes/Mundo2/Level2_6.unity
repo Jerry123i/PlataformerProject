@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -156,7 +156,13 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 71f9d3336c1fddc439ec1c121e4517c5, type: 2}
+      objectReference: {fileID: 9100000, guid: 31ba31d3812ea2649a1c58477d4bd977, type: 2}
+    - target: {fileID: 212049186266162632, guid: 7d70e6b0da8d39d4caa284e9e3374886,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6890f9a611e87b74589b069802c56791,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d70e6b0da8d39d4caa284e9e3374886, type: 2}
   m_IsPrefabAsset: 0
@@ -471,7 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 0
-  moverType: 0
+  moverType: 1
   speed: 7
   rotationCenter: {x: 0, y: 0, z: 0}
   reverse: 0
@@ -805,7 +811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 0
-  moverType: 0
+  moverType: 1
   speed: 7
   rotationCenter: {x: 0, y: 0, z: 0}
   reverse: 0
@@ -878,7 +884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 0
-  moverType: 0
+  moverType: 1
   speed: 7
   rotationCenter: {x: 0, y: 0, z: 0}
   reverse: 0
@@ -999,7 +1005,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 449067754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.720001, y: 6.4, z: -10}
+  m_LocalPosition: {x: -22.16292, y: 6.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1306450028}
@@ -3119,7 +3125,13 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 71f9d3336c1fddc439ec1c121e4517c5, type: 2}
+      objectReference: {fileID: 9100000, guid: 31ba31d3812ea2649a1c58477d4bd977, type: 2}
+    - target: {fileID: 212049186266162632, guid: 7d70e6b0da8d39d4caa284e9e3374886,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6890f9a611e87b74589b069802c56791,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d70e6b0da8d39d4caa284e9e3374886, type: 2}
   m_IsPrefabAsset: 0
@@ -3651,7 +3663,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4068908777515024, guid: 5919ce21c51fe29428c74fb48f5717f4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.3
+      value: -9.7
       objectReference: {fileID: 0}
     - target: {fileID: 4068908777515024, guid: 5919ce21c51fe29428c74fb48f5717f4, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4043,7 +4055,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4362315176301126, guid: 09827ef85bb2ff64da5dba5de3e35ba0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.9999995
+      value: 5.440758
       objectReference: {fileID: 0}
     - target: {fileID: 4362315176301126, guid: 09827ef85bb2ff64da5dba5de3e35ba0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4759,7 +4771,13 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 71f9d3336c1fddc439ec1c121e4517c5, type: 2}
+      objectReference: {fileID: 9100000, guid: 31ba31d3812ea2649a1c58477d4bd977, type: 2}
+    - target: {fileID: 212049186266162632, guid: 7d70e6b0da8d39d4caa284e9e3374886,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6890f9a611e87b74589b069802c56791,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d70e6b0da8d39d4caa284e9e3374886, type: 2}
   m_IsPrefabAsset: 0
@@ -5117,7 +5135,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4627557245991908, guid: 9c063af32ed3ae2438e8c53bb7b654e6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.25
+      value: -9.65
       objectReference: {fileID: 0}
     - target: {fileID: 4627557245991908, guid: 9c063af32ed3ae2438e8c53bb7b654e6, type: 2}
       propertyPath: m_LocalPosition.y
@@ -5222,7 +5240,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4627557245991908, guid: 9c063af32ed3ae2438e8c53bb7b654e6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.1
+      value: 3.125
       objectReference: {fileID: 0}
     - target: {fileID: 4627557245991908, guid: 9c063af32ed3ae2438e8c53bb7b654e6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5338,7 +5356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 0
-  moverType: 0
+  moverType: 1
   speed: 7
   rotationCenter: {x: 0, y: 0, z: 0}
   reverse: 0

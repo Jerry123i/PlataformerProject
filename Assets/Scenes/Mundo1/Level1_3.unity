@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -481,7 +481,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4362315176301126, guid: 09827ef85bb2ff64da5dba5de3e35ba0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.65
+      value: -9.690759
       objectReference: {fileID: 0}
     - target: {fileID: 4362315176301126, guid: 09827ef85bb2ff64da5dba5de3e35ba0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -533,7 +533,7 @@ GameObject:
   - component: {fileID: 772086279}
   - component: {fileID: 772086278}
   - component: {fileID: 772086277}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CocotaFlyingSpikes1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,14 +583,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 1
-  moverType: 0
+  moverType: 1
   speed: 5
   rotationCenter: {x: -2.075, y: 8.400001, z: 0}
   reverse: 1
-  radius: 1.5252048
+  radius: 1.5258193
   points:
   - {x: 9.0250727e+11, y: 0, z: 0}
-  - {x: 0, y: 2.988136e-34, z: 0}
+  - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
@@ -1095,7 +1095,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1002563458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.611998, y: 20.23, z: -10.05}
+  m_LocalPosition: {x: -11.055638, y: 20.23, z: -10.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1426778914}
@@ -1562,7 +1562,7 @@ GameObject:
   - component: {fileID: 1885149018}
   - component: {fileID: 1885149017}
   - component: {fileID: 1885149016}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CocotaFlyingSpikes1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1612,11 +1612,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 1
-  moverType: 0
+  moverType: 1
   speed: 5
   rotationCenter: {x: 1.375, y: 8.400001, z: 0}
   reverse: 1
-  radius: 1.525205
+  radius: 1.5258195
   points:
   - {x: 9.0250727e+11, y: 0, z: 0}
   - {x: 0, y: 2.988136e-34, z: 0}
@@ -1879,7 +1879,7 @@ GameObject:
   - component: {fileID: 2142052199}
   - component: {fileID: 2142052198}
   - component: {fileID: 2142052197}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CocotaFlyingSpikes1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1929,11 +1929,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 1
-  moverType: 0
+  moverType: 1
   speed: 5
   rotationCenter: {x: 4.825, y: 8.400001, z: 0}
   reverse: 1
-  radius: 1.5252048
+  radius: 1.5258193
   points:
   - {x: 9.0250727e+11, y: 0, z: 0}
   - {x: 0, y: 2.988136e-34, z: 0}

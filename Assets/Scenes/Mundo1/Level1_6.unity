@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -392,6 +392,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2ea3822647ef6374f880ac2972eec02b, type: 2}
+    - target: {fileID: 1123564687720450, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
   m_IsPrefabAsset: 0
@@ -483,6 +487,10 @@ Prefab:
     - target: {fileID: 1123564687720450, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
       propertyPath: m_Name
       value: CocotaFlyingSpikes1 2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123564687720450, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
@@ -1426,6 +1434,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2ea3822647ef6374f880ac2972eec02b, type: 2}
+    - target: {fileID: 1123564687720450, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
   m_IsPrefabAsset: 0
@@ -1641,6 +1653,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2ea3822647ef6374f880ac2972eec02b, type: 2}
+    - target: {fileID: 1123564687720450, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
   m_IsPrefabAsset: 0
@@ -3714,6 +3730,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1123564687720450, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
   m_IsPrefabAsset: 0
@@ -5039,6 +5059,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2ea3822647ef6374f880ac2972eec02b, type: 2}
+    - target: {fileID: 1123564687720450, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4446946c47b86c84eb6e3d508fbb35c8, type: 2}
   m_IsPrefabAsset: 0
