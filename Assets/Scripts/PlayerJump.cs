@@ -57,6 +57,11 @@ public class PlayerJump : MonoBehaviour {
         RaycastHit2D[] boxResult;
         bool boolResult = false;
 
+        //if(rb.velocity.y > 0.1f)
+        //{
+        //    return false;
+        //}
+
         boxResult = Physics2D.BoxCastAll(new Vector2(transform.position.x + GetComponent<BoxCollider2D>().offset.x, transform.position.y + GetComponent<BoxCollider2D>().offset.y), new Vector2(GetComponent<BoxCollider2D>().size.x, GetComponent<BoxCollider2D>().size.y/2), 0.0f, Vector2.down, GetComponent<BoxCollider2D>().size.y/2);
         
         for (int i = 0; i<boxResult.Length; i++){

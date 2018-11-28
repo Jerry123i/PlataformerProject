@@ -2,12 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StageManagerScript : MonoBehaviour {
 
     public static SaveScript save;
 
     public static StageManagerScript instance;
+
+    public Sprite spriteReturn;
+    public Sprite spriteExit;
+
+    public GameObject symbol;
+    public GameObject returnCircle;
+
+    public GameObject blackScreen;
+
+    private Coroutine loader;
     
     private void Awake()
     {
@@ -34,56 +45,95 @@ public class StageManagerScript : MonoBehaviour {
 
     public void LoadStage(string stageName)
     {
-        Debug.Log(SceneManager.GetActiveScene());
+        //Debug.Log(SceneManager.GetActiveScene());
         if(save.saveInfo.GetLevel(SceneManager.GetActiveScene().name) != null)
         {
             save.saveInfo.GetLevel(SceneManager.GetActiveScene().name).completed = true;
         }
 
         save.UpdateSave();
-        SceneManager.LoadScene(stageName);
+        //SceneManager.LoadScene(stageName);
+
+        if(loader == null)
+        {
+            loader = StartCoroutine(LoadAsynch(stageName));
+        }
+
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown("0"))
+
+        if (Input.GetButtonDown("Return"))
         {
-            SceneManager.LoadScene("MainHub");
+            if(SceneManager.GetActiveScene().name == "MainHub" || SceneManager.GetActiveScene().name == "IntroScene")
+            {
+                symbol.GetComponent<Image>().sprite = spriteExit;
+            }
+            else
+            {
+                symbol.GetComponent<Image>().sprite = spriteReturn;
+            }
+
+            returnCircle.SetActive(true);
+            symbol.SetActive(true);
         }
 
-        if (Input.GetKeyDown("1"))
+        if (Input.GetButton("Return"))
         {
-            SceneManager.LoadScene("Level3_1");
+
+            returnCircle.GetComponent<Image>().fillAmount += Time.deltaTime * 0.7f;
+
+            if(returnCircle.GetComponent<Image>().fillAmount >= 1)
+            {
+                returnCircle.GetComponent<Image>().fillAmount = 0;
+                symbol.SetActive(false);
+                returnCircle.SetActive(false);
+
+                if (SceneManager.GetActiveScene().name == "MainHub" || SceneManager.GetActiveScene().name == "IntroScene")
+                {
+                    CloseGame();
+                }
+                else
+                {
+                    SceneManager.LoadScene("MainHub");
+                }
+
+            }
+
         }
-        if (Input.GetKeyDown("2"))
+
+        if (Input.GetButtonUp("Return"))
         {
-            SceneManager.LoadScene("Level3_2");
+            returnCircle.GetComponent<Image>().fillAmount = 0;
+            symbol.SetActive(false);
+            returnCircle.SetActive(false);
         }
-        if (Input.GetKeyDown("3"))
-        {
-            SceneManager.LoadScene("Level3_3");
-        }
-        if (Input.GetKeyDown("4"))
-        {
-            SceneManager.LoadScene("Level3_4");
-        }
-        if (Input.GetKeyDown("5"))
-        {
-            SceneManager.LoadScene("Level3_5");
-        }
-        if (Input.GetKeyDown("6"))
-        {
-            SceneManager.LoadScene("Level3_6");
-        }
-        if (Input.GetKeyDown("7"))
-        {
-            SceneManager.LoadScene("Level3_7");
-        }
+
     }
 
     public void CloseGame()
     {
         Application.Quit();
+    }
+
+    IEnumerator LoadAsynch(string stageName)
+    {
+        AsyncOperation operation;
+
+        blackScreen.SetActive(true);
+                
+        yield return new WaitForSeconds(1.1f);
+
+        operation = SceneManager.LoadSceneAsync(stageName);
+
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
+
+        blackScreen.SetActive(false);
+        loader = null;
     }
 
 

@@ -157,7 +157,7 @@ public class SaveInfo
             }
         }
 
-        Debug.Log("Failed to find " + levelName);
+        Debug.Log("Failed to find " + levelName + " in savefile");
         return null;
     }
 
