@@ -19,6 +19,8 @@ public class StageManagerScript : MonoBehaviour {
 
     public GameObject blackScreen;
 
+	public AudioManagerScript audioManager;
+
     private Coroutine loader;
 		
     private void Awake()
@@ -33,7 +35,6 @@ public class StageManagerScript : MonoBehaviour {
             {
                 save = new SaveScript();
                 save.saveInfo.GetLevel(1, 1).available = true;                
-                //SceneManager.LoadScene("IntroScene");
             }
         }
         else if (instance != this)
@@ -66,22 +67,27 @@ public class StageManagerScript : MonoBehaviour {
 	{
 		int world = 0;
 
-		if(name == "MainHub")
-		{
-			blackScreen.GetComponentInChildren<Animator>().SetInteger("WorldKey", 0);
-			return;
-		}
-
 		foreach(char c in name)
 		{
 			if(int.TryParse(c.ToString(), out world))
 			{
 				blackScreen.GetComponentInChildren<Animator>().SetInteger("WorldKey", world);
+
+				if(world != audioManager.currentWorld)
+				{
+					audioManager.StartMusic(world);
+				}
+
 				return;
 			}
 		}
 
 		blackScreen.GetComponentInChildren<Animator>().SetInteger("WorldKey", 0);
+
+		if (world != audioManager.currentWorld)
+		{
+			audioManager.StartMusic(world);
+		}
 	}
 
     private void Update()
