@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Text;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,7 +20,7 @@ public class StageManagerScript : MonoBehaviour {
     public GameObject blackScreen;
 
     private Coroutine loader;
-    
+		
     private void Awake()
     {
 
@@ -44,22 +45,44 @@ public class StageManagerScript : MonoBehaviour {
     }
 
     public void LoadStage(string stageName)
-    {
-        //Debug.Log(SceneManager.GetActiveScene());
+    {   
+		
+
         if(save.saveInfo.GetLevel(SceneManager.GetActiveScene().name) != null)
         {
             save.saveInfo.GetLevel(SceneManager.GetActiveScene().name).completed = true;
         }
 
         save.UpdateSave();
-        //SceneManager.LoadScene(stageName);
 
         if(loader == null)
-        {
+        {			
             loader = StartCoroutine(LoadAsynch(stageName));
         }
 
     }
+
+	private void SetLoadingAnimation(string name)
+	{
+		int world = 0;
+
+		if(name == "MainHub")
+		{
+			blackScreen.GetComponentInChildren<Animator>().SetInteger("WorldKey", 0);
+			return;
+		}
+
+		foreach(char c in name)
+		{
+			if(int.TryParse(c.ToString(), out world))
+			{
+				blackScreen.GetComponentInChildren<Animator>().SetInteger("WorldKey", world);
+				return;
+			}
+		}
+
+		blackScreen.GetComponentInChildren<Animator>().SetInteger("WorldKey", 0);
+	}
 
     private void Update()
     {
@@ -96,7 +119,7 @@ public class StageManagerScript : MonoBehaviour {
                 }
                 else
                 {
-                    SceneManager.LoadScene("MainHub");
+                    LoadStage("MainHub");
                 }
 
             }
@@ -122,6 +145,7 @@ public class StageManagerScript : MonoBehaviour {
         AsyncOperation operation;
 
         blackScreen.SetActive(true);
+		SetLoadingAnimation(stageName);
                 
         yield return new WaitForSeconds(1.1f);
 
