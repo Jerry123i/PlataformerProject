@@ -56,6 +56,8 @@ public class AudioManagerScript : MonoBehaviour {
 	
 	IEnumerator StartAndEnterLoop(AudioClip audioAStart, AudioClip audioBStart, AudioClip audioALoop, AudioClip audioBLoop)
 	{
+		Debug.Log("---StartAndEnterLoop--- (" + audioAStart.length.ToString() + ")");
+
 		if(audioAStart.length != audioBStart.length || audioALoop.length != audioBLoop.length)
 		{
 			Debug.LogWarning("Diferent legth audio clips!");
@@ -68,12 +70,14 @@ public class AudioManagerScript : MonoBehaviour {
 
 		yield return new WaitForSeconds(audioAStart.length);
 
+		Debug.Log("---Loop---");
+
 		sourceA.clip = audioALoop;
 		sourceB.clip = audioBLoop;
 
 		sourceA.loop = true;
 		sourceB.loop = true;
-
+		
 		PlayBoth();
 
 	}
@@ -82,13 +86,17 @@ public class AudioManagerScript : MonoBehaviour {
 	{
 		sourceA.Play();
 		sourceB.Play();
+
+		sourceA.time = 0;
+		sourceB.time = 0;
+
 	}
 
-	public void PlayBoth(int i)
+	public void PlayBoth(bool inside)
 	{
 		PlayBoth();
 
-		if(i == 1)
+		if(inside)
 		{
 			sourceA.volume = 1;
 			sourceB.volume = 0;
@@ -106,6 +114,19 @@ public class AudioManagerScript : MonoBehaviour {
 		sourceB.Pause();
 	}
 
+	public void SoundShift(bool inside)
+	{
+		Debug.Log("---SoundShift---");
+		StopAllCoroutines();
+		if (inside)
+		{
+			StartCoroutine(EnterFrame());
+		}
+		else
+		{
+			StartCoroutine(ExitFrame());
+		}
+	}
 
 	IEnumerator EnterFrame()
 	{
@@ -129,9 +150,6 @@ public class AudioManagerScript : MonoBehaviour {
 		}
 
 	}
-
-
-
 
 }
 

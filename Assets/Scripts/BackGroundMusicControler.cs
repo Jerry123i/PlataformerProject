@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class BackGroundMusicControler : MonoBehaviour {
 
-    public AudioSource insideSource;
-    public AudioSource outsideSource;
-    public AudioClip insideMusic;
-    public AudioClip voidMusic;
+    //public AudioSource insideSource;
+    //public AudioSource outsideSource;
+    //public AudioClip insideMusic;
+    //public AudioClip voidMusic;
 
-    float changeMusicRate = 0.7f;
+    //float changeMusicRate = 0.7f;
 
     private void Awake()
     {
-        insideSource.clip = insideMusic;
-        outsideSource.clip = voidMusic;
+        //insideSource.clip = insideMusic;
+        //outsideSource.clip = voidMusic;
 
-        insideSource.Play();
-        outsideSource.Play();
+        //insideSource.Play();
+        //outsideSource.Play();
 
-        insideSource.volume = 0;
+        //insideSource.volume = 0;
         
     }
 
@@ -27,8 +27,8 @@ public class BackGroundMusicControler : MonoBehaviour {
     {
         if(collision.GetComponent<PlayerScript>() != null)
         {
-            StopAllCoroutines();
-            StartCoroutine(EnterFrame());
+			Debug.Log("BG enter");
+			StageManagerScript.instance.audioManager.SoundShift(true);
         }
     }
 
@@ -36,33 +36,33 @@ public class BackGroundMusicControler : MonoBehaviour {
     {
         if (collision.GetComponent<PlayerScript>() != null)
         {
-            StopAllCoroutines();
-            StartCoroutine(ExitFrame());
-        }
+			Debug.Log("BG exit");
+			StageManagerScript.instance.audioManager.SoundShift(false);
+		}
     }
 
 
-    IEnumerator EnterFrame()
-    {
-        while (insideSource.volume != 1 && outsideSource.volume != 0)
-        {
-            insideSource.volume += changeMusicRate*Time.deltaTime;
-            outsideSource.volume -= changeMusicRate*Time.deltaTime;
-            yield return null;
-        }
+    //IEnumerator EnterFrame()
+    //{
+    //    while (insideSource.volume != 1 && outsideSource.volume != 0)
+    //    {
+    //        insideSource.volume += changeMusicRate*Time.deltaTime;
+    //        outsideSource.volume -= changeMusicRate*Time.deltaTime;
+    //        yield return null;
+    //    }
 
-    }
+    //}
 
-    IEnumerator ExitFrame()
-    {
+    //IEnumerator ExitFrame()
+    //{
 
-        while(insideSource.volume != 0 && outsideSource.volume != 1)
-        {
-            insideSource.volume -= changeMusicRate*Time.deltaTime;
-            outsideSource.volume += changeMusicRate*Time.deltaTime;
-            yield return null;
-        }
+    //    while(insideSource.volume != 0 && outsideSource.volume != 1)
+    //    {
+    //        insideSource.volume -= changeMusicRate*Time.deltaTime;
+    //        outsideSource.volume += changeMusicRate*Time.deltaTime;
+    //        yield return null;
+    //    }
 
-    }
+    //}
 
 }

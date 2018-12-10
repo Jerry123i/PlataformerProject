@@ -18,7 +18,6 @@ public class PlayerScript : MonoBehaviour {
             }
             else
             {
-                Debug.Log("UNLOCK MOVEMENT");
                 currentSpeed = moveSpeed;
             }
         }

@@ -74,7 +74,6 @@ public class MenuManagerScript : MonoBehaviour {
 
         for(int i = 0; i < ActiveMenu.list.Count - 1; i++)
         {
-            Debug.Log("Botao[" + i + "] ( "+ ActiveMenu.list[i].name + ") / Fase " + ActiveMenu.worldNumber + "_" + (i+1));
             ActiveMenu.list[i].interactable = StageManagerScript.save.saveInfo.GetLevel(ActiveMenu.worldNumber, i + 1).available;
         }
 

@@ -45,7 +45,7 @@ public class CinemachineReconfiguratorScript : MonoBehaviour {
     {
         if (collision.GetComponent<PlayerScript>())
         {
-            Debug.Log("Trigger enter(" + name + ")");
+            //Debug.Log("Trigger enter(" + name + ")");
         }
 
     }
@@ -77,7 +77,6 @@ public class CinemachineReconfiguratorScript : MonoBehaviour {
 
     void MoveCamera()
     {
-        Debug.Log("Camera move call(" + name+")");
         director.ActivateCamera(cinemachine);
         triggerIsActive = false;
     }

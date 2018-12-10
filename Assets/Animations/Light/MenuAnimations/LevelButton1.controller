@@ -3,7 +3,7 @@
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: LevelButton1
   serializedVersion: 5
@@ -13,25 +13,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Highlighted
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Pressed
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Disabled
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -48,7 +48,7 @@ AnimatorController:
 --- !u!74 &74039585511249930
 AnimationClip:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Disabled
   serializedVersion: 6
@@ -114,7 +114,7 @@ AnimationClip:
 --- !u!74 &74247967091140000
 AnimationClip:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Pressed
   serializedVersion: 6
@@ -165,7 +165,7 @@ AnimationClip:
 --- !u!74 &74756305223376540
 AnimationClip:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Normal
   serializedVersion: 6
@@ -231,7 +231,7 @@ AnimationClip:
 --- !u!74 &74868028120790974
 AnimationClip:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Highlighted
   serializedVersion: 6
@@ -250,42 +250,6 @@ AnimationClip:
       value: {fileID: 21300004, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
     - time: 0.016666668
       value: {fileID: 21300006, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.033333335
-      value: {fileID: 21300008, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.05
-      value: {fileID: 21300010, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.06666667
-      value: {fileID: 21300012, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300014, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.1
-      value: {fileID: 21300016, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.11666667
-      value: {fileID: 21300018, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.13333334
-      value: {fileID: 21300020, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.15
-      value: {fileID: 21300022, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.18333334
-      value: {fileID: 21300024, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.2
-      value: {fileID: 21300026, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.21666667
-      value: {fileID: 21300028, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.23333333
-      value: {fileID: 21300030, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.25
-      value: {fileID: 21300032, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.26666668
-      value: {fileID: 21300034, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.28333333
-      value: {fileID: 21300036, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.3
-      value: {fileID: 21300038, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.31666666
-      value: {fileID: 21300040, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300042, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -307,30 +271,12 @@ AnimationClip:
     pptrCurveMapping:
     - {fileID: 21300004, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
     - {fileID: 21300006, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300008, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300010, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300012, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300014, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300016, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300018, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300020, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300022, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300024, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300026, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300028, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300030, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300032, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300034, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300036, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300038, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300040, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
-    - {fileID: 21300042, guid: cca44fc7443159e468bb02e2edc1a423, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.033333335
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -354,7 +300,7 @@ AnimationClip:
 --- !u!1101 &1101477987426859598
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
@@ -378,7 +324,7 @@ AnimatorStateTransition:
 --- !u!1101 &1101502134173841814
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
@@ -402,7 +348,7 @@ AnimatorStateTransition:
 --- !u!1101 &1101504067673135680
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
@@ -426,7 +372,7 @@ AnimatorStateTransition:
 --- !u!1101 &1101604067125248228
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
@@ -451,7 +397,7 @@ AnimatorStateTransition:
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Disabled
   m_Speed: 1
@@ -476,7 +422,7 @@ AnimatorState:
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Highlighted
   m_Speed: 0.2
@@ -501,7 +447,7 @@ AnimatorState:
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Normal
   m_Speed: 1
@@ -526,7 +472,7 @@ AnimatorState:
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Pressed
   m_Speed: 1
@@ -551,7 +497,7 @@ AnimatorState:
 AnimatorStateMachine:
   serializedVersion: 5
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
   m_ChildStates:
