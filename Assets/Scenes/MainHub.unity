@@ -20610,7 +20610,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -20818,8 +20818,8 @@ MonoBehaviour:
   currentWorld: 0
   w1Start: {fileID: 8300000, guid: 2473976f7104204409835b44bc55514b, type: 3}
   w1Loop: {fileID: 8300000, guid: 2473976f7104204409835b44bc55514b, type: 3}
-  w1StartB: {fileID: 8300000, guid: 2473976f7104204409835b44bc55514b, type: 3}
-  w1LoopB: {fileID: 8300000, guid: 2473976f7104204409835b44bc55514b, type: 3}
+  w1StartB: {fileID: 8300000, guid: dac5720e30aac6a4583d6cd66732c273, type: 3}
+  w1LoopB: {fileID: 8300000, guid: dac5720e30aac6a4583d6cd66732c273, type: 3}
   w2Start: {fileID: 8300000, guid: f3badde835333cf4f8d0cd4745c3e133, type: 3}
   w2Loop: {fileID: 8300000, guid: f3badde835333cf4f8d0cd4745c3e133, type: 3}
   w2StartB: {fileID: 8300000, guid: f3badde835333cf4f8d0cd4745c3e133, type: 3}

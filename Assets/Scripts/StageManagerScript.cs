@@ -45,10 +45,14 @@ public class StageManagerScript : MonoBehaviour {
         DontDestroyOnLoad(this);        
     }
 
-    public void LoadStage(string stageName)
-    {   
-		
+	public void QuickLoadStage(string stageName)
+	{
+		audioManager.SoundShift(false);
+		SceneManager.LoadScene(stageName);
+	}
 
+    public void LoadStage(string stageName)
+    {   	
         if(save.saveInfo.GetLevel(SceneManager.GetActiveScene().name) != null)
         {
             save.saveInfo.GetLevel(SceneManager.GetActiveScene().name).completed = true;
@@ -67,6 +71,8 @@ public class StageManagerScript : MonoBehaviour {
 	{
 		int world = 0;
 
+		audioManager.SoundShift(false);
+
 		foreach(char c in name)
 		{
 			if(int.TryParse(c.ToString(), out world))
@@ -74,7 +80,7 @@ public class StageManagerScript : MonoBehaviour {
 				blackScreen.GetComponentInChildren<Animator>().SetInteger("WorldKey", world);
 
 				if(world != audioManager.currentWorld)
-				{
+				{					
 					audioManager.StartMusic(world);
 				}
 

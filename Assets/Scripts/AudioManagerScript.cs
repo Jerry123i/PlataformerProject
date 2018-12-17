@@ -29,9 +29,12 @@ public class AudioManagerScript : MonoBehaviour {
 	public AudioClip w3StartB;
 	public AudioClip w3LoopB;
 
+	private IEnumerator currentSoundRoutine;
+
 	public void StartMusic(int i)
 	{
 		currentWorld = i;
+		StopAllCoroutines();
 
 		switch (currentWorld)
 		{
@@ -66,10 +69,10 @@ public class AudioManagerScript : MonoBehaviour {
 		sourceA.clip = audioAStart;
 		sourceB.clip = audioBStart;
 
-		PlayBoth();
+		RunBoth();
 
-		yield return new WaitForSeconds(audioAStart.length);
-
+		yield return new WaitForSeconds(audioAStart.length - 0.1f);
+		
 		Debug.Log("---Loop---");
 
 		sourceA.clip = audioALoop;
@@ -78,11 +81,11 @@ public class AudioManagerScript : MonoBehaviour {
 		sourceA.loop = true;
 		sourceB.loop = true;
 		
-		PlayBoth();
+		RunBoth();
 
 	}
 
-	public void PlayBoth()
+	public void RunBoth()
 	{
 		sourceA.Play();
 		sourceB.Play();
@@ -92,20 +95,10 @@ public class AudioManagerScript : MonoBehaviour {
 
 	}
 
-	public void PlayBoth(bool inside)
+	public void RunBoth(bool inside)
 	{
-		PlayBoth();
-
-		if(inside)
-		{
-			sourceA.volume = 1;
-			sourceB.volume = 0;
-		}
-		else
-		{
-			sourceA.volume = 0;
-			sourceB.volume = 1;
-		}
+		RunBoth();
+		ForceSoundShift(inside);		
 	}
 
 	public void PauseBoth()
@@ -117,14 +110,44 @@ public class AudioManagerScript : MonoBehaviour {
 	public void SoundShift(bool inside)
 	{
 		Debug.Log("---SoundShift---");
-		StopAllCoroutines();
+
+		if(currentSoundRoutine != null)
+		{
+			StopCoroutine(currentSoundRoutine);
+		}		
+		
 		if (inside)
 		{
-			StartCoroutine(EnterFrame());
+			currentSoundRoutine = EnterFrame();			
 		}
 		else
 		{
-			StartCoroutine(ExitFrame());
+			currentSoundRoutine = ExitFrame();
+		}
+
+		StartCoroutine(currentSoundRoutine);
+
+	}
+
+	public void ForceSoundShift(bool inside)
+	{
+		if (inside)
+		{
+			sourceA.volume = 1;
+			sourceB.volume = 0;
+		}
+		else
+		{
+			sourceA.volume = 0;
+			sourceB.volume = 1;
+		}
+	}
+
+	public void StopCurrentRoutine()
+	{
+		if(currentSoundRoutine != null)
+		{
+			StopCoroutine(currentSoundRoutine);
 		}
 	}
 

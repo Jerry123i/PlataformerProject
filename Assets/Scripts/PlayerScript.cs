@@ -64,9 +64,7 @@ public class PlayerScript : MonoBehaviour {
             {
                 animator.SetTrigger("IdleBlink");
             }
-        }
-
-      
+        }      
 	}
 
     private void FixedUpdate()
@@ -94,7 +92,7 @@ public class PlayerScript : MonoBehaviour {
         animator.SetTrigger("Die");
         yield return null;
         yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 );
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		StageManagerScript.instance.QuickLoadStage(SceneManager.GetActiveScene().name);
     }
     public IEnumerator StartFallAnimation()
     {
