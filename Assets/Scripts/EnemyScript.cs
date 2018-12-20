@@ -2,13 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class EnemyScript : MonoBehaviour {
 
     [Range(10.0f, 20.0f)]
     public float impulseVel = 12.0f;
+		
+	public AudioSource audioSource;
+	public AudioClip enemyDeathSound;
 
-	
-    void EnemyDie()
+	public virtual void Awake()
+	{
+		audioSource = GetComponent<AudioSource>();
+		audioSource.clip = enemyDeathSound;
+	}
+
+	void EnemyDie()
     {
         Destroy(gameObject);
     }
@@ -25,6 +34,7 @@ public class EnemyScript : MonoBehaviour {
 
     public virtual void BeforeDeath()
     {
+		audioSource.Play();
         GetComponent<Collider2D>().enabled = false;
         transform.localScale = new Vector3(transform.localScale.x, 0.15f, transform.localScale.z);
         transform.position = new Vector3(transform.position.x, transform.position.y - 0.4f, transform.position.z);

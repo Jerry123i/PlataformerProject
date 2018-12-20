@@ -29,6 +29,9 @@ public class PlayerScript : MonoBehaviour {
 
     public float deacelerator;
 
+	public AudioClip deathSound;
+	public AudioSource audioSource;
+
     private Animator animator;
     private SpriteRenderer sr;
 
@@ -81,6 +84,8 @@ public class PlayerScript : MonoBehaviour {
 
     public void Die()
     {
+		audioSource.clip = deathSound;
+		audioSource.Play();
         lockedMovement = true;        
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         GetComponent<Collider2D>().enabled = false;

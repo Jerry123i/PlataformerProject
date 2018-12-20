@@ -8,10 +8,14 @@ public class MenuButtonScript : MonoBehaviour, ISelectHandler {
 
     protected Button button;
     public string level;
+	private AudioSource audioSource;
+	public AudioClip selectSound;
+	public AudioClip pressSound;
 
     private void Awake()
     {
-        button = gameObject.GetComponent<Button>();        
+        button = gameObject.GetComponent<Button>();
+		audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -23,6 +27,16 @@ public class MenuButtonScript : MonoBehaviour, ISelectHandler {
     {        
         Animator animator = GetComponent<Animator>();
         animator.SetTrigger("Highlighted");
+
+		audioSource.clip = selectSound;
+		audioSource.Play();
+
     }
+
+	public void PressSound()
+	{
+		audioSource.clip = pressSound;
+		audioSource.Play();
+	}
 
 }
