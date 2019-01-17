@@ -9,7 +9,7 @@ public class IntroEnding : MonoBehaviour {
     {
         if(collision.GetComponent<PlayerScript>() != null)
         {
-            SceneManager.LoadScene("MainHub");
+			StageManagerScript.instance.LoadStage("MainHub");
         }
     }
 

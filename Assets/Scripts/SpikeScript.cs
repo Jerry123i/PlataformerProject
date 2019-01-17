@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class SpikeScript : MonoBehaviour {
 
-    private void OnTriggerEnter2D(Collider2D collision)
+	private void Awake()
+	{
+		gameObject.layer = 2; //IgnoreRaycast
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<PlayerScript>())
         {

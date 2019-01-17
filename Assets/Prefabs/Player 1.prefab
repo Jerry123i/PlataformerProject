@@ -275,6 +275,8 @@ MonoBehaviour:
   fallMultiplier: 4.5
   lowJumpMultiplier: 3.6
   gravityState: 0
+  jumpSound: {fileID: 8300000, guid: 2cefcc85cd5cb1b419b12a0f7b0ded02, type: 3}
+  landingSound: {fileID: 8300000, guid: 02229479fab92cf459c0bb662130e219, type: 3}
 --- !u!114 &114133943993530292
 MonoBehaviour:
   m_ObjectHideFlags: 1

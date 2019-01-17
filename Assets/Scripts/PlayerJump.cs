@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Position { GROUND, AIR} 
 
 public enum GravityState {NORMAL, FALL, LOWJUMP}
 public class PlayerJump : MonoBehaviour {
@@ -23,14 +24,41 @@ public class PlayerJump : MonoBehaviour {
 
     private PlayerScript player;
 
+	public AudioClip jumpSound;
+	public AudioClip landingSound;
+	private AudioSource source;
+
+	private Position position = Position.AIR;
+
     Rigidbody2D rb;
 
-    private void Awake()
+	public Position Position
+	{
+		get
+		{
+			return position;
+		}
+
+		set
+		{
+
+			if(position == Position.AIR && value == Position.GROUND)
+			{
+				PlayLanding();
+			}
+
+			position = value;
+		}
+	}
+
+	private void Awake()
     {
         gravityState = GravityState.NORMAL;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         player = GetComponent<PlayerScript>();
+		source = GetComponent<AudioSource>();
+		source.clip = jumpSound;
     }
 
     private void Update()
@@ -41,6 +69,7 @@ public class PlayerJump : MonoBehaviour {
             if (Input.GetButtonDown("Jump") && IsOnFloor())
             {
                 rb.velocity += Vector2.up * jumpVelocity;
+				PlayJump();
                 player.idleClock = 0;
             }
 
@@ -56,11 +85,6 @@ public class PlayerJump : MonoBehaviour {
     {
         RaycastHit2D[] boxResult;
         bool boolResult = false;
-
-        //if(rb.velocity.y > 0.1f)
-        //{
-        //    return false;
-        //}
 
         boxResult = Physics2D.BoxCastAll(new Vector2(transform.position.x + GetComponent<BoxCollider2D>().offset.x, transform.position.y + GetComponent<BoxCollider2D>().offset.y), new Vector2(GetComponent<BoxCollider2D>().size.x, GetComponent<BoxCollider2D>().size.y/2), 0.0f, Vector2.down, GetComponent<BoxCollider2D>().size.y/2);
         
@@ -89,6 +113,15 @@ public class PlayerJump : MonoBehaviour {
 
             }
         }
+
+		if (boolResult)
+		{
+			Position = Position.GROUND;
+		}
+		else
+		{
+			Position = Position.AIR;
+		}
 
         return boolResult;
                 
@@ -136,8 +169,18 @@ public class PlayerJump : MonoBehaviour {
 
         rb.velocity += Vector2.up * Physics2D.gravity.y * (gravityMultiplier - 1.0f) * Time.deltaTime;
 
-
     }
 
+	void PlayJump()
+	{
+		source.clip = jumpSound;
+		source.Play();
+	}
+
+	void PlayLanding()
+	{
+		source.clip = landingSound;
+		source.Play();
+	}
 
 }

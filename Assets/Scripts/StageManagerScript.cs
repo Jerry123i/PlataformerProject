@@ -22,6 +22,8 @@ public class StageManagerScript : MonoBehaviour {
 	public AudioManagerScript audioManager;
 
     private Coroutine loader;
+
+	
 		
     private void Awake()
     {
@@ -52,20 +54,29 @@ public class StageManagerScript : MonoBehaviour {
 	}
 
     public void LoadStage(string stageName)
-    {   	
-        if(save.saveInfo.GetLevel(SceneManager.GetActiveScene().name) != null)
-        {
-            save.saveInfo.GetLevel(SceneManager.GetActiveScene().name).completed = true;
-        }
-
-        save.UpdateSave();
-
-        if(loader == null)
-        {			
-            loader = StartCoroutine(LoadAsynch(stageName));
-        }
-
+    {
+		if(loader == null)
+		{
+			StartCoroutine(StageDelay(stageName));
+		}
     }
+
+	public IEnumerator StageDelay(string stageName)
+	{
+		Debug.Log("StageDelay IN");
+		yield return new WaitForSeconds(0.2f);
+		if (save.saveInfo.GetLevel(SceneManager.GetActiveScene().name) != null)
+		{
+			save.saveInfo.GetLevel(SceneManager.GetActiveScene().name).completed = true;
+		}
+
+		save.UpdateSave();
+
+		if (loader == null)
+		{
+			loader = StartCoroutine(LoadAsynch(stageName));
+		}
+	}
 
 	private void SetLoadingAnimation(string name)
 	{

@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour {
     }
     
     public float moveSpeed;
-    private float currentSpeed = 0;
+    protected float currentSpeed = 0;
     public float speedCap;
 
     public float deacelerator;
@@ -32,10 +32,10 @@ public class PlayerScript : MonoBehaviour {
 	public AudioClip deathSound;
 	public AudioSource audioSource;
 
-    private Animator animator;
+    protected Animator animator;
     private SpriteRenderer sr;
 
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
     public Collider2D hitBox;
 
     public Vector3 hitZoneOffset;
@@ -97,20 +97,28 @@ public class PlayerScript : MonoBehaviour {
         animator.SetTrigger("Die");
         yield return null;
         yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 );
-		StageManagerScript.instance.QuickLoadStage(SceneManager.GetActiveScene().name);
+
+		if(SceneManager.GetActiveScene().name == "IntroScene")
+		{
+			PlayerPrefs.SetInt("DiedOnIntro", 1);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
+		else
+		{
+			StageManagerScript.instance.QuickLoadStage(SceneManager.GetActiveScene().name);
+		}
+
     }
-    public IEnumerator StartFallAnimation()
+    public virtual IEnumerator StartFallAnimation()
     {
         animator.SetTrigger("StartFallAnimation");
         LockedMovement = true;        
         yield return null;
         yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f);
-        //yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.averageDuration);
-        Debug.Log("coroutine ends");
         LockedMovement = false;
     }
 
-    void PlayerMove()
+    protected virtual void PlayerMove()
     {                
 
         if (Input.GetAxisRaw("Horizontal") <= -1)

@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainHub.unity
     guid: 8e15764e2efc3974d8a2aa126a6e2c3a
   - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: 893024db3777df647870c757ec22fda0
+  - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: 704d1b796414d4d458cbabc6a1111fb3
+  - enabled: 1
     path: Assets/Scenes/Mundo1/Level1_1.unity
     guid: e6e03d22f166c7347a727dc07edb035b
   - enabled: 1
@@ -53,9 +59,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mundo3/Level3_3.unity
     guid: 803aea82d673fef4daaf1e8270d40e2d
-  - enabled: 1
-    path: Assets/Scenes/IntroScene.unity
-    guid: 704d1b796414d4d458cbabc6a1111fb3
   - enabled: 1
     path: Assets/Scenes/Mundo2/Level2_6.unity
     guid: 6d935ace6688ff34db2180ee6f5e39dc

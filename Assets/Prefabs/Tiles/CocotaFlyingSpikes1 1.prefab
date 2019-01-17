@@ -8,15 +8,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1123564687720450}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1123564687720450
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4248107391232178}
   - component: {fileID: 212342226513351870}
@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114201776260830016}
   - component: {fileID: 114136057452769060}
   - component: {fileID: 58181562594852430}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CocotaFlyingSpikes1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
 --- !u!4 &4248107391232178
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123564687720450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -47,7 +47,7 @@ Transform:
 --- !u!58 &58181562594852430
 CircleCollider2D:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123564687720450}
   m_Enabled: 1
@@ -63,7 +63,7 @@ CircleCollider2D:
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123564687720450}
   m_Enabled: 1
@@ -76,10 +76,11 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114136057452769060
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123564687720450}
   m_Enabled: 1
@@ -88,20 +89,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverMode: 0
+  moverType: 0
   speed: 3
+  rotationCenter: {x: 0, y: 0, z: 0}
+  reverse: 0
+  radius: 0
   points:
   - {x: -9.5, y: 20.225, z: 0}
   - {x: -5.85, y: 22.975, z: 0}
   - {x: 0.425, y: 19.475, z: 0}
   - {x: -3.25, y: 14.750001, z: 0}
-  rotationCenter: {x: 0, y: 0, z: 0}
-  reverse: 0
   targetN: 3
   working: 1
 --- !u!114 &114201776260830016
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123564687720450}
   m_Enabled: 1
@@ -112,7 +115,7 @@ MonoBehaviour:
 --- !u!212 &212342226513351870
 SpriteRenderer:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123564687720450}
   m_Enabled: 1
@@ -122,6 +125,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -153,3 +157,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
