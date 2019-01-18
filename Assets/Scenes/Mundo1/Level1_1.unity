@@ -1367,6 +1367,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd134e17c906be45ab27fe5ba18a0ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteReturn: {fileID: 0}
+  spriteExit: {fileID: 0}
+  symbol: {fileID: 0}
+  returnCircle: {fileID: 0}
 --- !u!4 &787459640
 Transform:
   m_ObjectHideFlags: 0

@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 212074992501102858}
   - component: {fileID: 2569400265555280660}
   - component: {fileID: 61297499106664734}
+  - component: {fileID: 114754961239088940}
   m_Layer: 2
   m_Name: ColorfixedAssai
   m_TagString: Untagged
@@ -1031,9 +1032,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1254b0a8c2c77a040a37552d95b1e6cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockedMovement: 1
   moveSpeed: 25
   speedCap: 7
   deacelerator: 30
+  deathSound: {fileID: 0}
+  audioSource: {fileID: 0}
   hitBox: {fileID: 61772421423381720}
   hitZoneOffset: {x: 0, y: -0.40999985, z: 0}
   idleClock: 0
@@ -1063,12 +1067,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1254b0a8c2c77a040a37552d95b1e6cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockedMovement: 1
   moveSpeed: 25
   speedCap: 7
   deacelerator: 30
+  deathSound: {fileID: 0}
+  audioSource: {fileID: 0}
   hitBox: {fileID: 61464272852234354}
   hitZoneOffset: {x: 0, y: -0.40999985, z: 0}
   idleClock: 0
+--- !u!114 &114754961239088940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1879257126296224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a55730dee20d74480b727adca2c7c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114939351836393412
 MonoBehaviour:
   m_ObjectHideFlags: 1

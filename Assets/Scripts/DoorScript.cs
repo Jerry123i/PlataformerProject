@@ -13,11 +13,14 @@ public class DoorScript : MonoBehaviour {
     public bool lockEnemy, lockCollect;
     
     private Animator animator;
+	private AudioSource audioSource;
+	public AudioClip doorSound;
     
     protected virtual void Awake()
     {
-
         animator = GetComponent<Animator>();
+		audioSource = GetComponent<AudioSource>();
+		audioSource.clip = doorSound;
     }
 
     private void Update()
@@ -73,6 +76,7 @@ public class DoorScript : MonoBehaviour {
         if (open && (collision.GetComponent<PlayerScript>()))
         {
             animator.SetTrigger("DoorSwitchOpen");
+			audioSource.Play();
         }
     }
 
@@ -81,7 +85,8 @@ public class DoorScript : MonoBehaviour {
         if (open && (collision.GetComponent<PlayerScript>()))
         {            
             animator.SetTrigger("DoorSwitchClose");
-        }
+			audioSource.Play();
+		}
     }
         
 

@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainHub.unity
     guid: 8e15764e2efc3974d8a2aa126a6e2c3a
   - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: 893024db3777df647870c757ec22fda0
+  - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: 704d1b796414d4d458cbabc6a1111fb3
+  - enabled: 1
     path: Assets/Scenes/Mundo1/Level1_1.unity
     guid: e6e03d22f166c7347a727dc07edb035b
   - enabled: 1
@@ -54,23 +60,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Mundo3/Level3_3.unity
     guid: 803aea82d673fef4daaf1e8270d40e2d
   - enabled: 1
-    path: Assets/Scenes/Mundo3/Level3_4.unity
-    guid: 96b8b9a04b703684c8e7e325d8efdba4
-  - enabled: 1
-    path: Assets/Scenes/Mundo3/Level3_5.unity
-    guid: 55e833626d914244992bf8876183171c
-  - enabled: 1
-    path: Assets/Scenes/Mundo3/Level3_6.unity
-    guid: 2e6ebd527d3453d48b7ad14e77986ab3
-  - enabled: 1
-    path: Assets/Scenes/IntroScene.unity
-    guid: 704d1b796414d4d458cbabc6a1111fb3
-  - enabled: 1
-    path: Assets/Scenes/Mundo3/Level3_7.unity
-    guid: 6b0f5e19f3da5b54ea0171cc7b7f68b3
-  - enabled: 1
     path: Assets/Scenes/Mundo2/Level2_6.unity
     guid: 6d935ace6688ff34db2180ee6f5e39dc
+  - enabled: 1
+    path: Assets/Scenes/Mundo3/Level3_4.unity
+    guid: a0baeeee6bcb56642a3708ebc8447940
+  - enabled: 1
+    path: Assets/Scenes/Mundo3/Level3_5.unity
+    guid: a2d7bdbaaa0f79d4c93ff356aa69220b
+  - enabled: 1
+    path: Assets/Scenes/Mundo3/Level3_6.unity
+    guid: eb337667425b4234c820aeeb6bbc9798
+  - enabled: 1
+    path: Assets/Scenes/Mundo3/Level3_7.unity
+    guid: f9c5cabb62baecb4a9913f3ef9267fc2
   - enabled: 1
     path: Assets/Scenes/Mundo2/Level2_7.unity
     guid: dedaa24b17d6f8c49b50dd7a7d7a55eb

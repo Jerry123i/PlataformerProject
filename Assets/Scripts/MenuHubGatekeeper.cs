@@ -31,6 +31,7 @@ public class MenuHubGatekeeper : MonoBehaviour {
 
     private GlobalCinemachineDirector director;
     
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;

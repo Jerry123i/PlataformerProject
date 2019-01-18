@@ -9,8 +9,9 @@ public class WalkingEnemy : EnemyScript
     public LayerMask layerMask;
 
 
-    private void Awake()
+    public override void Awake()
     {
+		base.Awake();
         feeler = transform.GetChild(0);
     }
 

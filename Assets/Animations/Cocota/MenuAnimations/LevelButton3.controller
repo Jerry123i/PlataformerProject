@@ -3,7 +3,7 @@
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: LevelButton3
   serializedVersion: 5
@@ -13,25 +13,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Highlighted
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Pressed
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Disabled
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -48,7 +48,7 @@ AnimatorController:
 --- !u!74 &74218022822931760
 AnimationClip:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Pressed
   serializedVersion: 6
@@ -99,7 +99,7 @@ AnimationClip:
 --- !u!74 &74317377818164336
 AnimationClip:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Highlighted
   serializedVersion: 6
@@ -119,41 +119,7 @@ AnimationClip:
     - time: 0.1
       value: {fileID: 21300006, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
     - time: 0.2
-      value: {fileID: 21300008, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 0.28333333
-      value: {fileID: 21300010, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 0.38333333
-      value: {fileID: 21300012, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 0.48333332
-      value: {fileID: 21300014, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 0.5833333
-      value: {fileID: 21300016, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 0.68333334
-      value: {fileID: 21300018, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 0.78333336
-      value: {fileID: 21300020, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 0.8666667
-      value: {fileID: 21300022, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 0.96666664
-      value: {fileID: 21300024, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 1.05
-      value: {fileID: 21300026, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 1.15
-      value: {fileID: 21300028, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 1.25
-      value: {fileID: 21300030, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 1.35
-      value: {fileID: 21300032, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 1.45
-      value: {fileID: 21300034, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 1.55
-      value: {fileID: 21300036, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 1.6333333
-      value: {fileID: 21300038, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 1.7333333
-      value: {fileID: 21300040, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - time: 1.8333334
-      value: {fileID: 21300042, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
+      value: {fileID: 21300004, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -175,30 +141,13 @@ AnimationClip:
     pptrCurveMapping:
     - {fileID: 21300004, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
     - {fileID: 21300006, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300008, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300010, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300012, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300014, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300016, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300018, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300020, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300022, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300024, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300026, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300028, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300030, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300032, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300034, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300036, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300038, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300040, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
-    - {fileID: 21300042, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
+    - {fileID: 21300004, guid: 8bb5fc0d40cf8da4493d360ed7a2545e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.85
+    m_StopTime: 0.21666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -222,7 +171,7 @@ AnimationClip:
 --- !u!74 &74565228168526916
 AnimationClip:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Disabled
   serializedVersion: 6
@@ -288,7 +237,7 @@ AnimationClip:
 --- !u!74 &74747112802159584
 AnimationClip:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Normal
   serializedVersion: 6
@@ -354,7 +303,7 @@ AnimationClip:
 --- !u!1101 &1101059837161954980
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
@@ -378,7 +327,7 @@ AnimatorStateTransition:
 --- !u!1101 &1101243466985736932
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
@@ -402,7 +351,7 @@ AnimatorStateTransition:
 --- !u!1101 &1101523943875024098
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
@@ -426,7 +375,7 @@ AnimatorStateTransition:
 --- !u!1101 &1101710981528093516
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
@@ -451,7 +400,7 @@ AnimatorStateTransition:
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Highlighted
   m_Speed: 1
@@ -476,7 +425,7 @@ AnimatorState:
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Pressed
   m_Speed: 1
@@ -501,7 +450,7 @@ AnimatorState:
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Disabled
   m_Speed: 1
@@ -526,7 +475,7 @@ AnimatorState:
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Normal
   m_Speed: 1
@@ -551,7 +500,7 @@ AnimatorState:
 AnimatorStateMachine:
   serializedVersion: 5
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
   m_ChildStates:
