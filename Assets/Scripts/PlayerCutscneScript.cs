@@ -6,6 +6,9 @@ public enum Modes { FALLING, WALKING, ENDING};
 
 public class PlayerCutscneScript : PlayerScript {
 
+	public ParticleSystem fireWorks;
+	public CreditsScript credits;
+
 	private Modes mode = Modes.FALLING;
 
 	public Modes Mode
@@ -51,10 +54,10 @@ public class PlayerCutscneScript : PlayerScript {
 		LockedMovement = true;
 		yield return null;
 		yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f);
-
-		yield return new WaitForSeconds(4.5f);
-
+		
 		LockedMovement = false;
+		fireWorks.Play();
+		credits.StartCoroutine(credits.RunCredits());
 		Mode = Modes.WALKING;
 	}
 }

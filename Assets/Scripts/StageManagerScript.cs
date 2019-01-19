@@ -23,6 +23,7 @@ public class StageManagerScript : MonoBehaviour {
 
     private Coroutine loader;
 
+	float debugTime = 0;
 	
 		
     private void Awake()
@@ -130,11 +131,15 @@ public class StageManagerScript : MonoBehaviour {
 
             returnCircle.GetComponent<Image>().fillAmount += Time.deltaTime * 0.7f;
 
+			debugTime += Time.deltaTime;
+
             if(returnCircle.GetComponent<Image>().fillAmount >= 1)
             {
                 returnCircle.GetComponent<Image>().fillAmount = 0;
                 symbol.SetActive(false);
                 returnCircle.SetActive(false);
+
+				Debug.Log(debugTime);
 
                 if (SceneManager.GetActiveScene().name == "MainHub" || SceneManager.GetActiveScene().name == "IntroScene")
                 {
