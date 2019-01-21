@@ -29,7 +29,7 @@ public class PlayerScript : MonoBehaviour {
 
     public float deacelerator;
 
-	public AudioClip deathSound;
+	public List<AudioClip> deathSounds;
 	public AudioSource audioSource;
 
     protected Animator animator;
@@ -84,13 +84,18 @@ public class PlayerScript : MonoBehaviour {
 
     public void Die()
     {
-		audioSource.clip = deathSound;
-		audioSource.Play();
+		audioSource.clip = GetRandomDeathClip();
+		audioSource.PlayDelayed(0.1f);
         lockedMovement = true;        
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         GetComponent<Collider2D>().enabled = false;
         StartCoroutine(DeathAnimation());
     }
+
+	AudioClip GetRandomDeathClip()
+	{
+		return deathSounds[Random.Range(0, deathSounds.Count)];
+	}
     
     IEnumerator DeathAnimation()
     {

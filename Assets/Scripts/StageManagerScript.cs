@@ -23,14 +23,13 @@ public class StageManagerScript : MonoBehaviour {
 
     private Coroutine loader;
 
-	float debugTime = 0;
-	
+	[Header("Return circle audio")]
+	public AudioClip startCircle;
+	public AudioClip finishCircle;
+	private Coroutine circleCoroutine;
 		
     private void Awake()
     {
-
-        Debug.Log("Stage Manager(Awake)");
-
         if (instance == null)
         {
             instance = this;
@@ -64,7 +63,6 @@ public class StageManagerScript : MonoBehaviour {
 
 	public IEnumerator StageDelay(string stageName)
 	{
-		Debug.Log("StageDelay IN");
 		yield return new WaitForSeconds(0.2f);
 		if (save.saveInfo.GetLevel(SceneManager.GetActiveScene().name) != null)
 		{
@@ -126,33 +124,32 @@ public class StageManagerScript : MonoBehaviour {
             symbol.SetActive(true);
         }
 
-        if (Input.GetButton("Return"))
+		if (Input.GetButtonDown("Return"))
+		{
+			symbol.GetComponentInChildren<AudioSource>().clip = startCircle;
+			symbol.GetComponentInChildren<AudioSource>().Play();
+		}
+
+		if (Input.GetButton("Return"))
         {
 
             returnCircle.GetComponent<Image>().fillAmount += Time.deltaTime * 0.7f;
 
-			debugTime += Time.deltaTime;
+
 
             if(returnCircle.GetComponent<Image>().fillAmount >= 1)
             {
-                returnCircle.GetComponent<Image>().fillAmount = 0;
-                symbol.SetActive(false);
-                returnCircle.SetActive(false);
 
-				Debug.Log(debugTime);
-
-                if (SceneManager.GetActiveScene().name == "MainHub" || SceneManager.GetActiveScene().name == "IntroScene")
-                {
-                    CloseGame();
-                }
-                else
-                {
-                    LoadStage("MainHub");
-                }
+                //returnCircle.GetComponent<Image>().fillAmount = 0;
+				if(circleCoroutine == null)
+				{
+					circleCoroutine = StartCoroutine(FinishedCircle());
+				}
 
             }
 
         }
+				
 
         if (Input.GetButtonUp("Return"))
         {
@@ -163,7 +160,32 @@ public class StageManagerScript : MonoBehaviour {
 
     }
 
-    public void CloseGame()
+	IEnumerator FinishedCircle()
+	{
+		symbol.GetComponentInChildren<AudioSource>().clip = finishCircle;
+		symbol.GetComponentInChildren<AudioSource>().Play();
+
+
+		yield return new WaitForSeconds(finishCircle.length-0.5f);
+
+		symbol.SetActive(false);
+		returnCircle.SetActive(false);
+
+
+		if (SceneManager.GetActiveScene().name == "MainHub" || SceneManager.GetActiveScene().name == "IntroScene")
+		{
+			CloseGame();
+		}
+		else
+		{
+			LoadStage("MainHub");
+		}
+
+		circleCoroutine = null;
+
+	}
+
+	public void CloseGame()
     {
         Application.Quit();
     }

@@ -20,9 +20,9 @@ public class PlayerJump : MonoBehaviour {
 
     private float terminalVelocity = 18.0f;
     
-    private Animator animator;
+    protected Animator animator;
 
-    private PlayerScript player;
+    protected PlayerScript player;
 
 	public AudioClip jumpSound;
 	public AudioClip landingSound;
@@ -61,7 +61,7 @@ public class PlayerJump : MonoBehaviour {
 		source.clip = jumpSound;
     }
 
-    private void Update()
+    public virtual void Update()
     {
 
         if (!player.LockedMovement)
@@ -81,7 +81,7 @@ public class PlayerJump : MonoBehaviour {
              
     }
 
-    bool IsOnFloor()        
+    protected bool IsOnFloor()        
     {
         RaycastHit2D[] boxResult;
         bool boolResult = false;
@@ -127,7 +127,7 @@ public class PlayerJump : MonoBehaviour {
                 
     }
 
-    private void TerminalVelocity()
+    protected void TerminalVelocity()
     {
         if(rb.velocity.y < -terminalVelocity)
         {
@@ -135,7 +135,7 @@ public class PlayerJump : MonoBehaviour {
         }
     }
 
-    private void GravitySetter()
+    protected void GravitySetter()
     {
 
         if (IsOnFloor())
