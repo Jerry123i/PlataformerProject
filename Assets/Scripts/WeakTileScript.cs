@@ -10,6 +10,8 @@ public class WeakTileScript : MonoBehaviour {
     public float maxTime = 0.7f;
     new public bool enabled = true;
 
+	public AudioSource audioSource;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player" && !isShaking && enabled)
@@ -32,6 +34,7 @@ public class WeakTileScript : MonoBehaviour {
    public virtual IEnumerator StartShake(float shakeDuration)
     {
         Shake(shakeDuration);
+		audioSource.Play();
         yield return new WaitForSeconds(shakeDuration);
         Fall();
         yield return new WaitForSeconds(0.95f);

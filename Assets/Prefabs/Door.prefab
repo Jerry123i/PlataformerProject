@@ -196,9 +196,8 @@ MonoBehaviour:
   nextStageName: Level1_2
   worldDoor: 0
   open: 0
-  lockEnemy: 0
-  lockCollect: 0
-  doorSound: {fileID: 8300000, guid: 2e8a2bbd31204ff4f9f0a9c0602be2c7, type: 3}
+  doorSoundOpen: {fileID: 8300000, guid: ad4158d3094e6a94c9c189f10951b039, type: 3}
+  doorSoundClose: {fileID: 8300000, guid: b04d6eeb66cdfdc49bce14c81a72952b, type: 3}
 --- !u!212 &212104871138192784
 SpriteRenderer:
   m_ObjectHideFlags: 1

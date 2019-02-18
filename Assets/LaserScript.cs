@@ -20,10 +20,16 @@ public class LaserScript : MonoBehaviour {
 
     private float colliderTurnOnDelay = 0.34f;
 
+	private AudioSource audioSource;
+	public AudioClip turnOnSoud;
+	public AudioClip loopSound;
+	public AudioClip turnOffSound;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         trigger = GetComponent<Collider2D>();
+		audioSource = GetComponent<AudioSource>();
 
         GameObject ray = null;
 
@@ -67,6 +73,10 @@ public class LaserScript : MonoBehaviour {
 
         yield return new WaitForSeconds(colliderTurnOnDelay);
 
+		audioSource.clip = loopSound;
+		audioSource.loop = true;
+		audioSource.Play();
+
         ActivateColliders();
 
         if (!infinite)
@@ -80,6 +90,10 @@ public class LaserScript : MonoBehaviour {
     void StartShooting()
     {
         animator.SetTrigger("Fire");
+
+		audioSource.loop = false;
+		audioSource.clip = turnOnSoud;
+		audioSource.Play();
 
         foreach (GameObject ray in lasers)
         {
@@ -104,7 +118,11 @@ public class LaserScript : MonoBehaviour {
         animator.SetTrigger("Stop");
         trigger.enabled = false;
 
-        foreach(GameObject ray in lasers)
+		audioSource.loop = false;
+		audioSource.clip = turnOffSound;
+		audioSource.Play();
+		
+		foreach (GameObject ray in lasers)
         {
             ray.GetComponent<Animator>().SetTrigger("Stop");
             ray.GetComponent<Collider2D>().enabled = false;

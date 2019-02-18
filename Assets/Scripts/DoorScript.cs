@@ -9,18 +9,17 @@ public class DoorScript : MonoBehaviour {
 
     [HideInInspector]
     public bool open;
-
-    public bool lockEnemy, lockCollect;
     
     private Animator animator;
 	private AudioSource audioSource;
-	public AudioClip doorSound;
+	public AudioClip doorSoundOpen;
+	public AudioClip doorSoundClose;
     
     protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
 		audioSource = GetComponent<AudioSource>();
-		audioSource.clip = doorSound;
+		audioSource.clip = doorSoundOpen;
     }
 
     private void Update()
@@ -38,37 +37,30 @@ public class DoorScript : MonoBehaviour {
 
     private bool VerifyUnlock()
     {
-        bool lE = false, lC = false;
+		//bool lE = false, lC = false;
 
-        if (lockEnemy)
-        {
-            lE = CheckLockEnemy();
-        }
-        else
-        {
-            lE = true;
-        }
+		//if (lockEnemy)
+		//{
+		//    lE = CheckLockEnemy();
+		//}
+		//else
+		//{
+		//    lE = true;
+		//}
 
-        if (lockCollect)
-        {
-            lC = CheckLockCollect();
-        }
-        else
-        {
-            lC = true;
-        }
+		//if (lockCollect)
+		//{
+		//    lC = CheckLockCollect();
+		//}
+		//else
+		//{
+		//    lC = true;
+		//}
 
-        return (lE && lC);
-    }
+		//return (lE && lC);
 
-    private bool CheckLockEnemy()
-    {
-        return GameObject.FindGameObjectsWithTag("Enemy").Length == 0;
-    }
+		return true;
 
-    private bool CheckLockCollect()
-    {
-        return GameObject.FindGameObjectsWithTag("Collectible").Length == 0;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -76,6 +68,7 @@ public class DoorScript : MonoBehaviour {
         if (open && (collision.GetComponent<PlayerScript>()))
         {
             animator.SetTrigger("DoorSwitchOpen");
+			audioSource.clip = doorSoundOpen;
 			audioSource.Play();
         }
     }
@@ -85,6 +78,7 @@ public class DoorScript : MonoBehaviour {
         if (open && (collision.GetComponent<PlayerScript>()))
         {            
             animator.SetTrigger("DoorSwitchClose");
+			audioSource.clip = doorSoundClose;
 			audioSource.Play();
 		}
     }
