@@ -1732,6 +1732,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: cb78d42c4928e5046a69eda8ec537411, type: 2}
+    - target: {fileID: 82656815046628666, guid: 75a99248b721b1b44a855e1ff85cd878,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75a99248b721b1b44a855e1ff85cd878, type: 2}
   m_IsPrefabAsset: 0
@@ -21768,10 +21773,10 @@ MonoBehaviour:
   w2Loop: {fileID: 8300000, guid: 64e2f0caa59047347aaa1dc4b61f21c9, type: 3}
   w2StartB: {fileID: 8300000, guid: e51b1f5a9e2197643a9edf75a88f5afe, type: 3}
   w2LoopB: {fileID: 8300000, guid: e51b1f5a9e2197643a9edf75a88f5afe, type: 3}
-  w3Start: {fileID: 8300000, guid: 560810964ce74c141987dcd72d5ef317, type: 3}
-  w3Loop: {fileID: 8300000, guid: 6ecb95109bdcefd41892fc381932c8c8, type: 3}
-  w3StartB: {fileID: 8300000, guid: 38c24b5259fc5c1418c3f6553535551e, type: 3}
-  w3LoopB: {fileID: 8300000, guid: c9b9c371b7bf9a7458dc073955abce88, type: 3}
+  w3Start: {fileID: 8300000, guid: f2a887ddd9ce22c4dab1efbd119d3521, type: 3}
+  w3Loop: {fileID: 8300000, guid: 5e1b6d8b6e9462e459091e777a2fcec3, type: 3}
+  w3StartB: {fileID: 8300000, guid: 208c08f76a5c07a4fab445a06ba62327, type: 3}
+  w3LoopB: {fileID: 8300000, guid: 5e1b6d8b6e9462e459091e777a2fcec3, type: 3}
 --- !u!1001 &817966907
 Prefab:
   m_ObjectHideFlags: 0
